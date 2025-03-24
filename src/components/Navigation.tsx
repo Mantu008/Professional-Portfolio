@@ -17,8 +17,6 @@ export function Navigation() {
                 "experience",
                 "techtoolkit",
                 "projects",
-                "awards",
-                "gallery",
                 "contact",
             ];
             for (const section of sections) {
@@ -58,8 +56,6 @@ export function Navigation() {
         { id: "experience", label: "Experience" },
         // { id: 'techtoolkit', label: 'Tech Arsenal' },
         { id: "projects", label: "Projects" },
-        { id: "awards", label: "Awards" },
-        { id: "gallery", label: "Gallery" },
         { id: "contact", label: "Contact" },
     ];
 
