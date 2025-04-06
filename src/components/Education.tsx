@@ -53,7 +53,6 @@ export function Education() {
         },
     ];
 
-    // Animation variants for the cards
     const cardVariants = {
         hidden: { opacity: 0, y: 50 },
         visible: (custom: any) => ({
@@ -68,7 +67,6 @@ export function Education() {
         }),
     };
 
-    // Animation variants for the year display
     const yearVariants = {
         hidden: (custom: any) => ({
             x: custom === "left" ? 50 : -50,
@@ -83,17 +81,18 @@ export function Education() {
 
     return (
         <div className="max-w-6xl mx-auto px-4">
-            <h2 className="text-4xl font-bold text-center mb-16 text-white">
-                <BookOpen className="inline-block mr-3 h-8 w-8 text-purple-500" />
+            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-white">
+                <BookOpen className="inline-block mr-2 h-7 w-7 md:h-8 md:w-8 text-purple-500" />
                 Education Journey
             </h2>
 
             <div className="relative" ref={ref}>
                 {/* Timeline vertical line */}
-                <div className="absolute left-1/2 w-1 h-full bg-gradient-to-b from-purple-500 to-indigo-500 transform -translate-x-1/2"></div>
+                <div className="absolute left-1/2 hidden md:block w-1 h-full bg-gradient-to-b from-purple-500 to-indigo-500 transform -translate-x-1/2"></div>
 
                 {educationData.map((edu, index) => {
                     const isEven = index % 2 === 0;
+
                     return (
                         <motion.div
                             key={index}
@@ -101,17 +100,17 @@ export function Education() {
                             initial="hidden"
                             animate={isInView ? "visible" : "hidden"}
                             variants={cardVariants}
-                            className={`mb-12 w-full ${
-                                isEven ? "pr-8" : "pl-8"
-                            }`}
+                            className="mb-12 w-full"
                         >
                             <div
-                                className={`relative flex ${
-                                    isEven ? "flex-row" : "flex-row-reverse"
+                                className={`relative flex flex-col md:flex-row ${
+                                    isEven
+                                        ? "md:flex-row"
+                                        : "md:flex-row-reverse"
                                 } items-center`}
                             >
                                 {/* Timeline node */}
-                                <div className="hidden md:block absolute top-1/2 left-1/2 w-5 h-5 bg-purple-500 rounded-full transform -translate-x-1/2 -translate-y-1/2 z-10">
+                                <div className="absolute md:static top-0 left-1/2 transform -translate-x-1/2 md:translate-x-0 w-5 h-5 bg-purple-500 rounded-full z-10">
                                     <motion.div
                                         className="absolute inset-0 rounded-full bg-purple-500"
                                         animate={{
@@ -127,16 +126,14 @@ export function Education() {
 
                                 {/* Content card */}
                                 <div
-                                    className={`w-full md:w-1/2 ${
-                                        isEven ? "md:pr-4" : "md:pl-4"
-                                    } text-center md:text-left mx-auto`}
+                                    className={`w-full md:w-1/2 px-4 text-center md:text-left`}
                                 >
                                     <motion.div
                                         whileHover={{ scale: 1.02 }}
                                         className="bg-gray-800/50 backdrop-blur-md rounded-xl p-6 border border-gray-700/30 hover:border-purple-500 transition-all duration-300 group"
                                     >
-                                        <div className="flex items-start gap-4">
-                                            <div className="w-16 h-16 rounded-full overflow-hidden flex items-center justify-center bg-gray-200 border-2 border-purple-500 p-1">
+                                        <div className="flex flex-col sm:flex-row items-start gap-4">
+                                            <div className="w-16 h-16 rounded-full overflow-hidden flex items-center justify-center bg-gray-200 border-2 border-purple-500 p-1 mx-auto sm:mx-0">
                                                 <img
                                                     src={edu.logo}
                                                     alt={edu.institution}
@@ -150,14 +147,14 @@ export function Education() {
                                                 <p className="text-purple-400 font-medium mb-2">
                                                     {edu.institution}
                                                 </p>
-                                                <div className="flex items-center gap-2 text-gray-400 text-sm mb-3">
+                                                <div className="flex items-center gap-2 text-gray-400 text-sm mb-3 justify-center sm:justify-start">
                                                     <Calendar className="h-4 w-4" />
                                                     <span>{edu.year}</span>
                                                 </div>
                                                 <p className="text-gray-300 text-sm mb-3">
                                                     {edu.description}
                                                 </p>
-                                                <div className="flex flex-wrap gap-2">
+                                                <div className="flex flex-wrap gap-2 justify-center sm:justify-start">
                                                     {edu.courses.map(
                                                         (course, i) => (
                                                             <span
@@ -174,7 +171,7 @@ export function Education() {
                                     </motion.div>
                                 </div>
 
-                                {/* Year display (for larger screens) */}
+                                {/* Year display */}
                                 <div
                                     className={`hidden md:block w-1/2 ${
                                         isEven
