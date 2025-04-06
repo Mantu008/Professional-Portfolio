@@ -22,6 +22,61 @@ export function DevProjects() {
         return () => observer.disconnect();
     }, []);
 
+    // const projects = [
+    //     {
+    //         id: 1,
+    //         title: "Matrix - Freelance Work",
+    //         description:
+    //             "Developed an advanced product packing management system, optimizing order fulfillment by automating product-to-box assignments and generating labeled packing cards in PDF format, reducing processing time by 15%.",
+    //         img: "/matrix.png",
+    //         iconLists: ["/react.svg", "/node.svg", "/mysql.svg", "/hono.svg"],
+    //         link: "https://vergin-matrix-frontend.vercel.app/",
+    //         github: "",
+    //         stack: ["HTML", "CSS", "JavaScript", "Bootstrap"],
+    //         status: "active",
+    //         deployed: true,
+    //     },
+    //     {
+    //         id: 2,
+    //         title: "KiteFoot - Shoe E-Commerce Website",
+    //         description:
+    //             "Developed a Shoe E-Commerce platform with category-wise shoe listings, enabling seamless browsing and selection.",
+    //         img: "/kitefoot.png",
+    //         iconLists: ["/react.svg", "/tail.svg", "/react-router.svg"],
+    //         link: "https://www.kitefoot.com/",
+    //         github: "",
+    //         stack: ["HTML", "CSS", "JavaScript", "Bootstrap"],
+    //         status: "active",
+    //         deployed: true,
+    //     },
+    //     {
+    //         id: 3,
+    //         title: "NextAuth v5 - Secure Authentication",
+    //         description:
+    //             "Implemented cutting-edge authentication using NextAuth v5 in Next.js, supporting OAuth, JWT, and session management for secure user authentication.",
+    //         img: "/nextauth.png",
+    //         iconLists: ["/next.svg", "/oauth.svg", "/jwt.svg"],
+    //         link: "https://next-auth-v5-six-lake.vercel.app/login",
+    //         github: "https://github.com/Mantu008/NEXT-AUTH-V5",
+    //         stack: ["HTML", "CSS", "JavaScript", "Bootstrap"],
+    //         status: "active",
+    //         deployed: true,
+    //     },
+    //     {
+    //         id: 4,
+    //         title: "Hotel Booking - Hackathon Work",
+    //         description:
+    //             "Built a Hotel Booking frontend with detailed hotel specifications, amenities, and filtering options for easy search and selection.",
+    //         img: "/hotel-booking.png",
+    //         iconLists: ["/react.svg", "/tail.svg", "/axios.svg"],
+    //         link: "https://web-horizon-hackthone.vercel.app/",
+    //         github: "https://github.com/Mantu008/Web-Horizon-Hackthone",
+    //         stack: ["HTML", "CSS", "JavaScript", "Bootstrap"],
+    //         status: "active",
+    //         deployed: true,
+    //     },
+    // ];
+
     const projects = [
         {
             id: 1,
@@ -32,7 +87,7 @@ export function DevProjects() {
             iconLists: ["/react.svg", "/node.svg", "/mysql.svg", "/hono.svg"],
             link: "https://vergin-matrix-frontend.vercel.app/",
             github: "",
-            stack: ["HTML", "CSS", "JavaScript", "Bootstrap"],
+            stack: ["React", "Node.js", "MySQL", "Hono"],
             status: "active",
             deployed: true,
         },
@@ -45,7 +100,7 @@ export function DevProjects() {
             iconLists: ["/react.svg", "/tail.svg", "/react-router.svg"],
             link: "https://www.kitefoot.com/",
             github: "",
-            stack: ["HTML", "CSS", "JavaScript", "Bootstrap"],
+            stack: ["React", "React-Router", "Tailwind CSS"],
             status: "active",
             deployed: true,
         },
@@ -58,7 +113,7 @@ export function DevProjects() {
             iconLists: ["/next.svg", "/oauth.svg", "/jwt.svg"],
             link: "https://next-auth-v5-six-lake.vercel.app/login",
             github: "https://github.com/Mantu008/NEXT-AUTH-V5",
-            stack: ["HTML", "CSS", "JavaScript", "Bootstrap"],
+            stack: ["Next.js", "NextAuth.js", "OAuth", "JWT"],
             status: "active",
             deployed: true,
         },
@@ -71,6 +126,45 @@ export function DevProjects() {
             iconLists: ["/react.svg", "/tail.svg", "/axios.svg"],
             link: "https://web-horizon-hackthone.vercel.app/",
             github: "https://github.com/Mantu008/Web-Horizon-Hackthone",
+            stack: ["React", "Tailwind CSS", "Axios", "React Router"],
+            status: "active",
+            deployed: true,
+        },
+        {
+            id: 5,
+            title: "E-Commerce Backend - MERN Stack",
+            description:
+                "Implemented CRUD operations and JWT-based authentication using Express.js and MongoDB to manage users and products efficiently.",
+            img: "/backend.png",
+            iconLists: ["/node.svg", "/express.svg", "/mongodb.svg"],
+            link: "https://e-commerce-mern-frontant.vercel.app/",
+            github: "https://github.com/Mantu008/E-commerce-Backend",
+            stack: ["Node.js", "Express.js", "MongoDB", "JWT"],
+            status: "active",
+            deployed: true,
+        },
+        {
+            id: 6,
+            title: "E-Commerce - React with Auth0",
+            description:
+                "Feature-rich E-Commerce platform built with React and Redux Toolkit, includes secure authentication via Auth0 and client-side routing using React Router.",
+            img: "/ecommerce-auth0.png",
+            iconLists: ["/react.svg", "/redux.svg", "/auth0.svg"],
+            link: "http://e-commerce-react-ecru-eta.vercel.app",
+            github: "https://github.com/Mantu008/E-Commerce-REACT",
+            stack: ["React.js", "Redux Toolkit", "Auth0", "React Router"],
+            status: "active",
+            deployed: true,
+        },
+        {
+            id: 7,
+            title: "Simple E-Commerce - HTML/CSS/JS",
+            description:
+                "Crafted a fully responsive Electronic E-Commerce website using HTML, CSS, JavaScript, and Bootstrap with a focus on front-end design and usability.",
+            img: "/ecommerce-simple.png",
+            iconLists: ["/html.svg", "/css.svg", "/js.svg", "/bootstrap.svg"],
+            link: "https://mantu008.github.io/EComerce/",
+            github: "https://github.com/Mantu008/EComerce",
             stack: ["HTML", "CSS", "JavaScript", "Bootstrap"],
             status: "active",
             deployed: true,
