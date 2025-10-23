@@ -80,6 +80,26 @@ export function DevProjects() {
     const projects = [
         {
             id: 1,
+            title: "Online Leave Management System for Organizations - Major Project",
+            description:
+                "A web-based leave application and approval system for organizations. This system allows employees to apply for leave, and managers to review, approve, or reject requests. It features real-time notifications, automatic holiday blocking, and a user-friendly dashboard for each role.",
+            img: "/leave-managemant.png",
+            iconLists: [
+                "/react.svg",
+                "/node.svg",
+                "/mongodb.png",
+                "/express.png",
+                "react-router copy.svg",
+                "typescript.png",
+            ],
+            link: "https://online-leave-management-system-for-phi.vercel.app/",
+            github: "https://github.com/Mantu008/Online-Leave-Management-System-for-Organizations",
+            stack: ["React", "Node.js", "MongoDB", "Express", "Typescript"],
+            status: "active",
+            deployed: true,
+        },
+        {
+            id: 2,
             title: "Matrix - Freelance Work",
             description:
                 "Developed an advanced product packing management system, optimizing order fulfillment by automating product-to-box assignments and generating labeled packing cards in PDF format, reducing processing time by 15%.",
@@ -92,7 +112,7 @@ export function DevProjects() {
             deployed: true,
         },
         {
-            id: 2,
+            id: 3,
             title: "KiteFoot - Shoe E-Commerce Website",
             description:
                 "Developed a Shoe E-Commerce platform with category-wise shoe listings, enabling seamless browsing and selection.",
@@ -105,7 +125,7 @@ export function DevProjects() {
             deployed: true,
         },
         {
-            id: 3,
+            id: 4,
             title: "NextAuth v5 - Secure Authentication",
             description:
                 "Implemented cutting-edge authentication using NextAuth v5 in Next.js, supporting OAuth, JWT, and session management for secure user authentication.",
@@ -118,7 +138,7 @@ export function DevProjects() {
             deployed: true,
         },
         {
-            id: 4,
+            id: 5,
             title: "Hotel Booking - Hackathon Work",
             description:
                 "Built a Hotel Booking frontend with detailed hotel specifications, amenities, and filtering options for easy search and selection.",
@@ -131,7 +151,7 @@ export function DevProjects() {
             deployed: true,
         },
         {
-            id: 5,
+            id: 6,
             title: "E-Commerce Backend - MERN Stack",
             description:
                 "Implemented CRUD operations and JWT-based authentication using Express.js and MongoDB to manage users and products efficiently.",
@@ -144,7 +164,7 @@ export function DevProjects() {
             deployed: true,
         },
         {
-            id: 6,
+            id: 7,
             title: "E-Commerce - React with Auth0",
             description:
                 "Feature-rich E-Commerce platform built with React and Redux Toolkit, includes secure authentication via Auth0 and client-side routing using React Router.",
@@ -157,7 +177,7 @@ export function DevProjects() {
             deployed: true,
         },
         {
-            id: 7,
+            id: 8,
             title: "Simple E-Commerce - HTML/CSS/JS",
             description:
                 "Crafted a fully responsive Electronic E-Commerce website using HTML, CSS, JavaScript, and Bootstrap with a focus on front-end design and usability.",
