@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "./ui/button";
 import { Download, Menu, X } from "lucide-react";
-import resume from "../assets/Resume.pdf";
+import resume from "../assets/Mantu_Kumar_Morya_Resume.pdf";
 
 export function Navigation() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
