@@ -82,7 +82,7 @@ export function DevProjects() {
             id: 1,
             title: "Online Leave Management System for Organizations - Major Project",
             description:
-                "A web-based leave application and approval system for organizations. This system allows employees to apply for leave, and managers to review, approve, or reject requests. It features real-time notifications, automatic holiday blocking, and a user-friendly dashboard for each role.",
+                "A web-based leave management system where employees apply for leave, and managers approve or reject requests. It offers real-time notifications, automatic holiday blocking, and intuitive dashboards for employees and managers.",
             img: "/leave-managemant.png",
             iconLists: [
                 "/react.svg",
@@ -109,7 +109,7 @@ export function DevProjects() {
             id: 2,
             title: "Matrix - Freelance Work",
             description:
-                "Developed an advanced product packing management system, optimizing order fulfillment by automating product-to-box assignments and generating labeled packing cards in PDF format, reducing processing time by 15%.",
+                "Developed an advanced product packing management system that automates product-to-box assignments and generates labeled PDF packing cards, streamlining order fulfillment, enhancing accuracy, and reducing overall processing time by 15%.",
             img: "/matrix.png",
             iconLists: ["/react.svg", "/node.svg", "/mysql.svg", "/hono.svg"],
             link: "https://vergin-matrix-frontend.vercel.app/",
@@ -122,7 +122,7 @@ export function DevProjects() {
             id: 3,
             title: "KiteFoot - Shoe E-Commerce Website",
             description:
-                "Developed a Shoe E-Commerce platform with category-wise shoe listings, enabling seamless browsing and selection.",
+                "Developed a dynamic Shoe E-Commerce platform featuring category-wise shoe listings, seamless browsing, advanced filtering options, and an intuitive user interface to enhance shopping experience and simplify product discovery for customers.",
             img: "/kitefoot.png",
             iconLists: ["/react.svg", "/tail.svg", "/react-router.svg"],
             link: "https://www.kitefoot.com/",
@@ -135,7 +135,7 @@ export function DevProjects() {
             id: 4,
             title: "NextAuth v5 - Secure Authentication",
             description:
-                "Implemented cutting-edge authentication using NextAuth v5 in Next.js, supporting OAuth, JWT, and session management for secure user authentication.",
+                "Implemented advanced authentication in Next.js using NextAuth v5, integrating OAuth, JWT, and session management to ensure robust security, seamless login experiences, and efficient user identity management across the application.",
             img: "/nextauth.png",
             iconLists: ["/next.svg", "/oauth.svg", "/jwt.svg"],
             link: "https://next-auth-v5-six-lake.vercel.app/login",
@@ -148,7 +148,7 @@ export function DevProjects() {
             id: 5,
             title: "VaultX-",
             description:
-                "VaultX 🔐 is a web-based platform that allows administrators to upload and categorize images and videos into different event categories such as Wedding, Pre-Wedding, Birthday, Mehandi, Sagai, and more. Users can seamlessly explore and view all uploaded media, sorted by category, making it easy to find event-specific photos and videos.",
+                "VaultX 🔐 is a web-based platform for uploading, categorizing, and exploring event-based images and videos like Weddings, Birthdays, and Mehandi, offering seamless browsing and easy media organization.",
             img: "/vaultx.png",
             iconLists: [
                 "/react.svg",
@@ -176,7 +176,7 @@ export function DevProjects() {
             id: 6,
             title: "Hotel Booking - Hackathon Work",
             description:
-                "Built a Hotel Booking frontend with detailed hotel specifications, amenities, and filtering options for easy search and selection.",
+                "Built a responsive Hotel Booking frontend featuring detailed hotel specifications, amenities, image galleries, and advanced filtering options, enabling users to easily search, compare, and select accommodations effortlessly.",
             img: "/hotel-booking.png",
             iconLists: ["/react.svg", "/tail.svg", "/axios.svg"],
             link: "https://web-horizon-hackthone.vercel.app/",
@@ -195,7 +195,7 @@ export function DevProjects() {
             id: 7,
             title: "E-Commerce Backend - MERN Stack",
             description:
-                "Implemented CRUD operations and JWT-based authentication using Express.js and MongoDB to manage users and products efficiently.",
+                "Implemented full CRUD functionality with secure JWT-based authentication using Express.js and MongoDB, enabling efficient user and product management with robust access control and data handling.",
             img: "/backend.png",
             iconLists: ["/node.svg", "/express.svg", "/mongodb.svg"],
             link: "https://e-commerce-mern-frontant.vercel.app/",
@@ -208,7 +208,7 @@ export function DevProjects() {
             id: 8,
             title: "E-Commerce - React with Auth0",
             description:
-                "Feature-rich E-Commerce platform built with React and Redux Toolkit, includes secure authentication via Auth0 and client-side routing using React Router.",
+                "Developed a feature-rich E-Commerce platform using React and Redux Toolkit, integrating Auth0 for secure authentication and React Router for efficient client-side navigation and seamless user experience.",
             img: "/ecommerce-auth0.png",
             iconLists: ["/react.svg", "/redux.svg", "/auth0.svg"],
             link: "http://e-commerce-react-ecru-eta.vercel.app",
@@ -227,7 +227,7 @@ export function DevProjects() {
             id: 9,
             title: "Quotation System",
             description:
-                "A web-based application to create, manage, and share quotations seamlessly. Built with a clean UI and efficient backend for generating and storing customer quotations. Ideal for businesses to streamline their quotation workflow.",
+                "Developed a web-based quotation management system with a clean UI and robust backend, enabling users to create, manage, and share customer quotations efficiently, streamlining business workflow and operations.",
             img: "/quot.png",
             iconLists: ["/html.svg", "/css.svg", "/js.svg", "/bootstrap.svg"],
             link: "https://quotation-system-ten.vercel.app/",
@@ -248,7 +248,7 @@ export function DevProjects() {
             id: 10,
             title: "Walk Safe - Hackthon Work",
             description:
-                "Walk Safe - Safety Companion App is a MERN stack-based application designed to enhance personal safety and community awareness. It empowers users to create and share posts about unsafe locations, report incidents in real-time, and stay updated with the latest safety news. With authentication and authorization using JWT, users can securely log in, like/unlike posts, and add comments. The app features live location sharing with trusted contacts and a 24/7 chatbot for immediate assistance. By combining safety alerts, community-driven posts, and real-time communication, Walk Safe serves as a reliable companion to promote awareness, prevent risks, and ensure safer environments.",
+                "Walk Safe is a MERN-based safety app enabling users to report incidents, share unsafe locations, access real-time alerts, chat 24/7, and securely interact through JWT authentication for enhanced personal and community safety.",
             img: "/walk-safe.png",
             iconLists: ["/html.svg", "/css.svg", "/js.svg", "/bootstrap.svg"],
             link: "https://walk-safe.netlify.app/",
@@ -269,7 +269,7 @@ export function DevProjects() {
             id: 11,
             title: "Simple E-Commerce - HTML/CSS/JS",
             description:
-                "Crafted a fully responsive Electronic E-Commerce website using HTML, CSS, JavaScript, and Bootstrap with a focus on front-end design and usability.",
+                "Crafted a fully responsive Electronic E-Commerce website using HTML, CSS, JavaScript, and Bootstrap, emphasizing modern front-end design, smooth navigation, and enhanced user experience across all devices and screen sizes.",
             img: "/ecommerce-simple.png",
             iconLists: ["/html.svg", "/css.svg", "/js.svg", "/bootstrap.svg"],
             link: "https://mantu008.github.io/EComerce/",
