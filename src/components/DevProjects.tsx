@@ -80,7 +80,34 @@ export function DevProjects() {
     const projects = [
         {
             id: 1,
-            title: "Online Leave Management System for Organizations - Major Project",
+            title: "Car Detail and Management System - Major Project-II",
+            description:
+                "The Car Detail and Management System is a robust, full-stack web application designed to simplify the management of car information, service history, and user data. It's built on the modern MERN stack with a responsive and sleek interface powered by Tailwind CSS.",
+            img: "/car-man.png",
+            iconLists: [
+                "/react.svg",
+                "/node.svg",
+                "/mongodb.png",
+                "/express.png",
+                "react-router copy.svg",
+                "typescript.png",
+            ],
+            link: "https://car-detail-and-management-system-fr.vercel.app/",
+            github: "https://github.com/Mantu008/Car-Detail-and-Management-System",
+            stack: [
+                "React",
+                "Node.js",
+                "MongoDB",
+                "Express",
+                "Typescript",
+                "Tailwind CSS",
+            ],
+            status: "active",
+            deployed: true,
+        },
+        {
+            id: 2,
+            title: "Online Leave Management System for Organizations - Major Project-I",
             description:
                 "A web-based leave management system where employees apply for leave, and managers approve or reject requests. It offers real-time notifications, automatic holiday blocking, and intuitive dashboards for employees and managers.",
             img: "/leave-managemant.png",
@@ -106,7 +133,7 @@ export function DevProjects() {
             deployed: true,
         },
         {
-            id: 2,
+            id: 3,
             title: "Matrix - Freelance Work",
             description:
                 "Developed an advanced product packing management system that automates product-to-box assignments and generates labeled PDF packing cards, streamlining order fulfillment, enhancing accuracy, and reducing overall processing time by 15%.",
@@ -119,20 +146,20 @@ export function DevProjects() {
             deployed: true,
         },
         {
-            id: 3,
+            id: 4,
             title: "KiteFoot - Shoe E-Commerce Website",
             description:
                 "Developed a dynamic Shoe E-Commerce platform featuring category-wise shoe listings, seamless browsing, advanced filtering options, and an intuitive user interface to enhance shopping experience and simplify product discovery for customers.",
             img: "/kitefoot.png",
             iconLists: ["/react.svg", "/tail.svg", "/react-router.svg"],
-            link: "https://www.kitefoot.com/",
+            link: "https://kitefoot.vercel.app/",
             github: "",
             stack: ["React", "React-Router", "Tailwind CSS"],
             status: "active",
             deployed: true,
         },
         {
-            id: 4,
+            id: 5,
             title: "NextAuth v5 - Secure Authentication",
             description:
                 "Implemented advanced authentication in Next.js using NextAuth v5, integrating OAuth, JWT, and session management to ensure robust security, seamless login experiences, and efficient user identity management across the application.",
@@ -145,7 +172,7 @@ export function DevProjects() {
             deployed: true,
         },
         {
-            id: 5,
+            id: 6,
             title: "VaultX-",
             description:
                 "VaultX 🔐 is a web-based platform for uploading, categorizing, and exploring event-based images and videos like Weddings, Birthdays, and Mehandi, offering seamless browsing and easy media organization.",
@@ -173,7 +200,7 @@ export function DevProjects() {
             deployed: true,
         },
         {
-            id: 6,
+            id: 7,
             title: "Hotel Booking - Hackathon Work",
             description:
                 "Built a responsive Hotel Booking frontend featuring detailed hotel specifications, amenities, image galleries, and advanced filtering options, enabling users to easily search, compare, and select accommodations effortlessly.",
@@ -192,7 +219,7 @@ export function DevProjects() {
             deployed: true,
         },
         {
-            id: 7,
+            id: 8,
             title: "E-Commerce Backend - MERN Stack",
             description:
                 "Implemented full CRUD functionality with secure JWT-based authentication using Express.js and MongoDB, enabling efficient user and product management with robust access control and data handling.",
@@ -205,7 +232,7 @@ export function DevProjects() {
             deployed: true,
         },
         {
-            id: 8,
+            id: 9,
             title: "E-Commerce - React with Auth0",
             description:
                 "Developed a feature-rich E-Commerce platform using React and Redux Toolkit, integrating Auth0 for secure authentication and React Router for efficient client-side navigation and seamless user experience.",
@@ -224,7 +251,7 @@ export function DevProjects() {
             deployed: true,
         },
         {
-            id: 9,
+            id: 10,
             title: "Quotation System",
             description:
                 "Developed a web-based quotation management system with a clean UI and robust backend, enabling users to create, manage, and share customer quotations efficiently, streamlining business workflow and operations.",
@@ -245,7 +272,7 @@ export function DevProjects() {
             deployed: true,
         },
         {
-            id: 10,
+            id: 11,
             title: "Walk Safe - Hackthon Work",
             description:
                 "Walk Safe is a MERN-based safety app enabling users to report incidents, share unsafe locations, access real-time alerts, chat 24/7, and securely interact through JWT authentication for enhanced personal and community safety.",
@@ -266,7 +293,7 @@ export function DevProjects() {
             deployed: true,
         },
         {
-            id: 11,
+            id: 12,
             title: "Simple E-Commerce - HTML/CSS/JS",
             description:
                 "Crafted a fully responsive Electronic E-Commerce website using HTML, CSS, JavaScript, and Bootstrap, emphasizing modern front-end design, smooth navigation, and enhanced user experience across all devices and screen sizes.",
