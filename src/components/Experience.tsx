@@ -14,8 +14,25 @@ interface Experience {
 }
 
 export const workExperience: Experience[] = [
-    {
+        {
         id: 1,
+        title: "Trainee Engineer",
+        company: "Simform Software LLP",
+        location: "Ahmedabad, Gujarat",
+        duration: "Jan 2026 - Present",
+        desc: "",
+        technologies: [
+            "React.js",
+            "Node.js",
+            "Express.js",
+            "SQL",
+            "Jest",
+            "Tailwind CSS",
+        ],
+        thumbnail: "/exp2.svg",
+    },
+    {
+        id: 2,
         title: "Software Development Engineer Intern",
         company: "Bonrix Software Systems",
         location: "Ahmedabad, Gujarat",
@@ -33,23 +50,7 @@ export const workExperience: Experience[] = [
         ],
         thumbnail: "/exp1.svg",
     },
-    {
-        id: 2,
-        title: "Trainee Engineer",
-        company: "Simform Software LLP",
-        location: "Ahmedabad, Gujarat",
-        duration: "Jan 2026 - Present",
-        desc: "",
-        technologies: [
-            "React.js",
-            "Node.js",
-            "Express.js",
-            "SQL",
-            "Jest",
-            "Tailwind CSS",
-        ],
-        thumbnail: "/exp1.svg",
-    }
+
 ];
 
 const cardVariants = {
