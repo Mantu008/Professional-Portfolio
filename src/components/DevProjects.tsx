@@ -1,97 +1,16 @@
-import { useEffect } from "react";
-import { ExternalLink, Code, GitBranch } from "lucide-react";
-import { GitHub } from "react-feather";
+import { ExternalLink, Github, Code2 } from "lucide-react";
 import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
 
 export function DevProjects() {
-    useEffect(() => {
-        const observer = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add("animate-in");
-                    }
-                });
-            },
-            { threshold: 0.1 }
-        );
-
-        document
-            .querySelectorAll(".fade-in")
-            .forEach((el) => observer.observe(el));
-        return () => observer.disconnect();
-    }, []);
-
-    // const projects = [
-    //     {
-    //         id: 1,
-    //         title: "Matrix - Freelance Work",
-    //         description:
-    //             "Developed an advanced product packing management system, optimizing order fulfillment by automating product-to-box assignments and generating labeled packing cards in PDF format, reducing processing time by 15%.",
-    //         img: "/matrix.png",
-    //         iconLists: ["/react.svg", "/node.svg", "/mysql.svg", "/hono.svg"],
-    //         link: "https://vergin-matrix-frontend.vercel.app/",
-    //         github: "",
-    //         stack: ["HTML", "CSS", "JavaScript", "Bootstrap"],
-    //         status: "active",
-    //         deployed: true,
-    //     },
-    //     {
-    //         id: 2,
-    //         title: "KiteFoot - Shoe E-Commerce Website",
-    //         description:
-    //             "Developed a Shoe E-Commerce platform with category-wise shoe listings, enabling seamless browsing and selection.",
-    //         img: "/kitefoot.png",
-    //         iconLists: ["/react.svg", "/tail.svg", "/react-router.svg"],
-    //         link: "https://www.kitefoot.com/",
-    //         github: "",
-    //         stack: ["HTML", "CSS", "JavaScript", "Bootstrap"],
-    //         status: "active",
-    //         deployed: true,
-    //     },
-    //     {
-    //         id: 3,
-    //         title: "NextAuth v5 - Secure Authentication",
-    //         description:
-    //             "Implemented cutting-edge authentication using NextAuth v5 in Next.js, supporting OAuth, JWT, and session management for secure user authentication.",
-    //         img: "/nextauth.png",
-    //         iconLists: ["/next.svg", "/oauth.svg", "/jwt.svg"],
-    //         link: "https://next-auth-v5-six-lake.vercel.app/login",
-    //         github: "https://github.com/Mantu008/NEXT-AUTH-V5",
-    //         stack: ["HTML", "CSS", "JavaScript", "Bootstrap"],
-    //         status: "active",
-    //         deployed: true,
-    //     },
-    //     {
-    //         id: 4,
-    //         title: "Hotel Booking - Hackathon Work",
-    //         description:
-    //             "Built a Hotel Booking frontend with detailed hotel specifications, amenities, and filtering options for easy search and selection.",
-    //         img: "/hotel-booking.png",
-    //         iconLists: ["/react.svg", "/tail.svg", "/axios.svg"],
-    //         link: "https://web-horizon-hackthone.vercel.app/",
-    //         github: "https://github.com/Mantu008/Web-Horizon-Hackthone",
-    //         stack: ["HTML", "CSS", "JavaScript", "Bootstrap"],
-    //         status: "active",
-    //         deployed: true,
-    //     },
-    // ];
-
     const projects = [
         {
             id: 1,
-            title: "Car Detail and Management System - Major Project-II",
+            title: "Car Detail and Management System",
+            category: "Major Project-II",
             description:
-                "The Car Detail and Management System is a robust, full-stack web application designed to simplify the management of car information, service history, and user data. It's built on the modern MERN stack with a responsive and sleek interface powered by Tailwind CSS.",
+                "A robust, full-stack web application designed to simplify the management of car information, service history, and user data. Built on the modern MERN stack with a responsive and sleek interface.",
             img: "/car-man.png",
-            iconLists: [
-                "/react.svg",
-                "/node.svg",
-                "/mongodb.png",
-                "/express.png",
-                "react-router copy.svg",
-                "typescript.png",
-            ],
             link: "https://car-detail-and-management-system-fr.vercel.app/",
             github: "https://github.com/Mantu008/Car-Detail-and-Management-System",
             stack: [
@@ -102,23 +21,15 @@ export function DevProjects() {
                 "Typescript",
                 "Tailwind CSS",
             ],
-            status: "active",
-            deployed: true,
+            featured: true,
         },
         {
             id: 2,
-            title: "Online Leave Management System for Organizations - Major Project-I",
+            title: "Online Leave Management System",
+            category: "Major Project-I",
             description:
-                "A web-based leave management system where employees apply for leave, and managers approve or reject requests. It offers real-time notifications, automatic holiday blocking, and intuitive dashboards for employees and managers.",
+                "A web-based leave management system where employees apply for leave, and managers approve or reject requests. Features real-time notifications and automatic holiday blocking.",
             img: "/leave-managemant.png",
-            iconLists: [
-                "/react.svg",
-                "/node.svg",
-                "/mongodb.png",
-                "/express.png",
-                "react-router copy.svg",
-                "typescript.png",
-            ],
             link: "https://online-leave-management-system-for-phi.vercel.app/",
             github: "https://github.com/Mantu008/Online-Leave-Management-System-for-Organizations",
             stack: [
@@ -129,62 +40,51 @@ export function DevProjects() {
                 "Typescript",
                 "Tailwind CSS",
             ],
-            status: "active",
-            deployed: true,
+            featured: true,
         },
         {
             id: 3,
-            title: "Matrix - Freelance Work",
+            title: "Matrix",
+            category: "Freelance Work",
             description:
-                "Developed an advanced product packing management system that automates product-to-box assignments and generates labeled PDF packing cards, streamlining order fulfillment, enhancing accuracy, and reducing overall processing time by 15%.",
+                "Advanced product packing management system that automates product-to-box assignments and generates labeled PDF packing cards, streamlining order fulfillment.",
             img: "/matrix.png",
-            iconLists: ["/react.svg", "/node.svg", "/mysql.svg", "/hono.svg"],
             link: "https://vergin-matrix-frontend.vercel.app/",
             github: "",
             stack: ["React", "Node.js", "MySQL", "Hono", "Tailwind CSS"],
-            status: "active",
-            deployed: true,
+            featured: true,
         },
         {
             id: 4,
-            title: "KiteFoot - Shoe E-Commerce Website",
+            title: "KiteFoot",
+            category: "E-Commerce",
             description:
-                "Developed a dynamic Shoe E-Commerce platform featuring category-wise shoe listings, seamless browsing, advanced filtering options, and an intuitive user interface to enhance shopping experience and simplify product discovery for customers.",
+                "Dynamic Shoe E-Commerce platform featuring category-wise shoe listings, seamless browsing, advanced filtering options, and an intuitive user interface.",
             img: "/kitefoot.png",
-            iconLists: ["/react.svg", "/tail.svg", "/react-router.svg"],
             link: "https://kitefoot.vercel.app/",
             github: "",
             stack: ["React", "React-Router", "Tailwind CSS"],
-            status: "active",
-            deployed: true,
+            featured: false,
         },
         {
             id: 5,
-            title: "NextAuth v5 - Secure Authentication",
+            title: "NextAuth v5",
+            category: "Authentication",
             description:
-                "Implemented advanced authentication in Next.js using NextAuth v5, integrating OAuth, JWT, and session management to ensure robust security, seamless login experiences, and efficient user identity management across the application.",
+                "Implemented advanced authentication in Next.js using NextAuth v5, integrating OAuth, JWT, and session management for secure user authentication.",
             img: "/nextauth.png",
-            iconLists: ["/next.svg", "/oauth.svg", "/jwt.svg"],
             link: "https://next-auth-v5-six-lake.vercel.app/login",
             github: "https://github.com/Mantu008/NEXT-AUTH-V5",
             stack: ["Next.js", "NextAuth.js", "OAuth", "JWT", "Tailwind CSS"],
-            status: "active",
-            deployed: true,
+            featured: false,
         },
         {
             id: 6,
-            title: "VaultX-",
+            title: "VaultX",
+            category: "Media Management",
             description:
-                "VaultX 🔐 is a web-based platform for uploading, categorizing, and exploring event-based images and videos like Weddings, Birthdays, and Mehandi, offering seamless browsing and easy media organization.",
+                "Web-based platform for uploading, categorizing, and exploring event-based images and videos like Weddings, Birthdays, and Mehandi.",
             img: "/vaultx.png",
-            iconLists: [
-                "/react.svg",
-                "/node.svg",
-                "/mongodb.png",
-                "/express.png",
-                "react-router copy.svg",
-                "typescript.png",
-            ],
             link: "https://vault-x-gamma.vercel.app/",
             github: "https://github.com/Mantu008/VaultX-",
             stack: [
@@ -194,228 +94,217 @@ export function DevProjects() {
                 "Express",
                 "Typescript",
                 "Cloudinary",
-                "Tailwind CSS",
             ],
-            status: "active",
-            deployed: true,
+            featured: false,
         },
         {
             id: 7,
-            title: "Hotel Booking - Hackathon Work",
+            title: "Hotel Booking",
+            category: "Hackathon Work",
             description:
-                "Built a responsive Hotel Booking frontend featuring detailed hotel specifications, amenities, image galleries, and advanced filtering options, enabling users to easily search, compare, and select accommodations effortlessly.",
+                "Responsive Hotel Booking frontend featuring detailed hotel specifications, amenities, image galleries, and advanced filtering options.",
             img: "/hotel-booking.png",
-            iconLists: ["/react.svg", "/tail.svg", "/axios.svg"],
             link: "https://web-horizon-hackthone.vercel.app/",
             github: "https://github.com/Mantu008/Web-Horizon-Hackthone",
-            stack: [
-                "React",
-                "Tailwind CSS",
-                "Axios",
-                "React Router",
-                "Tailwind CSS",
-            ],
-            status: "active",
-            deployed: true,
+            stack: ["React", "Tailwind CSS", "Axios", "React Router"],
+            featured: false,
         },
         {
             id: 8,
-            title: "E-Commerce Backend - MERN Stack",
+            title: "E-Commerce Backend",
+            category: "Backend API",
             description:
-                "Implemented full CRUD functionality with secure JWT-based authentication using Express.js and MongoDB, enabling efficient user and product management with robust access control and data handling.",
+                "Full CRUD functionality with secure JWT-based authentication using Express.js and MongoDB, enabling efficient user and product management.",
             img: "/backend.png",
-            iconLists: ["/node.svg", "/express.svg", "/mongodb.svg"],
             link: "https://e-commerce-mern-frontant.vercel.app/",
             github: "https://github.com/Mantu008/E-commerce-Backend",
-            stack: ["Node.js", "Express.js", "MongoDB", "JWT", "Tailwind CSS"],
-            status: "active",
-            deployed: true,
+            stack: ["Node.js", "Express.js", "MongoDB", "JWT"],
+            featured: false,
         },
         {
             id: 9,
-            title: "E-Commerce - React with Auth0",
+            title: "E-Commerce Auth0",
+            category: "E-Commerce",
             description:
-                "Developed a feature-rich E-Commerce platform using React and Redux Toolkit, integrating Auth0 for secure authentication and React Router for efficient client-side navigation and seamless user experience.",
+                "Feature-rich E-Commerce platform using React and Redux Toolkit, integrating Auth0 for secure authentication and React Router for navigation.",
             img: "/ecommerce-auth0.png",
-            iconLists: ["/react.svg", "/redux.svg", "/auth0.svg"],
             link: "http://e-commerce-react-ecru-eta.vercel.app",
             github: "https://github.com/Mantu008/E-Commerce-REACT",
-            stack: [
-                "React.js",
-                "Redux Toolkit",
-                "Auth0",
-                "React Router",
-                "Tailwind CSS",
-            ],
-            status: "active",
-            deployed: true,
+            stack: ["React.js", "Redux Toolkit", "Auth0", "Tailwind CSS"],
+            featured: false,
         },
         {
             id: 10,
             title: "Quotation System",
+            category: "Management Tool",
             description:
-                "Developed a web-based quotation management system with a clean UI and robust backend, enabling users to create, manage, and share customer quotations efficiently, streamlining business workflow and operations.",
+                "Web-based quotation management system with a clean UI and robust backend, enabling users to create, manage, and share customer quotations efficiently.",
             img: "/quot.png",
-            iconLists: ["/html.svg", "/css.svg", "/js.svg", "/bootstrap.svg"],
             link: "https://quotation-system-ten.vercel.app/",
             github: "",
-            stack: [
-                "React",
-                "Node.js",
-                "MySQL",
-                "Hono",
-                "Tailwind CSS",
-                "Jest",
-                "Typescript",
-            ],
-            status: "active",
-            deployed: true,
+            stack: ["React", "Node.js", "MySQL", "Hono", "Typescript"],
+            featured: false,
         },
         {
             id: 11,
-            title: "Walk Safe - Hackthon Work",
+            title: "Walk Safe",
+            category: "Hackathon Work",
             description:
-                "Walk Safe is a MERN-based safety app enabling users to report incidents, share unsafe locations, access real-time alerts, chat 24/7, and securely interact through JWT authentication for enhanced personal and community safety.",
+                "Safety app enabling users to report incidents, share unsafe locations, access real-time alerts, chat 24/7, and securely interact through JWT authentication.",
             img: "/walk-safe.png",
-            iconLists: ["/html.svg", "/css.svg", "/js.svg", "/bootstrap.svg"],
             link: "https://walk-safe.netlify.app/",
             github: "https://github.com/Mantu008/Walk-Safe",
-            stack: [
-                "React",
-                "Node.js",
-                "MySQL",
-                "Hono",
-                "Tailwind CSS",
-                "Jest",
-                "Typescript",
-            ],
-            status: "active",
-            deployed: true,
+            stack: ["React", "Node.js", "MySQL", "Hono", "Typescript"],
+            featured: false,
         },
         {
             id: 12,
-            title: "Simple E-Commerce - HTML/CSS/JS",
+            title: "Simple E-Commerce",
+            category: "Frontend",
             description:
-                "Crafted a fully responsive Electronic E-Commerce website using HTML, CSS, JavaScript, and Bootstrap, emphasizing modern front-end design, smooth navigation, and enhanced user experience across all devices and screen sizes.",
+                "Fully responsive Electronic E-Commerce website using HTML, CSS, JavaScript, and Bootstrap, emphasizing modern front-end design.",
             img: "/ecommerce-simple.png",
-            iconLists: ["/html.svg", "/css.svg", "/js.svg", "/bootstrap.svg"],
             link: "https://mantu008.github.io/EComerce/",
             github: "https://github.com/Mantu008/EComerce",
             stack: ["HTML", "CSS", "JavaScript", "Bootstrap"],
-            status: "active",
-            deployed: true,
+            featured: false,
         },
     ];
 
     return (
-        <div className="max-w-6xl mx-auto">
-            <h2 className="text-4xl font-bold text-center mb-16 text-white">
-                <Code className="inline-block mr-3 h-8 w-8 text-purple-500" />
-                Projects
-            </h2>
+        <section className="py-24 px-4 relative overflow-hidden">
+            {/* Background Elements */}
+            <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-gradient-to-br from-purple-500/15 to-pink-500/10 rounded-full blur-[120px] pointer-events-none" />
+            <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-gradient-to-tl from-blue-500/15 to-primary/10 rounded-full blur-[120px] pointer-events-none" />
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {projects.map((project, index) => (
-                    <motion.div
-                        key={project.id}
-                        initial={{ opacity: 0, y: 50 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.2, delay: index * 0.1 }}
-                        className="relative bg-gray-800 rounded-lg shadow-2xl overflow-hidden hover:shadow-purple-500/20 transition-shadow"
-                    >
-                        {/* Browser Window Header */}
-                        <div className="flex items-center px-4 py-2 bg-gray-700 border-b border-gray-600">
-                            <div className="flex space-x-2">
-                                <div className="w-3 h-3 rounded-full bg-red-500" />
-                                <div className="w-3 h-3 rounded-full bg-yellow-500" />
-                                <div className="w-3 h-3 rounded-full bg-green-500" />
-                            </div>
-                            <div className="flex-1 text-center text-sm text-gray-300">
-                                {project.title} • {project.status}
-                            </div>
-                        </div>
+            <div className="max-w-7xl mx-auto relative z-10">
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6 }}
+                    className="text-center mb-20"
+                >
+                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold mb-4">
+                        <span className="bg-clip-text text-transparent bg-gradient-to-r from-white to-white/70">
+                            Featured
+                        </span>{" "}
+                        <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary via-purple-500 to-pink-600">
+                            Projects
+                        </span>
+                    </h2>
+                    <div className="h-1.5 w-24 bg-gradient-to-r from-primary to-purple-600 mx-auto rounded-full shadow-lg shadow-primary/30 mb-6" />
+                    <p className="text-gray-400 max-w-2xl mx-auto text-lg">
+                        A collection of projects that showcase my passion for building robust and scalable applications.
+                    </p>
+                </motion.div>
 
-                        {/* Project Preview Area */}
-                        <div className="relative aspect-video bg-gray-900 p-4">
-                            <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-blue-500/10" />
-                            <div className="relative z-10 h-full flex items-center justify-center">
-                                {project.img ? (
-                                    <img
-                                        className="w-full h-full object-cover rounded-lg"
-                                        src={project.img}
-                                        alt={project.title}
-                                    />
-                                ) : (
-                                    <p className="text-gray-400">
-                                        No Image Available
-                                    </p>
-                                )}
-                            </div>
-                        </div>
-
-                        {/* Terminal Interface */}
-                        <div className="p-6 font-mono bg-black/50">
-                            <div className="space-y-2 text-sm">
-                                {/* Deployment status */}
-                                <div className="flex items-center text-gray-400">
-                                    <GitBranch className="h-4 w-4 mr-2 text-purple-500" />
-                                    <span>
-                                        {project.deployed
-                                            ? "▲ Deployed"
-                                            : "Not Deployed"}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    {projects.map((project, index) => (
+                        <motion.div
+                            key={project.id}
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.5, delay: index * 0.1 }}
+                            viewport={{ once: true }}
+                            className="group relative glass-card-premium rounded-2xl border-0 overflow-hidden hover:border-primary/40 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/20 flex flex-col hover:scale-[1.02]"
+                        >
+                            {/* Image Container */}
+                            <div className="relative h-48 overflow-hidden">
+                                <div className="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent z-10 opacity-60" />
+                                <img
+                                    src={project.img}
+                                    alt={project.title}
+                                    className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+                                />
+                                <div className="absolute top-4 right-4 z-20">
+                                    <span className="px-3 py-1 bg-black/50 backdrop-blur-md rounded-full text-xs font-medium text-white border border-white/10">
+                                        {project.category}
                                     </span>
                                 </div>
+                            </div>
 
-                                {/* Project Description */}
-                                <p className="text-gray-300">
+                            {/* Content */}
+                            <div className="p-6 flex-1 flex flex-col">
+                                <h3 className="text-xl font-bold text-white mb-2 group-hover:text-primary transition-colors">
+                                    {project.title}
+                                </h3>
+                                <p className="text-gray-400 text-sm mb-4 line-clamp-3 flex-1">
                                     {project.description}
                                 </p>
 
-                                {/* Tech Stack Tags */}
-                                <div className="flex flex-wrap gap-2">
-                                    {project.stack.map((tech, idx) => (
+                                {/* Tech Stack */}
+                                <div className="flex flex-wrap gap-2 mb-6">
+                                    {project.stack.slice(0, 4).map((tech, i) => (
                                         <span
-                                            key={idx}
-                                            className="px-2 py-1 bg-gray-800 rounded-md text-gray-300 text-xs"
+                                            key={i}
+                                            className="px-2 py-1 bg-white/5 rounded-md text-xs text-gray-300 border border-white/5"
                                         >
-                                            <span className="text-purple-500">
-                                                #
-                                            </span>
                                             {tech}
                                         </span>
                                     ))}
+                                    {project.stack.length > 4 && (
+                                        <span className="px-2 py-1 bg-white/5 rounded-md text-xs text-gray-300 border border-white/5">
+                                            +{project.stack.length - 4}
+                                        </span>
+                                    )}
+                                </div>
+
+                                {/* Actions */}
+                                <div className="flex items-center justify-between gap-4 mt-auto pt-4 border-t border-white/5">
+                                    {project.github ? (
+                                        <a
+                                            href={project.github}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors"
+                                        >
+                                            <Github className="w-4 h-4" />
+                                            <span>Code</span>
+                                        </a>
+                                    ) : (
+                                        <span className="flex items-center gap-2 text-sm text-gray-600 cursor-not-allowed">
+                                            <Code2 className="w-4 h-4" />
+                                            <span>Private</span>
+                                        </span>
+                                    )}
+                                    
+                                    {project.link && (
+                                        <a
+                                            href={project.link}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                        >
+                                            <Button 
+                                                size="sm" 
+                                                className="bg-primary/10 hover:bg-primary/20 text-primary border border-primary/20 hover:border-primary/50"
+                                            >
+                                                <ExternalLink className="w-4 h-4 mr-2" />
+                                                Live Demo
+                                            </Button>
+                                        </a>
+                                    )}
                                 </div>
                             </div>
+                        </motion.div>
+                    ))}
+                </div>
 
-                            {/* Action Buttons */}
-                            <div className="mt-6 flex gap-4 border-t border-gray-800 pt-4">
-                                {project.github && (
-                                    <a
-                                        href={project.github}
-                                        className="flex items-center gap-2 text-purple-500 hover:text-purple-400 transition-colors"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                    >
-                                        <GitHub className="h-4 w-4" />
-                                        Source Code
-                                    </a>
-                                )}
-                                {project.link && (
-                                    <a
-                                        href={project.link}
-                                        className="flex items-center gap-2 text-blue-500 hover:text-blue-400 transition-colors"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                    >
-                                        <ExternalLink className="h-4 w-4" />
-                                        Live Demo
-                                    </a>
-                                )}
-                            </div>
-                        </div>
-                    </motion.div>
-                ))}
+                <div className="mt-16 text-center">
+                    <a
+                        href="https://github.com/Mantu008"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <Button 
+                            size="lg" 
+                            className="bg-white/5 hover:bg-white/10 text-white border border-white/10 rounded-full px-8"
+                        >
+                            <Github className="w-5 h-5 mr-2" />
+                            View More on GitHub
+                        </Button>
+                    </a>
+                </div>
             </div>
-        </div>
+        </section>
     );
 }

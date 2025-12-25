@@ -1,8 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Calendar } from "lucide-react";
+import { Calendar, Briefcase } from "lucide-react";
 
-// Define the Experience interface matching workExperience's shape
 interface Experience {
     id: number;
     title: string;
@@ -14,7 +13,6 @@ interface Experience {
     thumbnail: string;
 }
 
-// Work experience data array
 export const workExperience: Experience[] = [
     {
         id: 1,
@@ -35,10 +33,25 @@ export const workExperience: Experience[] = [
         ],
         thumbnail: "/exp1.svg",
     },
-    // Add more work experiences as needed...
+    {
+        id: 2,
+        title: "Trainee Engineer",
+        company: "Simform Software LLP",
+        location: "Ahmedabad, Gujarat",
+        duration: "Jan 2026 - Present",
+        desc: "",
+        technologies: [
+            "React.js",
+            "Node.js",
+            "Express.js",
+            "SQL",
+            "Jest",
+            "Tailwind CSS",
+        ],
+        thumbnail: "/exp1.svg",
+    }
 ];
 
-// Define animation variants for the cards
 const cardVariants = {
     hidden: { opacity: 0, y: 30 },
     visible: (custom: number) => ({
@@ -55,77 +68,100 @@ const cardVariants = {
 
 export const ExperiencePage: React.FC = () => {
     return (
-        <section className="py-16 px-4 bg-gray-900 text-white">
-            <div className="max-w-6xl mx-auto">
-                <motion.h1
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6 }}
-                    className="text-4xl font-bold text-center mb-12"
-                >
-                    Experience
-                </motion.h1>
-
-                {/* Centered Cards */}
+        <section className="py-24 px-4 relative overflow-hidden">
+            {/* Background Elements */}
+            <div className="absolute top-1/2 right-0 w-[500px] h-[500px] bg-gradient-to-l from-primary/15 to-purple-600/10 rounded-full blur-[120px] pointer-events-none" />
+            
+            <div className="max-w-6xl mx-auto relative z-10">
                 <motion.div
-                    className="flex flex-col items-center gap-8"
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true }}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6 }}
+                    className="text-center mb-16"
                 >
-                    {workExperience.map((exp, index) => (
-                        <motion.div
-                            key={exp.id}
-                            custom={index}
-                            variants={cardVariants}
-                            className="relative max-w-2xl w-full bg-gray-800 rounded-xl shadow-lg p-6 border border-gray-700 hover:border-purple-500 transition duration-300 overflow-hidden"
-                        >
-                            {/* Glowing Border Animation */}
-                            <div className="absolute inset-0 rounded-xl border-2 border-purple-500 opacity-20 blur-xl animate-pulse pointer-events-none"></div>
-
-                            <div className="flex items-center gap-4 relative z-10">
-                                <div className="w-20 h-20 rounded-full overflow-hidden border-2 border-purple-500 flex-shrink-0">
-                                    <img
-                                        src={exp.thumbnail}
-                                        alt={exp.company}
-                                        className="object-cover w-full h-full"
-                                    />
-                                </div>
-                                <div>
-                                    <h2 className="text-2xl font-semibold">
-                                        {exp.title}
-                                    </h2>
-                                    <p className="text-lg text-gray-400">
-                                        {exp.company}
-                                    </p>
-                                    <p className="text-sm text-gray-500">
-                                        {exp.location}
-                                    </p>
-                                </div>
-                            </div>
-
-                            <div className="flex items-center gap-2 text-gray-500 text-sm mt-4 relative z-10">
-                                <Calendar className="w-5 h-5" />
-                                <span>{exp.duration}</span>
-                            </div>
-
-                            <p className="text-gray-300 mt-4 relative z-10">
-                                {exp.desc}
-                            </p>
-
-                            <div className="mt-4 flex flex-wrap gap-2 relative z-10">
-                                {exp.technologies.map((tech, i) => (
-                                    <span
-                                        key={i}
-                                        className="px-3 py-1 bg-gray-700 rounded-full text-xs text-gray-300"
-                                    >
-                                        {tech}
-                                    </span>
-                                ))}
-                            </div>
-                        </motion.div>
-                    ))}
+                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold mb-4">
+                        <span className="bg-clip-text text-transparent bg-gradient-to-r from-white to-white/70">
+                            Work
+                        </span>{" "}
+                        <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary via-purple-500 to-pink-600">
+                            Experience
+                        </span>
+                    </h2>
+                    <div className="h-1.5 w-24 bg-gradient-to-r from-primary to-purple-600 mx-auto rounded-full shadow-lg shadow-primary/30" />
+                    <p className="text-gray-400 max-w-2xl mx-auto text-lg mt-4">Professional journey and accomplishments</p>
                 </motion.div>
+
+                <div className="relative">
+                    {/* Vertical Line */}
+                    <div className="absolute left-0 md:left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-transparent via-primary/60 to-transparent ml-4 md:ml-0 shadow-lg shadow-primary/20" />
+
+                    <div className="space-y-12">
+                        {workExperience.map((exp, index) => (
+                            <motion.div
+                                key={exp.id}
+                                custom={index}
+                                initial="hidden"
+                                whileInView="visible"
+                                viewport={{ once: true }}
+                                variants={cardVariants}
+                                className="relative flex flex-col md:flex-row gap-8 md:pl-16"
+                            >
+                                {/* Timeline Dot */}
+                                <div className="absolute left-0 md:left-8 top-0 w-8 h-8 flex items-center justify-center transform -translate-x-1/2 md:-translate-x-1/2 ml-4 md:ml-0 z-10">
+                                    <div className="w-4 h-4 bg-gradient-to-r from-primary to-purple-600 rounded-full ring-4 ring-primary/30 shadow-lg shadow-primary/50 animate-pulse" />
+                                </div>
+
+                                <div className="ml-12 md:ml-0 flex-1">
+                                    <div className="group relative glass-card-premium rounded-2xl p-5 md:p-7 hover:border-primary/50 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/10 hover:scale-[1.01]">
+                                        <div className="flex flex-col md:flex-row gap-6">
+                                            <div className="w-20 h-20 rounded-xl overflow-hidden bg-white/10 p-2 flex-shrink-0">
+                                                <img
+                                                    src={exp.thumbnail}
+                                                    alt={exp.company}
+                                                    className="w-full h-full object-cover rounded-lg"
+                                                />
+                                            </div>
+                                            
+                                            <div className="flex-1">
+                                                <div className="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-2">
+                                                    <h3 className="text-2xl font-bold text-white">
+                                                        {exp.title}
+                                                    </h3>
+                                                    <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium whitespace-nowrap">
+                                                        <Calendar className="w-4 h-4" />
+                                                        {exp.duration}
+                                                    </span>
+                                                </div>
+                                                
+                                                <div className="flex items-center gap-2 text-gray-400 mb-4">
+                                                    <Briefcase className="w-4 h-4" />
+                                                    <span className="font-medium">{exp.company}</span>
+                                                    <span>•</span>
+                                                    <span>{exp.location}</span>
+                                                </div>
+
+                                                <p className="text-gray-300 mb-6 leading-relaxed">
+                                                    {exp.desc}
+                                                </p>
+
+                                                <div className="flex flex-wrap gap-2">
+                                                    {exp.technologies.map((tech, i) => (
+                                                        <span
+                                                            key={i}
+                                                            className="px-3 py-1 bg-white/5 rounded-lg text-xs text-gray-400 border border-white/5 group-hover:border-primary/20 transition-colors"
+                                                        >
+                                                            {tech}
+                                                        </span>
+                                                    ))}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </motion.div>
+                        ))}
+                    </div>
+                </div>
             </div>
         </section>
     );

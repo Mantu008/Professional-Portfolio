@@ -1,24 +1,26 @@
 import { useState, useEffect } from "react";
 import { Button } from "./ui/button";
-import { Download, Menu, X } from "lucide-react";
+import { Download, Menu, X, Code2 } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 import resume from "../assets/Mantu_Kumar_Morya_Resume.pdf";
 
 export function Navigation() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-    const [activeSection, setActiveSection] = useState("");
+    const [activeSection, setActiveSection] = useState("home");
+    const [scrolled, setScrolled] = useState(false);
 
-    // Updated sections array to include Experience and Gallery.
     useEffect(() => {
         const handleScroll = () => {
+            setScrolled(window.scrollY > 50);
+            
             const sections = [
                 "home",
-                "about",
                 "education",
                 "experience",
-                "techtoolkit",
                 "projects",
                 "contact",
             ];
+            
             for (const section of sections) {
                 const element = document.getElementById(section);
                 if (element) {
@@ -35,114 +37,157 @@ export function Navigation() {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
-    // Toggle mobile menu
-    const toggleMobileMenu = () => {
-        setIsMobileMenuOpen(!isMobileMenuOpen);
-    };
+    const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
 
-    // Close mobile menu when a link is clicked and scroll to the section.
     const handleLinkClick = (section: string) => {
         setIsMobileMenuOpen(false);
-        document
-            .getElementById(section)
-            ?.scrollIntoView({ behavior: "smooth" });
+        setTimeout(() => {
+            const element = document.getElementById(section);
+            if (element) {
+                const offset = 80; // Height of the navbar + padding
+                const elementPosition = element.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.scrollY - offset;
+                
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: "smooth"
+                });
+            }
+        }, 300);
     };
 
-    // Navigation links including Experience and Gallery.
     const navLinks = [
         { id: "home", label: "Home" },
-        // { id: 'about', label: 'About' },
         { id: "education", label: "Education" },
         { id: "experience", label: "Experience" },
-        // { id: 'techtoolkit', label: 'Tech Arsenal' },
         { id: "projects", label: "Projects" },
         { id: "contact", label: "Contact" },
     ];
 
     return (
-        <nav className="fixed w-full z-50 bg-background/80 backdrop-blur-sm border-b border-gray-700/30">
-            <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
-                {/* Logo */}
-                <a
-                    href="/"
-                    className="text-xl font-bold bg-gradient-to-r from-purple-500 to-blue-500 bg-clip-text text-transparent"
-                >
-                    Mantu Kumar Morya
-                </a>
-
-                {/* Desktop Navigation */}
-                <div className="hidden md:flex items-center gap-8">
-                    {navLinks.map((link) => (
-                        <a
-                            key={link.id}
-                            href={`#${link.id}`}
-                            onClick={() => handleLinkClick(link.id)}
-                            className={`relative hover:text-purple-500 transition-colors ${
-                                activeSection === link.id
-                                    ? "text-purple-500"
-                                    : "text-gray-300"
-                            }`}
-                        >
-                            {link.label}
-                            {activeSection === link.id && (
-                                <span className="absolute left-0 right-0 -bottom-1 h-0.5 bg-purple-500 rounded-full" />
-                            )}
-                        </a>
-                    ))}
-                    <Button
-                        variant="outline"
-                        size="sm"
-                        className="flex items-center gap-2 mt-2 hover:bg-purple-500 hover:text-white transition-all"
-                        onClick={() => window.open(resume, "_blank")}
+        <nav 
+            className={`fixed w-full z-50 transition-all duration-500 ${
+                scrolled || isMobileMenuOpen 
+                    ? "bg-background/90 backdrop-blur-2xl border-b border-white/10 shadow-2xl shadow-primary/5" 
+                    : "bg-transparent border-transparent"
+            }`}
+        >
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="flex items-center justify-between h-20">
+                    {/* Logo */}
+                    <motion.a
+                        href="#"
+                        onClick={(e) => { e.preventDefault(); handleLinkClick('home'); }}
+                        className="flex items-center gap-2 group"
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
                     >
-                        <Download className="h-4 w-4" /> Resume
-                    </Button>
-                </div>
+                        <div className="p-2 rounded-xl bg-gradient-to-br from-primary/20 to-purple-600/20 group-hover:from-primary/30 group-hover:to-purple-600/30 transition-all duration-300 border border-primary/20">
+                            <Code2 className="h-6 w-6 text-primary group-hover:scale-110 transition-transform" />
+                        </div>
+                        <span className="text-xl font-heading font-bold bg-clip-text text-transparent bg-gradient-to-r from-white via-purple-200 to-purple-400 group-hover:from-primary group-hover:via-purple-300 group-hover:to-pink-400 transition-all duration-300">
+                            Mantu.dev
+                        </span>
+                    </motion.a>
 
-                {/* Mobile Menu Toggle */}
-                <Button
-                    variant="ghost"
-                    size="icon"
-                    className="md:hidden"
-                    onClick={toggleMobileMenu}
-                >
-                    {isMobileMenuOpen ? (
-                        <X className="h-5 w-5" />
-                    ) : (
-                        <Menu className="h-5 w-5" />
-                    )}
-                </Button>
-            </div>
-
-            {/* Mobile Navigation */}
-            {isMobileMenuOpen && (
-                <div className="md:hidden bg-background/95 backdrop-blur-lg border-t border-gray-700/30">
-                    <div className="flex flex-col items-center gap-4 py-4">
-                        {navLinks.map((link) => (
-                            <a
-                                key={link.id}
-                                href={`#${link.id}`}
-                                onClick={() => handleLinkClick(link.id)}
-                                className={`px-4 py-2 text-lg ${
-                                    activeSection === link.id
-                                        ? "text-purple-500"
-                                        : "text-gray-300 hover:text-purple-500"
-                                }`}
-                            >
-                                {link.label}
-                            </a>
-                        ))}
+                    {/* Desktop Navigation */}
+                    <div className="hidden md:flex items-center gap-8">
+                        <div className="flex items-center gap-1 glass-card px-4 py-2 rounded-full shadow-lg">
+                            {navLinks.map((link) => (
+                                <button
+                                    key={link.id}
+                                    onClick={() => handleLinkClick(link.id)}
+                                    className={`relative px-4 py-2 text-sm font-medium transition-all duration-300 rounded-full ${
+                                        activeSection === link.id
+                                            ? "text-white"
+                                            : "text-gray-400 hover:text-white"
+                                    }`}
+                                >
+                                    {activeSection === link.id && (
+                                        <motion.div
+                                            layoutId="activeTab"
+                                            className="absolute inset-0 bg-gradient-to-r from-primary/30 to-purple-600/30 rounded-full border border-primary/20"
+                                            transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                                        />
+                                    )}
+                                    <span className="relative z-10">{link.label}</span>
+                                </button>
+                            ))}
+                        </div>
+                        
                         <Button
-                            variant="outline"
+                            variant="default"
                             size="sm"
-                            className="flex items-center gap-2 mt-2 hover:bg-purple-500 hover:text-white transition-all"
+                            className="bg-gradient-to-r from-primary to-purple-600 hover:from-purple-600 hover:to-pink-600 text-white shadow-lg shadow-primary/30 rounded-full px-6 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-primary/40 active:scale-95"
                             onClick={() => window.open(resume, "_blank")}
                         >
-                            <Download className="h-4 w-4" /> Resume
+                            <Download className="h-4 w-4 mr-2" />
+                            Resume
+                        </Button>
+                    </div>
+
+                    {/* Mobile Menu Toggle */}
+                    <div className="md:hidden">
+                        <Button
+                            variant="ghost"
+                            size="icon"
+                            onClick={toggleMobileMenu}
+                            className="text-gray-300 hover:text-white hover:bg-white/10 rounded-full transition-all duration-300"
+                        >
+                            {isMobileMenuOpen ? (
+                                <X className="h-6 w-6" />
+                            ) : (
+                                <Menu className="h-6 w-6" />
+                            )}
                         </Button>
                     </div>
                 </div>
-            )}
+            </div>
+
+            {/* Mobile Navigation */}
+            <AnimatePresence>
+                {isMobileMenuOpen && (
+                    <motion.div
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: "auto" }}
+                        exit={{ opacity: 0, height: 0 }}
+                        className="md:hidden bg-background/95 backdrop-blur-2xl border-b border-white/10 overflow-hidden shadow-2xl"
+                    >
+                        <div className="px-4 py-6 space-y-4">
+                            {navLinks.map((link, index) => (
+                                <motion.button
+                                    key={link.id}
+                                    initial={{ opacity: 0, x: -20 }}
+                                    animate={{ opacity: 1, x: 0 }}
+                                    transition={{ delay: index * 0.1 }}
+                                    onClick={() => handleLinkClick(link.id)}
+                                    className={`block w-full text-left px-4 py-3 text-lg font-medium rounded-xl transition-all duration-300 ${
+                                        activeSection === link.id
+                                            ? "bg-gradient-to-r from-primary/20 to-purple-600/20 text-white border border-primary/30"
+                                            : "text-gray-400 hover:bg-white/5 hover:text-white"
+                                    }`}
+                                >
+                                    {link.label}
+                                </motion.button>
+                            ))}
+                            <motion.div
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: 0.3 }}
+                                className="pt-4"
+                            >
+                                <Button
+                                    className="w-full bg-gradient-to-r from-primary to-purple-600 hover:from-purple-600 hover:to-pink-600 text-white py-6 text-lg shadow-lg shadow-primary/30 rounded-xl transition-all duration-300"
+                                    onClick={() => window.open(resume, "_blank")}
+                                >
+                                    <Download className="h-5 w-5 mr-2" />
+                                    Download Resume
+                                </Button>
+                            </motion.div>
+                        </div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </nav>
     );
 }
