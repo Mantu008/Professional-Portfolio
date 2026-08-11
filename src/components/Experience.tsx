@@ -14,20 +14,23 @@ interface Experience {
 }
 
 export const workExperience: Experience[] = [
-        {
+    {
         id: 1,
-        title: "Trainee Engineer",
-        company: "Simform Software LLP",
-        location: "Ahmedabad, Gujarat",
-        duration: "Jan 2026 - Present",
-        desc: "",
+        title: "Software Developer",
+        company: "Swastik Infinity Solutions",
+        location: "Rajkot, Gujarat",
+        duration: "Aug 2025 - Present",
+        desc: "• Developed responsive TMS modules and reusable components using React, TypeScript, Redux Toolkit, React Hooks/Router, and TanStack Query, improving workflow efficiency.\n• Implemented robust form validation (React Hook Form, Zod) and designed secure REST APIs with Node.js, Express, and JWT-based authentication/authorization.\n• Optimized database schemas and queries, reducing response time.",
         technologies: [
-            "React.js",
+            "React",
+            "TypeScript",
+            "Redux Toolkit",
             "Node.js",
-            "Express.js",
-            "SQL",
-            "Jest",
+            "Express",
+            "JWT",
             "Tailwind CSS",
+            "MUI",
+            "Git",
         ],
         thumbnail: "/exp2.svg",
     },
@@ -50,7 +53,6 @@ export const workExperience: Experience[] = [
         ],
         thumbnail: "/exp1.svg",
     },
-
 ];
 
 const cardVariants = {
@@ -141,7 +143,7 @@ export const ExperiencePage: React.FC = () => {
                                                     <span>{exp.location}</span>
                                                 </div>
 
-                                                <p className="text-gray-300 mb-6 leading-relaxed">
+                                                <p className="text-gray-300 mb-6 leading-relaxed whitespace-pre-line">
                                                     {exp.desc}
                                                 </p>
 
