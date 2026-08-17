@@ -17,9 +17,9 @@ export const workExperience: Experience[] = [
     {
         id: 1,
         title: "Software Developer",
-        company: "Swastik Infinity Solutions",
+        company: "Simform Solutions",
         location: "Rajkot, Gujarat",
-        duration: "Aug 2025 - Present",
+        duration: "Jan 2026 - Jul 2026",
         desc: "• Developed responsive TMS modules and reusable components using React, TypeScript, Redux Toolkit, React Hooks/Router, and TanStack Query, improving workflow efficiency.\n• Implemented robust form validation (React Hook Form, Zod) and designed secure REST APIs with Node.js, Express, and JWT-based authentication/authorization.\n• Optimized database schemas and queries, reducing response time.",
         technologies: [
             "React",
