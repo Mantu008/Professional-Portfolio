@@ -275,6 +275,34 @@
   .js .hero.go .ln:nth-child(2) > span { transition-delay: .08s; }
   .js .hero.go .ln:nth-child(3) > span { transition-delay: .16s; }
 
+
+  /* ---------- Creative details ---------- */
+  .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .rotator { display: inline-block; position: relative; height: 1.12em; vertical-align: -0.24em; overflow: hidden; transition: width .7s var(--ease); }
+  .rot-track { display: flex; flex-direction: column; align-items: flex-start; transition: transform .8s var(--ease); }
+  .rot-track > span { display: block; height: 1.12em; line-height: 1.12em; white-space: nowrap; padding-right: .06em; }
+
+  .cursor {
+    position: fixed; left: 0; top: 0; z-index: 80; width: 92px; height: 92px; margin: -46px 0 0 -46px; border-radius: 50%;
+    background: var(--ink); color: var(--bg); display: grid; place-items: center; pointer-events: none;
+    font: 500 13px/1 var(--sans); letter-spacing: -.005em; transform: translate(-200px, -200px) scale(0);
+  }
+  .has-cursor .project-shot { cursor: none; }
+
+  .cal i, .chart i { transform-origin: 50% 100%; }
+  .project-shot:hover .cal i { animation: pop .6s var(--ease) both; animation-delay: calc(var(--i, 0) * 22ms); }
+  .project-shot:hover .chart i { animation: grow .9s var(--ease) both; animation-delay: calc(var(--i, 0) * 45ms); }
+  @keyframes pop { from { transform: scale(.4); opacity: .2; } to { transform: none; opacity: 1; } }
+  @keyframes grow { from { transform: scaleY(.15); } to { transform: none; } }
+  .ui-pill { transition: width .6s var(--ease); }
+  .project-shot:hover .ui-pill { width: 84px; }
+
+  .band { margin-top: 128px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); overflow: hidden; padding: 26px 0; }
+  .band-track { display: flex; width: max-content; will-change: transform; }
+  .band-set { display: flex; align-items: center; gap: .45em; padding-right: .45em; font: italic 400 clamp(46px, 7vw, 104px)/1.1 var(--serif); letter-spacing: -.02em; white-space: nowrap; }
+  .band-set .o { color: transparent; -webkit-text-stroke: 1px var(--faint); }
+  .band-set i { font-style: normal; font-family: var(--sans); font-size: .32em; color: var(--muted); }
+
   /* ---------- Responsive ---------- */
   @media (max-width: 1000px) {
     .hero-foot { grid-template-columns: 1fr; gap: 40px; }
@@ -318,6 +346,7 @@
     .frame { padding: 16px 16px 0; }
     .projects { gap: 72px; }
     .contact { padding-top: 120px; }
+    .band { margin-top: 96px; padding: 18px 0; }
     footer { margin-top: 100px; }
   }
   @media (max-width: 560px) {
@@ -338,11 +367,13 @@
     html { scroll-behavior: auto; }
     *, *::before, *::after { transition: none !important; animation: none !important; }
     .js .rv, .js .hero .ln > span { opacity: 1; transform: none; }
+    .cursor { display: none; }
   }
 </style>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
+<div class="cursor" aria-hidden="true"><span>Visit ↗</span></div>
 
 <header class="site-header">
   <div class="wrap bar">
@@ -374,7 +405,7 @@
       <p class="avail rv"><i aria-hidden="true"></i>Open to new opportunities</p>
       <h1>
         <span class="ln"><span>Full stack developer</span></span>
-        <span class="ln"><span>building <span class="serif">reliable</span> web products,</span></span>
+        <span class="ln"><span>building <span class="rotator serif"><span class="sr-only">reliable</span><span class="rot-track" aria-hidden="true"><span>reliable</span><span>thoughtful</span><span>scalable</span><span>fast</span></span></span> web products,</span></span>
         <span class="ln"><span class="muted">from interface to API.</span></span>
       </h1>
       <div class="hero-foot">
@@ -498,6 +529,13 @@
     </div>
   </section>
 
+  <div class="band" aria-hidden="true">
+    <div class="band-track">
+      <div class="band-set"><span>React</span><i>✳</i><span class="o">Next.js</span><i>✳</i><span>Node.js</span><i>✳</i><span class="o">TypeScript</span><i>✳</i><span>MongoDB</span><i>✳</i><span class="o">Twilio</span><i>✳</i><span>WhatsApp API</span><i>✳</i></div>
+      <div class="band-set"><span>React</span><i>✳</i><span class="o">Next.js</span><i>✳</i><span>Node.js</span><i>✳</i><span class="o">TypeScript</span><i>✳</i><span>MongoDB</span><i>✳</i><span class="o">Twilio</span><i>✳</i><span>WhatsApp API</span><i>✳</i></div>
+    </div>
+  </div>
+
   <!-- Experience -->
   <section class="block" id="experience">
     <div class="wrap">
@@ -614,6 +652,60 @@
   const $ = (s, r = document) => r.querySelector(s);
   const $$ = (s, r = document) => [...r.querySelectorAll(s)];
   const root = document.documentElement;
+
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* Rotating hero word */
+  const rot = $('.rotator'), track = $('.rot-track');
+  if (rot && !reduce) {
+    const words = $$('span', track);
+    let i = 0;
+    const size = () => { rot.style.width = words[i].getBoundingClientRect().width + 'px'; };
+    (document.fonts ? document.fonts.ready : Promise.resolve()).then(size);
+    addEventListener('resize', size);
+    setInterval(() => {
+      i = (i + 1) % words.length;
+      track.style.transform = 'translateY(' + (-i * 1.12) + 'em)';
+      size();
+    }, 2600);
+  }
+
+  /* Index cells for staggered mock animations */
+  $$('.cal, .chart').forEach(g => [...g.children].forEach((c, n) => c.style.setProperty('--i', n)));
+
+  /* Project hover cursor */
+  if (!reduce && matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    root.classList.add('has-cursor');
+    const cur = $('.cursor');
+    let x = -200, y = -200, tx = -200, ty = -200, sc = 0, ts = 0;
+    addEventListener('pointermove', e => { tx = e.clientX; ty = e.clientY; }, { passive: true });
+    $$('.project-shot').forEach(a => {
+      a.addEventListener('pointerenter', () => { ts = 1; });
+      a.addEventListener('pointerleave', () => { ts = 0; });
+    });
+    const loop = () => {
+      x += (tx - x) * .18; y += (ty - y) * .18; sc += (ts - sc) * .2; if (!ts && sc < .01) sc = 0;
+      cur.style.transform = 'translate(' + x + 'px, ' + y + 'px) scale(' + sc.toFixed(3) + ')';
+      requestAnimationFrame(loop);
+    };
+    loop();
+  }
+
+  /* Editorial marquee, nudged by scroll speed */
+  const band = $('.band-track');
+  if (band && !reduce) {
+    let off = 0, last = scrollY, boost = 0;
+    const step = () => {
+      const dy = scrollY - last; last = scrollY;
+      boost += (Math.min(Math.abs(dy), 60) * .12 - boost) * .1;
+      off -= .45 + boost;
+      const w = band.firstElementChild.getBoundingClientRect().width;
+      if (w && -off >= w) off += w;
+      band.style.transform = 'translateX(' + off + 'px)';
+      requestAnimationFrame(step);
+    };
+    step();
+  }
 
   /* Hero entrance */
   requestAnimationFrame(() => requestAnimationFrame(() => $('.hero').classList.add('go')));
