@@ -5,7 +5,7 @@ Personal portfolio of Mantu Kumar Morya, full stack developer (MERN, React, Next
 - One static page: `index.html` with inline CSS and vanilla JS. No framework, no build step.
 - Self-hosted fonts in `fonts/` (Bricolage Grotesque, Inter, JetBrains Mono).
 - Resume download in `assets/`.
-- Light and dark themes (follows the system, with a toggle), a phone menu, and scroll reveals that respect `prefers-reduced-motion`.
+- Dark, tech-style design with motion: an interactive particle network, typing roles, an animated terminal, count-up stats, a tech marquee, glow and tilt cards, and a scroll-drawn timeline. Everything falls back to a static page under `prefers-reduced-motion`.
 
 ## Run locally
 
