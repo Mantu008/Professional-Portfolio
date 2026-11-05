@@ -3,9 +3,9 @@
 Personal portfolio of Mantu Kumar Morya, full stack developer (MERN, React, Next.js, TypeScript, Node.js).
 
 - One static page: `index.html` with inline CSS and vanilla JS. No framework, no build step.
-- Self-hosted fonts in `fonts/` (Bricolage Grotesque, Inter, JetBrains Mono).
+- Self-hosted fonts in `fonts/` (Inter and Instrument Serif).
 - Resume download in `assets/`.
-- Dark, tech-style design with motion: an interactive particle network, typing roles, an animated terminal, count-up stats, a tech marquee, glow and tilt cards, and a scroll-drawn timeline. Everything falls back to a static page under `prefers-reduced-motion`.
+- Editorial, minimal design with light and dark themes (follows the system, with a toggle). Motion is kept subtle: line-by-line hero entrance, gentle scroll reveals and hover details, all off under `prefers-reduced-motion`.
 
 ## Run locally
 
@@ -13,7 +13,7 @@ Open `index.html` in a browser, or serve the folder with `npx serve .`
 
 ## Update content
 
-All content lives in `index.html`. Each section (Experience, Projects, Skills, Education, Contact) is marked with a comment. To change the resume, replace `assets/Mantu_Kumar_Morya_Resume.pdf`.
+All content lives in `index.html`. Each section (Work, Experience, Capabilities, Education, Contact) is marked with a comment. To change the resume, replace `assets/Mantu_Kumar_Morya_Resume.pdf`.
 
 ## Deploy
 
