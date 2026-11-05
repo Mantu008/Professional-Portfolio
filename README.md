@@ -1,107 +1,21 @@
-<div align="center">
+# Meadowbell · Hollyoak’s Plucky Sprout Squad
 
-# 👨‍💻 Mantu's Professional Portfolio  
-_Elevate Your Brand · Showcase Your Expertise · Build Your Identity_
+A single-file landing hero for an animated kids’ farming series from the fictional studio Meadowbell.
 
-[![Last Commit](https://img.shields.io/github/last-commit/Mantu008/Professional-Portfolio?style=flat&logo=git&logoColor=white&color=0080ff)](https://github.com/Mantu008/Professional-Portfolio)
-[![Top Language](https://img.shields.io/github/languages/top/Mantu008/Professional-Portfolio?style=flat&color=0080ff)](https://github.com/Mantu008/Professional-Portfolio)
-[![Language Count](https://img.shields.io/github/languages/count/Mantu008/Professional-Portfolio?style=flat&color=0080ff)](https://github.com/Mantu008/Professional-Portfolio)
+- Plain HTML, CSS and vanilla JS in `index.html`. No framework, no build step.
+- Fonts are self-hosted latin woff2 files in `fonts/` (Grandstander 900 and Inter 400/500).
+- The scene is one 9:8 plate image with a looping video of the same plate laid over it. Nothing in the scene is drawn or animated in code.
+- The hero is a 1440×1280 frame that scales with the viewport width (`--u = 100vw / 1440`). At 820px and below it switches to a stacked phone layout with a swipeable chapters row.
+- `prefers-reduced-motion` turns off the video, the entrance timeline and all transitions.
 
-</div>
+## Run locally
 
----
+Open `index.html` in a browser, or serve the folder:
 
-## 📝 Overview
+```sh
+npx serve .
+```
 
-This is **my personal portfolio website** built to represent who I am as a developer. It showcases my skills, projects, experience, and contact information in an interactive and professional manner.
+## Deploy
 
-I’ve used modern frontend and backend technologies with a strong focus on code quality, component reusability, and performance.
-
----
-
-## 🔧 Tech Stack
-
-### 💻 Languages & Tools
-
-- **React** & **TypeScript**
-- **Tailwind CSS** for styling
-- **Vite** for fast development
-- **Zod** for validation
-- **ESLint** & **Prettier** for code quality
-- **React Hook Form** for forms
-- **Date-fns** for date utilities
-
----
-
-## 📂 Features
-
-- 💡 **Clean and Responsive Design**
-- ⚙️ **Component-based Architecture**
-- 🛠️ **Strong Type Safety with TypeScript**
-- 📲 **Mobile-first UI**
-- ✉️ **Working contact form**
-- 📚 **Project showcase section**
-- 🧪 Easy to extend and maintain
-
----
-
-## 🚀 Getting Started
-
-### ✅ Prerequisites
-
-Ensure you have the following installed:
-
-- [Node.js](https://nodejs.org/)
-- [npm](https://www.npmjs.com/)
-
-### 📥 Installation
-
-1. **Clone the repository**
-
-```bash
-git clone https://github.com/Mantu008/Professional-Portfolio
-Navigate to the directory
-
-bash
-Copy
-Edit
-cd Professional-Portfolio
-Install dependencies
-
-bash
-Copy
-Edit
-npm install
-▶️ Running the App
-Start the development server:
-
-bash
-Copy
-Edit
-npm run dev
-Open your browser at: http://localhost:5173
-
-🧪 Testing
-If you plan to write or run tests (optional):
-
-bash
-Copy
-Edit
-npm test
-🌐 Live Demo
-Coming Soon... (You can deploy on Vercel or Netlify and add the link here.)
-
-🙋‍♂️ About Me
-I’m Mantu, a passionate Full Stack Developer with a focus on React.js, Next.js, Node.js, and MongoDB. I enjoy building scalable applications and solving real-world problems with code.
-
-Connect with me on:
-
-LinkedIn
-
-GitHub
-
-<div align="center">
-📌 Crafted with love & code by Mantu
-🛠️ Open to feedback, forks, and collaboration
-
-</div> ```
+Any static host works. Point it at the repo root with no build command and no output directory.
