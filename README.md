@@ -18,4 +18,4 @@ npx serve .
 
 ## Deploy
 
-Any static host works. Point it at the repo root with no build command and no output directory.
+Any static host works. On Vercel, `vercel.json` overrides the old Vite settings: it skips the install and just copies `index.html` and `fonts/` into `dist/`.
