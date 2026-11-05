@@ -171,32 +171,9 @@
   .chrome { display: flex; align-items: center; gap: 6px; height: 34px; padding: 0 12px; border-bottom: 1px solid var(--line); }
   .chrome i { width: 9px; height: 9px; border-radius: 50%; background: var(--line-strong); }
   .chrome span { margin: 0 auto; font-size: 11px; color: var(--faint); padding: 3px 14px; border-radius: 6px; background: var(--bg-sunken); max-width: 60%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-  .ui { aspect-ratio: 16 / 9.4; display: grid; grid-template-columns: 22% 1fr; }
-  .ui-side { border-right: 1px solid var(--line); padding: 16px 12px; display: grid; gap: 10px; align-content: start; }
-  .ui-side .logo { height: 10px; width: 55%; border-radius: 3px; background: var(--ink); margin-bottom: 10px; }
-  .ui-side i { height: 7px; border-radius: 3px; background: var(--line); }
-  .ui-side i.sel { background: var(--line-strong); width: 80%; }
-  .ui-main { padding: 16px; display: grid; gap: 12px; align-content: start; }
-  .ui-row { display: flex; justify-content: space-between; align-items: center; }
-  .ui-title { height: 10px; width: 34%; border-radius: 3px; background: var(--ink-2); opacity: .8; }
-  .ui-pill { height: 18px; width: 64px; border-radius: 999px; background: var(--ink); }
-  .ui-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
-  .ui-card { border: 1px solid var(--line); border-radius: 8px; padding: 10px; display: grid; gap: 7px; }
-  .ui-card i { height: 6px; width: 50%; border-radius: 3px; background: var(--line); }
-  .ui-card b { height: 12px; width: 40%; border-radius: 3px; background: var(--ink-2); opacity: .75; }
-  .cal { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; border: 1px solid var(--line); border-radius: 8px; padding: 8px; }
-  .cal i { aspect-ratio: 1.5; border-radius: 4px; background: var(--bg-sunken); }
-  .cal i.a { background: var(--ink); opacity: .85; }
-  .cal i.b { background: var(--line-strong); }
-  .table { border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
-  .table div { display: grid; grid-template-columns: 1.4fr 1fr .8fr .6fr; gap: 10px; padding: 8px 10px; border-top: 1px solid var(--line); align-items: center; }
-  .table div:first-child { border-top: 0; background: var(--bg-sunken); }
-  .table i { height: 6px; border-radius: 3px; background: var(--line-strong); }
-  .table i.d { background: var(--ink-2); opacity: .6; }
-  .table em { height: 14px; border-radius: 999px; background: var(--line); width: 70%; }
-  .chart { height: 74px; display: flex; align-items: end; gap: 5px; border: 1px solid var(--line); border-radius: 8px; padding: 10px; }
-  .chart i { flex: 1; background: var(--line-strong); border-radius: 2px; }
-  .chart i:nth-child(6) { background: var(--ink); opacity: .85; }
+  .shot { aspect-ratio: 16 / 10; overflow: hidden; background: var(--bg-sunken); }
+  .shot img { width: 100%; height: 100%; object-fit: cover; object-position: top center; transition: transform 1.2s var(--ease); }
+  .project-shot:hover .shot img { transform: scale(1.025); }
 
   .p-index { font-size: 13px; color: var(--muted); display: flex; justify-content: space-between; border-bottom: 1px solid var(--line); padding-bottom: 14px; margin-bottom: 22px; }
   .project h3 { margin: 0; font: 500 30px/1.12 var(--sans); letter-spacing: -.03em; }
@@ -205,6 +182,21 @@
   .p-meta dt { color: var(--muted); }
   .p-meta dd { margin: 0; }
   .p-links { display: flex; gap: 22px; margin-top: 28px; font-size: 14.5px; font-weight: 500; }
+
+
+  /* More projects */
+  .cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 56px 24px; border-top: 1px solid var(--line); padding-top: 32px; }
+  .card { display: flex; flex-direction: column; }
+  .card-shot { display: block; border-radius: 12px; overflow: hidden; border: 1px solid var(--line); background: var(--bg-sunken); aspect-ratio: 16 / 9; transition: border-color .4s; }
+  .card-shot img { width: 100%; height: 100%; object-fit: cover; object-position: top center; transition: transform 1.2s var(--ease); }
+  .card-shot:hover { border-color: var(--line-strong); }
+  .card-shot:hover img { transform: scale(1.035); }
+  .card-top { display: flex; justify-content: space-between; margin-top: 20px; font-size: 13px; color: var(--muted); }
+  .card h4 { margin: 8px 0 0; font: 500 22px/1.2 var(--sans); letter-spacing: -.025em; }
+  .card p { margin: 8px 0 0; color: var(--ink-2); font-size: 15px; }
+  .card-foot { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; margin-top: auto; padding-top: 16px; font-size: 13.5px; }
+  .card-stack { color: var(--muted); }
+  .card-links { display: flex; gap: 16px; font-weight: 500; white-space: nowrap; }
 
   /* Index list */
   .index-head { display: flex; justify-content: space-between; align-items: baseline; margin: 128px 0 18px; }
@@ -289,13 +281,6 @@
   }
   .has-cursor .project-shot { cursor: none; }
 
-  .cal i, .chart i { transform-origin: 50% 100%; }
-  .project-shot:hover .cal i { animation: pop .6s var(--ease) both; animation-delay: calc(var(--i, 0) * 22ms); }
-  .project-shot:hover .chart i { animation: grow .9s var(--ease) both; animation-delay: calc(var(--i, 0) * 45ms); }
-  @keyframes pop { from { transform: scale(.4); opacity: .2; } to { transform: none; opacity: 1; } }
-  @keyframes grow { from { transform: scaleY(.15); } to { transform: none; } }
-  .ui-pill { transition: width .6s var(--ease); }
-  .project-shot:hover .ui-pill { width: 84px; }
 
   .band { margin-top: 128px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); overflow: hidden; padding: 26px 0; }
   .band-track { display: flex; width: max-content; will-change: transform; }
@@ -345,6 +330,7 @@
     .index-head { flex-direction: column; gap: 6px; margin-top: 96px; }
     .frame { padding: 16px 16px 0; }
     .projects { gap: 72px; }
+    .cards { grid-template-columns: 1fr; gap: 48px; }
     .contact { padding-top: 120px; }
     .band { margin-top: 96px; padding: 18px 0; }
     footer { margin-top: 100px; }
@@ -356,11 +342,6 @@
     .figure b { font-size: 34px; }
     .caps { grid-template-columns: 1fr; }
     .cap, .cap:nth-child(even), .cap:not(:nth-child(3n+1)) { padding: 26px 0; border-left: 0; }
-    .ui-side { padding: 10px 8px; gap: 7px; }
-    .ui-main { padding: 10px; gap: 8px; }
-    .ui-cards { gap: 5px; }
-    .ui-card { padding: 6px; }
-    .chart { height: 52px; }
     .facts { font-size: 14px; }
   }
   @media (prefers-reduced-motion: reduce) {
@@ -437,37 +418,26 @@
     <div class="wrap">
       <div class="sec-head rv">
         <p class="sec-label"><b>01</b>Selected work</p>
-        <h2>Products I've designed, built and <span class="serif">shipped</span> end to end.</h2>
+        <h2>Twelve products I've designed, built and <span class="serif">shipped.</span></h2>
       </div>
 
       <div class="projects">
         <article class="project">
-          <a class="project-shot rv" href="https://online-leave-management-system-for-phi.vercel.app/login" target="_blank" rel="noopener" aria-label="Open the Leave Management System live demo">
+          <a class="project-shot rv" href="https://online-leave-management-system-for-phi.vercel.app/login" target="_blank" rel="noopener" aria-label="Open Online Leave Management System live site">
             <div class="frame">
-              <div class="window" aria-hidden="true">
-                <div class="chrome"><i></i><i></i><i></i><span>leave-management.vercel.app</span></div>
-                <div class="ui">
-                  <div class="ui-side"><div class="logo"></div><i class="sel"></i><i></i><i></i><i></i><i></i></div>
-                  <div class="ui-main">
-                    <div class="ui-row"><div class="ui-title"></div><div class="ui-pill"></div></div>
-                    <div class="ui-cards"><div class="ui-card"><i></i><b></b></div><div class="ui-card"><i></i><b></b></div><div class="ui-card"><i></i><b></b></div></div>
-                    <div class="cal">
-                      <i></i><i></i><i></i><i class="a"></i><i class="a"></i><i class="b"></i><i class="b"></i>
-                      <i></i><i></i><i></i><i></i><i></i><i class="b"></i><i class="b"></i>
-                      <i class="a"></i><i></i><i></i><i></i><i></i><i class="b"></i><i class="b"></i>
-                    </div>
-                  </div>
-                </div>
+              <div class="window">
+                <div class="chrome" aria-hidden="true"><i></i><i></i><i></i><span>leave-management.vercel.app</span></div>
+                <div class="shot"><img src="assets/projects/leave.webp" width="880" height="910" alt="Screenshot of Online Leave Management System" loading="lazy" decoding="async"></div>
               </div>
             </div>
           </a>
           <div class="project-info rv">
-            <div class="p-index"><span>01</span><span class="num">2025</span></div>
+            <div class="p-index"><span>01</span><span>Major project</span></div>
             <h3>Online Leave Management System</h3>
-            <p>A leave platform for organizations. Employees apply on a shared calendar, holidays are checked automatically, and managers approve through a role-based workflow.</p>
+            <p>A leave platform for organizations. Employees apply on a shared calendar, holidays are checked automatically, and managers approve or reject through a role-based workflow with live notifications.</p>
             <dl class="p-meta">
               <dt>Role</dt><dd>Full stack, solo</dd>
-              <dt>Stack</dt><dd>React, Node.js, MongoDB, JWT</dd>
+              <dt>Stack</dt><dd>React, Node.js, Express, MongoDB, TypeScript</dd>
               <dt>Timeline</dt><dd>Jul – Aug 2025</dd>
             </dl>
             <div class="p-links">
@@ -476,34 +446,22 @@
             </div>
           </div>
         </article>
-
         <article class="project flip">
-          <a class="project-shot rv" href="https://car-detail-and-management-system-fr.vercel.app/" target="_blank" rel="noopener" aria-label="Open the Vehicle Management System live demo">
+          <a class="project-shot rv" href="https://car-detail-and-management-system-fr.vercel.app/" target="_blank" rel="noopener" aria-label="Open Vehicle Management System live site">
             <div class="frame">
-              <div class="window" aria-hidden="true">
-                <div class="chrome"><i></i><i></i><i></i><span>vehicle-management.vercel.app</span></div>
-                <div class="ui">
-                  <div class="ui-side"><div class="logo"></div><i></i><i class="sel"></i><i></i><i></i><i></i></div>
-                  <div class="ui-main">
-                    <div class="ui-row"><div class="ui-title"></div><div class="ui-pill"></div></div>
-                    <div class="chart"><i style="height:38%"></i><i style="height:52%"></i><i style="height:45%"></i><i style="height:66%"></i><i style="height:58%"></i><i style="height:88%"></i><i style="height:70%"></i><i style="height:62%"></i><i style="height:76%"></i></div>
-                    <div class="table">
-                      <div><i class="d"></i><i></i><i></i><i></i></div>
-                      <div><i class="d"></i><i></i><em></em><i></i></div>
-                      <div><i class="d"></i><i></i><em></em><i></i></div>
-                    </div>
-                  </div>
-                </div>
+              <div class="window">
+                <div class="chrome" aria-hidden="true"><i></i><i></i><i></i><span>car-management.vercel.app</span></div>
+                <div class="shot"><img src="assets/projects/vehicle.webp" width="1197" height="782" alt="Screenshot of Vehicle Management System" loading="lazy" decoding="async"></div>
               </div>
             </div>
           </a>
           <div class="project-info rv">
-            <div class="p-index"><span>02</span><span class="num">2025</span></div>
+            <div class="p-index"><span>02</span><span>Major project</span></div>
             <h3>Vehicle Management System</h3>
-            <p>One place for vehicle records and service history, with quick create, edit and search, and an analytics dashboard that shows how vehicles are maintained.</p>
+            <p>One place for vehicle details, service history and owners, with QR codes, a fuel efficiency tracker, a service cost estimator and an analytics dashboard.</p>
             <dl class="p-meta">
               <dt>Role</dt><dd>Full stack, solo</dd>
-              <dt>Stack</dt><dd>React, Node.js, MongoDB</dd>
+              <dt>Stack</dt><dd>React, Node.js, Express, MongoDB, TypeScript</dd>
               <dt>Timeline</dt><dd>Sept – Dec 2025</dd>
             </dl>
             <div class="p-links">
@@ -512,10 +470,119 @@
             </div>
           </div>
         </article>
+        <article class="project">
+          <a class="project-shot rv" href="https://vault-x-gamma.vercel.app/" target="_blank" rel="noopener" aria-label="Open VaultX live site">
+            <div class="frame">
+              <div class="window">
+                <div class="chrome" aria-hidden="true"><i></i><i></i><i></i><span>vaultx.vercel.app</span></div>
+                <div class="shot"><img src="assets/projects/vaultx.webp" width="1400" height="678" alt="Screenshot of VaultX" loading="lazy" decoding="async"></div>
+              </div>
+            </div>
+          </a>
+          <div class="project-info rv">
+            <div class="p-index"><span>03</span><span>Media management</span></div>
+            <h3>VaultX</h3>
+            <p>A platform for uploading, organizing and exploring event photos and videos, with galleries by occasion like weddings, birthdays and travel, plus favorites and downloads.</p>
+            <dl class="p-meta">
+              <dt>Role</dt><dd>Full stack, solo</dd>
+              <dt>Stack</dt><dd>React, Node.js, Express, MongoDB, Cloudinary</dd>
+            </dl>
+            <div class="p-links">
+              <a href="https://vault-x-gamma.vercel.app/" target="_blank" rel="noopener"><span class="ul">Live site</span> <span class="arrow">↗</span></a>
+              <a href="https://github.com/Mantu008/VaultX-" target="_blank" rel="noopener"><span class="ul">Source</span> <span class="arrow">↗</span></a>
+            </div>
+          </div>
+        </article>
+        <article class="project flip">
+          <a class="project-shot rv" href="https://web-horizon-hackthone.vercel.app/" target="_blank" rel="noopener" aria-label="Open Hotel Booking live site">
+            <div class="frame">
+              <div class="window">
+                <div class="chrome" aria-hidden="true"><i></i><i></i><i></i><span>hotel-booking.vercel.app</span></div>
+                <div class="shot"><img src="assets/projects/hotel-booking.webp" width="1400" height="672" alt="Screenshot of Hotel Booking" loading="lazy" decoding="async"></div>
+              </div>
+            </div>
+          </a>
+          <div class="project-info rv">
+            <div class="p-index"><span>04</span><span>Hackathon</span></div>
+            <h3>Hotel Booking</h3>
+            <p>A responsive hotel booking front end built at a hackathon, with search, price comparison across booking sites, detailed hotel pages, galleries and filters.</p>
+            <dl class="p-meta">
+              <dt>Role</dt><dd>Frontend</dd>
+              <dt>Stack</dt><dd>React, React Router, Axios, Tailwind CSS</dd>
+            </dl>
+            <div class="p-links">
+              <a href="https://web-horizon-hackthone.vercel.app/" target="_blank" rel="noopener"><span class="ul">Live site</span> <span class="arrow">↗</span></a>
+              <a href="https://github.com/Mantu008/Web-Horizon-Hackthone" target="_blank" rel="noopener"><span class="ul">Source</span> <span class="arrow">↗</span></a>
+            </div>
+          </div>
+        </article>
       </div>
 
       <div class="index-head rv">
-        <h3>Also contributed to</h3>
+        <h3>More projects</h3>
+        <p>Side projects, freelance work and hackathons</p>
+      </div>
+      <div class="cards">
+        <article class="card rv">
+          <a class="card-shot project-shot" href="https://vergin-matrix-frontend.vercel.app/" target="_blank" rel="noopener" aria-label="Open Matrix live site"><img src="assets/projects/matrix.webp" alt="Screenshot of Matrix" loading="lazy" decoding="async" width="1400" height="670"></a>
+          <div class="card-top"><span class="num">05</span><span>Freelance</span></div>
+          <h4>Matrix</h4>
+          <p>Packing management that assigns products to boxes automatically and generates labeled PDF packing cards.</p>
+          <div class="card-foot"><span class="card-stack">React · Hono · MySQL</span><span class="card-links"><a href="https://vergin-matrix-frontend.vercel.app/" target="_blank" rel="noopener"><span class="ul">Live</span> <span class="arrow">↗</span></a></span></div>
+        </article>
+        <article class="card rv">
+          <a class="card-shot project-shot" href="https://quotation-system-ten.vercel.app/" target="_blank" rel="noopener" aria-label="Open Quotation System live site"><img src="assets/projects/quotation.webp" alt="Screenshot of Quotation System" loading="lazy" decoding="async" width="1400" height="670"></a>
+          <div class="card-top"><span class="num">06</span><span>Business tool</span></div>
+          <h4>Quotation System</h4>
+          <p>Create, manage and share customer quotations, with a fast UI and a robust backend.</p>
+          <div class="card-foot"><span class="card-stack">React · Hono · MySQL · TypeScript</span><span class="card-links"><a href="https://quotation-system-ten.vercel.app/" target="_blank" rel="noopener"><span class="ul">Live</span> <span class="arrow">↗</span></a></span></div>
+        </article>
+        <article class="card rv">
+          <a class="card-shot project-shot" href="https://walk-safe.netlify.app/" target="_blank" rel="noopener" aria-label="Open Walk Safe live site"><img src="assets/projects/walk-safe.webp" alt="Screenshot of Walk Safe" loading="lazy" decoding="async" width="1400" height="670"></a>
+          <div class="card-top"><span class="num">07</span><span>Hackathon</span></div>
+          <h4>Walk Safe</h4>
+          <p>A safety app to report incidents, flag unsafe places, get real-time alerts and chat around the clock.</p>
+          <div class="card-foot"><span class="card-stack">React · Hono · MySQL · JWT</span><span class="card-links"><a href="https://walk-safe.netlify.app/" target="_blank" rel="noopener"><span class="ul">Live</span> <span class="arrow">↗</span></a><a href="https://github.com/Mantu008/Walk-Safe" target="_blank" rel="noopener"><span class="ul">Source</span> <span class="arrow">↗</span></a></span></div>
+        </article>
+        <article class="card rv">
+          <a class="card-shot project-shot" href="https://kitefoot.vercel.app/" target="_blank" rel="noopener" aria-label="Open KiteFoot live site"><img src="assets/projects/kitefoot.webp" alt="Screenshot of KiteFoot" loading="lazy" decoding="async" width="1400" height="670"></a>
+          <div class="card-top"><span class="num">08</span><span>E-commerce</span></div>
+          <h4>KiteFoot</h4>
+          <p>A shoe store with category listings, smooth browsing and advanced filters.</p>
+          <div class="card-foot"><span class="card-stack">React · React Router · Tailwind CSS</span><span class="card-links"><a href="https://kitefoot.vercel.app/" target="_blank" rel="noopener"><span class="ul">Live</span> <span class="arrow">↗</span></a></span></div>
+        </article>
+        <article class="card rv">
+          <a class="card-shot project-shot" href="https://next-auth-v5-six-lake.vercel.app/login" target="_blank" rel="noopener" aria-label="Open NextAuth v5 live site"><img src="assets/projects/nextauth.webp" alt="Screenshot of NextAuth v5" loading="lazy" decoding="async" width="1400" height="670"></a>
+          <div class="card-top"><span class="num">09</span><span>Authentication</span></div>
+          <h4>NextAuth v5</h4>
+          <p>Production-style auth in Next.js with OAuth providers, JWT and session management.</p>
+          <div class="card-foot"><span class="card-stack">Next.js · NextAuth · OAuth · JWT</span><span class="card-links"><a href="https://next-auth-v5-six-lake.vercel.app/login" target="_blank" rel="noopener"><span class="ul">Live</span> <span class="arrow">↗</span></a><a href="https://github.com/Mantu008/NEXT-AUTH-V5" target="_blank" rel="noopener"><span class="ul">Source</span> <span class="arrow">↗</span></a></span></div>
+        </article>
+        <article class="card rv">
+          <a class="card-shot project-shot" href="https://e-commerce-react-ecru-eta.vercel.app" target="_blank" rel="noopener" aria-label="Open E-Commerce with Auth0 live site"><img src="assets/projects/ecommerce-auth0.webp" alt="Screenshot of E-Commerce with Auth0" loading="lazy" decoding="async" width="1400" height="670"></a>
+          <div class="card-top"><span class="num">10</span><span>E-commerce</span></div>
+          <h4>E-Commerce with Auth0</h4>
+          <p>A store built on Redux Toolkit with Auth0 sign-in and client-side routing.</p>
+          <div class="card-foot"><span class="card-stack">React · Redux Toolkit · Auth0</span><span class="card-links"><a href="https://e-commerce-react-ecru-eta.vercel.app" target="_blank" rel="noopener"><span class="ul">Live</span> <span class="arrow">↗</span></a><a href="https://github.com/Mantu008/E-Commerce-REACT" target="_blank" rel="noopener"><span class="ul">Source</span> <span class="arrow">↗</span></a></span></div>
+        </article>
+        <article class="card rv">
+          <a class="card-shot project-shot" href="https://e-commerce-mern-frontant.vercel.app/" target="_blank" rel="noopener" aria-label="Open E-Commerce Backend live site"><img src="assets/projects/ecommerce-backend.webp" alt="Screenshot of E-Commerce Backend" loading="lazy" decoding="async" width="1400" height="670"></a>
+          <div class="card-top"><span class="num">11</span><span>Backend API</span></div>
+          <h4>E-Commerce Backend</h4>
+          <p>A REST API with full CRUD for users and products, secured with JWT.</p>
+          <div class="card-foot"><span class="card-stack">Node.js · Express · MongoDB · JWT</span><span class="card-links"><a href="https://e-commerce-mern-frontant.vercel.app/" target="_blank" rel="noopener"><span class="ul">Live</span> <span class="arrow">↗</span></a><a href="https://github.com/Mantu008/E-commerce-Backend" target="_blank" rel="noopener"><span class="ul">Source</span> <span class="arrow">↗</span></a></span></div>
+        </article>
+        <article class="card rv">
+          <a class="card-shot project-shot" href="https://mantu008.github.io/EComerce/" target="_blank" rel="noopener" aria-label="Open Simple E-Commerce live site"><img src="assets/projects/ecommerce-simple.webp" alt="Screenshot of Simple E-Commerce" loading="lazy" decoding="async" width="1400" height="670"></a>
+          <div class="card-top"><span class="num">12</span><span>Frontend</span></div>
+          <h4>Simple E-Commerce</h4>
+          <p>A fully responsive electronics store built with plain HTML, CSS and Bootstrap.</p>
+          <div class="card-foot"><span class="card-stack">HTML · CSS · JavaScript · Bootstrap</span><span class="card-links"><a href="https://mantu008.github.io/EComerce/" target="_blank" rel="noopener"><span class="ul">Live</span> <span class="arrow">↗</span></a><a href="https://github.com/Mantu008/EComerce" target="_blank" rel="noopener"><span class="ul">Source</span> <span class="arrow">↗</span></a></span></div>
+        </article>
+      </div>
+
+      <div class="index-head rv">
+        <h3>Also contributed to at work</h3>
         <p>Client and company products</p>
       </div>
       <ul class="index rv">
@@ -669,9 +736,6 @@
       size();
     }, 2600);
   }
-
-  /* Index cells for staggered mock animations */
-  $$('.cal, .chart').forEach(g => [...g.children].forEach((c, n) => c.style.setProperty('--i', n)));
 
   /* Project hover cursor */
   if (!reduce && matchMedia('(hover: hover) and (pointer: fine)').matches) {

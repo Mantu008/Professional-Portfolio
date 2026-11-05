@@ -4,7 +4,7 @@ Personal portfolio of Mantu Kumar Morya, full stack developer (MERN, React, Next
 
 - One static page: `index.html` with inline CSS and vanilla JS. No framework, no build step.
 - Self-hosted fonts in `fonts/` (Inter and Instrument Serif).
-- Resume download in `assets/`.
+- Resume download in `assets/`, project screenshots in `assets/projects/`.
 - Editorial, minimal design with light and dark themes (follows the system, with a toggle). Motion is kept subtle: line-by-line hero entrance, gentle scroll reveals and hover details, all off under `prefers-reduced-motion`.
 
 ## Run locally
