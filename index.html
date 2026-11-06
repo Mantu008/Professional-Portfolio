@@ -268,6 +268,95 @@
   .to-top.show { opacity: 1; transform: none; pointer-events: auto; }
   .to-top svg { width: 18px; height: 18px; transform: rotate(-90deg); }
 
+
+  /* ---------- Motion layer ---------- */
+  .progress { position: fixed; top: 0; left: 0; right: 0; height: 3px; z-index: 60; transform-origin: 0 50%; transform: scaleX(0); background: linear-gradient(90deg, var(--accent), #8b5cf6, #06b6d4); }
+
+  /* Hero aurora */
+  .aurora { position: absolute; inset: -10% -5% 0; z-index: -2; pointer-events: none; overflow: hidden; }
+  .aurora i { position: absolute; width: 520px; height: 520px; border-radius: 50%; filter: blur(90px); opacity: .28; will-change: transform; }
+  .aurora i:nth-child(1) { background: #3b82f6; top: -12%; right: 4%; animation: drift1 18s ease-in-out infinite alternate; }
+  .aurora i:nth-child(2) { background: #8b5cf6; top: 30%; right: 26%; width: 420px; height: 420px; opacity: .2; animation: drift2 22s ease-in-out infinite alternate; }
+  .aurora i:nth-child(3) { background: #06b6d4; bottom: -20%; left: -6%; width: 460px; height: 460px; opacity: .16; animation: drift3 20s ease-in-out infinite alternate; }
+  :root[data-theme="dark"] .aurora i { opacity: .22; }
+  @keyframes drift1 { to { transform: translate(-120px, 80px) scale(1.15); } }
+  @keyframes drift2 { to { transform: translate(140px, -60px) scale(.9); } }
+  @keyframes drift3 { to { transform: translate(160px, -100px) scale(1.2); } }
+
+  /* Hero intro: words rise in on load */
+  .hero h1 .w { display: inline-block; overflow: hidden; vertical-align: top; padding-bottom: .08em; margin-bottom: -.08em; }
+  .hero h1 .w > span { display: inline-block; transform: translateY(105%); animation: rise .9s var(--ease) forwards; animation-delay: calc(.25s + var(--d, 0) * .12s); }
+  @keyframes rise { to { transform: none; } }
+  .grad { background: linear-gradient(90deg, var(--accent), #8b5cf6, #06b6d4, var(--accent)); background-size: 300% 100%; -webkit-background-clip: text; background-clip: text; color: transparent; animation: shimmer 8s linear infinite; }
+  @keyframes shimmer { to { background-position: 300% 0; } }
+  .wave { display: inline-block; transform-origin: 70% 70%; animation: wave 2.4s ease-in-out 1s infinite; }
+  @keyframes wave { 0%, 60%, 100% { transform: none; } 10%, 30% { transform: rotate(14deg); } 20% { transform: rotate(-8deg); } 40% { transform: rotate(-4deg); } 50% { transform: rotate(10deg); } }
+
+  /* Avatar ring + orbit */
+  .avatar-ring { position: absolute; inset: 5%; border-radius: 50%; padding: 3px; background: conic-gradient(from var(--ang, 0deg), var(--accent), #8b5cf6, #06b6d4, transparent 70%, var(--accent)); -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0); animation: spin 6s linear infinite; }
+  @property --ang { syntax: '<angle>'; inherits: false; initial-value: 0deg; }
+  @keyframes spin { to { --ang: 360deg; } }
+  .orbit { position: absolute; inset: -2%; border-radius: 50%; border: 1px dashed color-mix(in srgb, var(--muted) 35%, transparent); animation: rot 40s linear infinite; }
+  .orbit span { position: absolute; width: 48px; height: 48px; margin: -24px; border-radius: 14px; background: var(--card); border: 1px solid var(--line); box-shadow: var(--shadow); display: grid; place-items: center; animation: rot 40s linear infinite reverse; }
+  .orbit img { width: 28px; height: 28px; object-fit: contain; }
+  .orbit span:nth-child(1) { top: 0; left: 50%; }
+  .orbit span:nth-child(2) { top: 50%; left: 100%; }
+  .orbit span:nth-child(3) { top: 100%; left: 50%; }
+  .orbit span:nth-child(4) { top: 50%; left: 0; }
+  @keyframes rot { to { transform: rotate(360deg); } }
+  .avatar { transition: transform .6s var(--ease); }
+  .avatar-wrap:hover .avatar { transform: scale(1.03); }
+
+  /* Tech marquee */
+  .marquee { position: relative; display: flex; overflow: hidden; padding: 22px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--card); -webkit-mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent); mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent); }
+  .mq-track { display: flex; flex: none; gap: 14px; padding-right: 14px; animation: mq 45s linear infinite; }
+  .marquee:hover .mq-track { animation-play-state: paused; }
+  .mq-item { display: inline-flex; align-items: center; gap: 10px; padding: 10px 18px; border-radius: 999px; border: 1px solid var(--line); background: var(--bg); font-weight: 600; font-size: 15px; color: var(--ink-2); white-space: nowrap; transition: border-color .25s, color .25s, transform .25s var(--ease); }
+  .mq-item:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-3px); }
+  .mq-item img { width: 26px; height: 26px; object-fit: contain; }
+  @keyframes mq { to { transform: translateX(-100%); } }
+
+  /* Spotlight + tilt on cards */
+  .spot { position: relative; isolation: isolate; }
+  .spot::after { content: ''; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; z-index: 2; opacity: 0; transition: opacity .35s; background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), color-mix(in srgb, var(--accent) 12%, transparent), transparent 45%); }
+  .spot:hover::after { opacity: 1; }
+  .tilt { transform-style: preserve-3d; will-change: transform; }
+  .proj.tilt:hover { transform: perspective(900px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) translateY(-6px); }
+
+  /* Button shine + magnetic */
+  .btn-primary { position: relative; overflow: hidden; }
+  .btn-primary::before { content: ''; position: absolute; top: 0; left: -75%; width: 50%; height: 100%; background: linear-gradient(100deg, transparent, rgba(255,255,255,.45), transparent); transform: skewX(-20deg); transition: left .7s var(--ease); }
+  .btn-primary:hover::before { left: 130%; }
+  .btn svg { transition: transform .3s var(--ease); }
+  .btn:hover svg { transform: translateX(3px); }
+  .mag { transition: transform .25s var(--ease), background-color .2s, border-color .2s, color .2s; }
+
+  /* Skills pop + icon bounce */
+  .js .skill-group.rv .skill { opacity: 0; transform: translateY(14px) scale(.92); }
+  .js .skill-group.in .skill, .skill-group:not(.rv) .skill { opacity: 1; transform: none; transition: opacity .5s var(--ease), transform .5s var(--ease), border-color .25s, box-shadow .25s; transition-delay: calc(var(--i, 0) * 45ms); }
+  .skill:hover { transition-delay: 0s !important; }
+  .skill:hover .skill-ico { animation: bounce .7s var(--ease); }
+  @keyframes bounce { 0% { transform: none; } 30% { transform: translateY(-8px) rotate(-8deg) scale(1.12); } 60% { transform: translateY(0) rotate(4deg); } 100% { transform: none; } }
+  .chip { transition: transform .25s var(--ease), border-color .25s, color .25s; }
+  .chip:hover { transform: translateY(-3px); border-color: var(--accent); color: var(--accent); }
+
+  /* Timeline draws as you scroll */
+  .timeline::after { content: ''; position: absolute; left: 11px; top: 8px; width: 2px; height: calc((100% - 16px) * var(--tl, 0)); background: linear-gradient(var(--accent), #8b5cf6); border-radius: 2px; }
+  .tl-dot { z-index: 1; transition: transform .4s var(--ease), background-color .4s; }
+  .tl-item.lit .tl-dot { background: var(--accent); transform: scale(1.15); }
+
+  /* Reveal variants */
+  .js .rv.from-left { transform: translateX(-40px); }
+  .js .rv.from-right { transform: translateX(40px); }
+  .js .rv.zoom { transform: scale(.94) translateY(20px); }
+  .js .rv.in { transform: none; }
+
+  /* Cursor follower (mouse only) */
+  .cursor { position: fixed; top: 0; left: 0; z-index: 70; width: 34px; height: 34px; margin: -17px; border-radius: 50%; border: 1.5px solid var(--accent); pointer-events: none; opacity: 0; transition: width .25s var(--ease), height .25s var(--ease), margin .25s var(--ease), opacity .25s, background-color .25s; }
+  .cursor.on { opacity: .7; }
+  .cursor.big { width: 64px; height: 64px; margin: -32px; background: color-mix(in srgb, var(--accent) 10%, transparent); }
+  @media (hover: none), (pointer: coarse) { .cursor { display: none; } }
+
   /* Reveal */
   .js .rv { opacity: 0; transform: translateY(20px); transition: opacity .7s var(--ease), transform .7s var(--ease); }
   .js .rv.in { opacity: 1; transform: none; }
@@ -276,6 +365,7 @@
   @media (max-width: 1024px) {
     .projects { grid-template-columns: repeat(2, 1fr); }
     .float.f1 { left: 0; } .float.f2 { left: -2%; } .float.f3 { right: 0; }
+    .orbit span { width: 40px; height: 40px; margin: -20px; } .orbit img { width: 22px; height: 22px; }
   }
   @media (max-width: 900px) {
     .hero { padding: 48px 0 72px; }
@@ -306,7 +396,8 @@
     .float .ic { width: 30px; height: 30px; }
     .float.f2 { bottom: 6%; }
     .tl-item { padding-left: 32px; }
-    .timeline::before { left: 7px; }
+    .timeline::before, .timeline::after { left: 7px; }
+    .aurora i { width: 300px; height: 300px; }
     .tl-dot { left: 0; width: 16px; height: 16px; border-width: 3px; }
     .tl-card { padding: 20px; }
     .tl-meta { text-align: left; }
@@ -315,6 +406,9 @@
     .stat b { font-size: 30px; }
   }
   @media (prefers-reduced-motion: reduce) {
+    .hero h1 .w > span { transform: none; }
+    .timeline::after { height: calc(100% - 16px); }
+    .cursor, .aurora { display: none; }
     html { scroll-behavior: auto; }
     *, *::before, *::after { animation: none !important; transition: none !important; }
     .js .rv { opacity: 1; transform: none; }
@@ -323,6 +417,8 @@
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
+<div class="progress" aria-hidden="true"></div>
+<div class="cursor" aria-hidden="true"></div>
 
 <header class="site-header">
   <div class="wrap bar">
@@ -350,11 +446,12 @@
 <main id="main">
   <!-- Hero -->
   <section class="hero" id="home">
+    <div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div>
     <div class="wrap hero-grid">
       <div class="hero-copy">
         <span class="avail rv"><i aria-hidden="true"></i>Available for new opportunities</span>
-        <p class="hello rv">Hi there, I'm</p>
-        <h1 class="rv">Mantu Kumar Morya</h1>
+        <p class="hello rv">Hi there <span class="wave" aria-hidden="true">👋</span> I'm</p>
+        <h1 aria-label="Mantu Kumar Morya"><span class="w" aria-hidden="true"><span style="--d:0">Mantu</span></span> <span class="w" aria-hidden="true"><span style="--d:1">Kumar</span></span> <span class="w" aria-hidden="true"><span class="grad" style="--d:2">Morya</span></span></h1>
         <p class="role rv" aria-label="Full Stack Developer">
           <span aria-hidden="true"><span class="typed" data-words='["Full Stack Developer","React & Next.js Developer","Node.js API Developer","MERN Stack Developer"]'>Full Stack Developer</span><span class="caret"></span></span>
         </p>
@@ -372,6 +469,8 @@
         </div>
       </div>
       <div class="avatar-wrap rv">
+        <div class="orbit" aria-hidden="true"><span><img src="assets/icons/react.webp" alt=""></span><span><img src="assets/icons/javascript.webp" alt=""></span><span><img src="assets/icons/typescript.webp" alt=""></span><span><img src="assets/icons/html.webp" alt=""></span></div>
+        <div class="avatar-ring" aria-hidden="true"></div>
         <div class="avatar">
           <span class="initials" aria-hidden="true">MK</span>
           <!-- Add your photo as assets/profile.jpg and it will appear here automatically -->
@@ -384,6 +483,8 @@
     </div>
   </section>
 
+  <div class="marquee" aria-label="Technologies I use"><div class="mq-track"><span class="mq-item"><img src="assets/icons/react.webp" alt="" width="28" height="28" loading="lazy" onerror="this.remove()">React</span><span class="mq-item"><img src="assets/icons/nextjs.webp" alt="" width="28" height="28" loading="lazy" onerror="this.remove()">Next.js</span><span class="mq-item"><img src="assets/icons/typescript.webp" alt="" width="28" height="28" loading="lazy" onerror="this.remove()">TypeScript</span><span class="mq-item"><img src="assets/icons/javascript.webp" alt="" width="28" height="28" loading="lazy" onerror="this.remove()">JavaScript</span><span class="mq-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/redux/redux-original.svg" alt="" width="28" height="28" loading="lazy" onerror="this.remove()">Redux Toolkit</span><span class="mq-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/tailwindcss/tailwindcss-original.svg" alt="" width="28" height="28" loading="lazy" onerror="this.remove()">Tailwind CSS</span><span class="mq-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/materialui/materialui-original.svg" alt="" width="28" height="28" loading="lazy" onerror="this.remove()">Material UI</span><span class="mq-item"><img src="assets/icons/html.webp" alt="" width="28" height="28" loading="lazy" onerror="this.remove()">HTML5</span><span class="mq-item"><img src="assets/icons/css.webp" alt="" width="28" height="28" loading="lazy" onerror="this.remove()">CSS3</span><span class="mq-item"><img src="assets/icons/bootstrap.webp" alt="" width="28" height="28" loading="lazy" onerror="this.remove()">Bootstrap</span><span class="mq-item"><img src="assets/icons/nodejs.webp" alt="" width="28" height="28" loading="lazy" onerror="this.remove()">Node.js</span><span class="mq-item"><img src="assets/icons/express.webp" alt="" width="28" height="28" loading="lazy" onerror="this.remove()">Express.js</span><span class="mq-item"><img src="assets/icons/rest-api.webp" alt="" width="28" height="28" loading="lazy" onerror="this.remove()">REST APIs</span><span class="mq-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/firebase/firebase-original.svg" alt="" width="28" height="28" loading="lazy" onerror="this.remove()">Firebase</span><span class="mq-item"><img src="assets/icons/java.webp" alt="" width="28" height="28" loading="lazy" onerror="this.remove()">Java</span><span class="mq-item"><img src="assets/icons/c.webp" alt="" width="28" height="28" loading="lazy" onerror="this.remove()">C</span><span class="mq-item"><img src="assets/icons/mongodb.webp" alt="" width="28" height="28" loading="lazy" onerror="this.remove()">MongoDB</span><span class="mq-item"><img src="assets/icons/mysql.webp" alt="" width="28" height="28" loading="lazy" onerror="this.remove()">MySQL</span><span class="mq-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/git/git-original.svg" alt="" width="28" height="28" loading="lazy" onerror="this.remove()">Git</span><span class="mq-item"><img src="assets/icons/github.webp" alt="" width="28" height="28" loading="lazy" onerror="this.remove()">GitHub</span><span class="mq-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/postman/postman-original.svg" alt="" width="28" height="28" loading="lazy" onerror="this.remove()">Postman</span><span class="mq-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/jest/jest-plain.svg" alt="" width="28" height="28" loading="lazy" onerror="this.remove()">Jest</span><span class="mq-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/vitejs/vitejs-original.svg" alt="" width="28" height="28" loading="lazy" onerror="this.remove()">Vite</span><span class="mq-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/linux/linux-original.svg" alt="" width="28" height="28" loading="lazy" onerror="this.remove()">Linux</span></div><div class="mq-track" aria-hidden="true"><span class="mq-item"><img src="assets/icons/react.webp" alt="" width="28" height="28" loading="lazy" onerror="this.remove()">React</span><span class="mq-item"><img src="assets/icons/nextjs.webp" alt="" width="28" height="28" loading="lazy" onerror="this.remove()">Next.js</span><span class="mq-item"><img src="assets/icons/typescript.webp" alt="" width="28" height="28" loading="lazy" onerror="this.remove()">TypeScript</span><span class="mq-item"><img src="assets/icons/javascript.webp" alt="" width="28" height="28" loading="lazy" onerror="this.remove()">JavaScript</span><span class="mq-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/redux/redux-original.svg" alt="" width="28" height="28" loading="lazy" onerror="this.remove()">Redux Toolkit</span><span class="mq-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/tailwindcss/tailwindcss-original.svg" alt="" width="28" height="28" loading="lazy" onerror="this.remove()">Tailwind CSS</span><span class="mq-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/materialui/materialui-original.svg" alt="" width="28" height="28" loading="lazy" onerror="this.remove()">Material UI</span><span class="mq-item"><img src="assets/icons/html.webp" alt="" width="28" height="28" loading="lazy" onerror="this.remove()">HTML5</span><span class="mq-item"><img src="assets/icons/css.webp" alt="" width="28" height="28" loading="lazy" onerror="this.remove()">CSS3</span><span class="mq-item"><img src="assets/icons/bootstrap.webp" alt="" width="28" height="28" loading="lazy" onerror="this.remove()">Bootstrap</span><span class="mq-item"><img src="assets/icons/nodejs.webp" alt="" width="28" height="28" loading="lazy" onerror="this.remove()">Node.js</span><span class="mq-item"><img src="assets/icons/express.webp" alt="" width="28" height="28" loading="lazy" onerror="this.remove()">Express.js</span><span class="mq-item"><img src="assets/icons/rest-api.webp" alt="" width="28" height="28" loading="lazy" onerror="this.remove()">REST APIs</span><span class="mq-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/firebase/firebase-original.svg" alt="" width="28" height="28" loading="lazy" onerror="this.remove()">Firebase</span><span class="mq-item"><img src="assets/icons/java.webp" alt="" width="28" height="28" loading="lazy" onerror="this.remove()">Java</span><span class="mq-item"><img src="assets/icons/c.webp" alt="" width="28" height="28" loading="lazy" onerror="this.remove()">C</span><span class="mq-item"><img src="assets/icons/mongodb.webp" alt="" width="28" height="28" loading="lazy" onerror="this.remove()">MongoDB</span><span class="mq-item"><img src="assets/icons/mysql.webp" alt="" width="28" height="28" loading="lazy" onerror="this.remove()">MySQL</span><span class="mq-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/git/git-original.svg" alt="" width="28" height="28" loading="lazy" onerror="this.remove()">Git</span><span class="mq-item"><img src="assets/icons/github.webp" alt="" width="28" height="28" loading="lazy" onerror="this.remove()">GitHub</span><span class="mq-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/postman/postman-original.svg" alt="" width="28" height="28" loading="lazy" onerror="this.remove()">Postman</span><span class="mq-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/jest/jest-plain.svg" alt="" width="28" height="28" loading="lazy" onerror="this.remove()">Jest</span><span class="mq-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/vitejs/vitejs-original.svg" alt="" width="28" height="28" loading="lazy" onerror="this.remove()">Vite</span><span class="mq-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/linux/linux-original.svg" alt="" width="28" height="28" loading="lazy" onerror="this.remove()">Linux</span></div></div>
+
   <!-- About -->
   <section class="sec alt" id="about">
     <div class="wrap">
@@ -392,13 +493,13 @@
         <h2>Turning ideas into working products</h2>
       </div>
       <div class="about">
-        <div class="about-text rv">
+        <div class="about-text rv from-left">
           <p>I'm a full stack developer from India, currently working at <b>Bring On Digital</b> in Noida. Over the past year I've worked at three companies, contributing to e-commerce platforms, CRMs, a transportation management system and internal business tools.</p>
           <p>I enjoy the whole journey: designing clean, responsive interfaces in React and Next.js, building secure REST APIs with Node.js and Express, and connecting real-world services like payments, Google OAuth, WhatsApp Cloud API and Twilio. I also use AI-assisted tools to ship faster without cutting corners.</p>
           <p>I recently finished my B.Tech in Computer Engineering at Marwadi University with a CGPA of 8.54, and I'm always up for a new challenge.</p>
           <a class="btn btn-primary" href="assets/Mantu_Kumar_Morya_Resume.pdf" download>Download résumé <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"/></svg></a>
         </div>
-        <dl class="info rv">
+        <dl class="info rv from-right">
           <div><dt>Name</dt><dd>Mantu Kumar Morya</dd></div>
           <div><dt>Role</dt><dd>Full Stack Developer</dd></div>
           <div><dt>Location</dt><dd>Noida, India</dd></div>
@@ -858,6 +959,73 @@
     note.style.color = '';
     note.textContent = 'Opening your email app… Thanks for reaching out!';
   });
+
+  /* Scroll progress + timeline fill */
+  const bar = $('.progress'), tl = $('.timeline'), tlItems = $$('.tl-item');
+  let ticking = false;
+  const onFrame = () => {
+    ticking = false;
+    const max = document.documentElement.scrollHeight - innerHeight;
+    bar.style.transform = 'scaleX(' + (max > 0 ? scrollY / max : 0) + ')';
+    if (tl && !reduce) {
+      const r = tl.getBoundingClientRect(), mid = innerHeight * .6;
+      const k = Math.max(0, Math.min(1, (mid - r.top) / r.height));
+      tl.style.setProperty('--tl', k.toFixed(3));
+      tlItems.forEach(li => li.classList.toggle('lit', li.getBoundingClientRect().top + 30 < mid));
+    }
+  };
+  addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(onFrame); } }, { passive: true });
+  addEventListener('resize', onFrame); onFrame();
+
+  /* Stagger skill cells, zoom-in cards */
+  $$('.skill-grid').forEach(g => [...g.children].forEach((c, n) => c.style.setProperty('--i', n)));
+  $$('.projects .proj, .stats .stat').forEach(c => c.classList.add('zoom'));
+
+  const fine = matchMedia('(hover: hover) and (pointer: fine)').matches;
+  if (fine && !reduce) {
+    /* Spotlight that follows the mouse */
+    $$('.proj, .skill-group, .tl-card, .stat, .edu-card, .c-item, .form, .info > div').forEach(el => {
+      el.classList.add('spot');
+      el.addEventListener('pointermove', e => {
+        const r = el.getBoundingClientRect();
+        el.style.setProperty('--mx', e.clientX - r.left + 'px');
+        el.style.setProperty('--my', e.clientY - r.top + 'px');
+      });
+    });
+    /* 3D tilt on project cards */
+    $$('.proj').forEach(el => {
+      el.classList.add('tilt');
+      el.addEventListener('pointermove', e => {
+        const r = el.getBoundingClientRect();
+        const x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5;
+        el.style.setProperty('--ry', (x * 8).toFixed(2) + 'deg');
+        el.style.setProperty('--rx', (-y * 8).toFixed(2) + 'deg');
+      });
+      el.addEventListener('pointerleave', () => { el.style.setProperty('--rx', '0deg'); el.style.setProperty('--ry', '0deg'); });
+    });
+    /* Magnetic buttons */
+    $$('.hero-cta .btn, .bar-end .btn, .hero .socials .icon-link').forEach(el => {
+      el.classList.add('mag');
+      el.addEventListener('pointermove', e => {
+        const r = el.getBoundingClientRect();
+        el.style.transform = `translate(${(e.clientX - r.left - r.width / 2) * .25}px, ${(e.clientY - r.top - r.height / 2) * .35}px)`;
+      });
+      el.addEventListener('pointerleave', () => { el.style.transform = ''; });
+    });
+    /* Cursor ring */
+    const cur = $('.cursor');
+    let cx = innerWidth / 2, cy = innerHeight / 2, tx = cx, ty = cy;
+    addEventListener('pointermove', e => { tx = e.clientX; ty = e.clientY; cur.classList.add('on'); cur.classList.toggle('big', !!e.target.closest('a, button, input, textarea')); });
+    document.documentElement.addEventListener('pointerleave', () => cur.classList.remove('on'));
+    const loop = () => { cx += (tx - cx) * .2; cy += (ty - cy) * .2; cur.style.transform = `translate(${cx}px, ${cy}px)`; requestAnimationFrame(loop); };
+    loop();
+    /* Hero parallax */
+    const hero = $('.hero'), av = $('.avatar-wrap');
+    hero.addEventListener('pointermove', e => {
+      const x = e.clientX / innerWidth - .5, y = e.clientY / innerHeight - .5;
+      av.style.translate = `${x * -18}px ${y * -18}px`;
+    });
+  }
 
   $('#year').textContent = new Date().getFullYear();
 })();
