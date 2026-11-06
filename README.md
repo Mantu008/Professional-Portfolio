@@ -3,7 +3,7 @@
 Personal portfolio of Mantu Kumar Morya, full stack developer (MERN, React, Next.js, TypeScript, Node.js).
 
 - One static page: `index.html` with inline CSS and vanilla JS. No framework, no build step.
-- Self-hosted fonts in `fonts/` (Inter); tech logos in `assets/icons/`. Add `assets/profile.jpg` to replace the "MK" avatar with a photo.
+- Self-hosted fonts in `fonts/` (Inter); Three.js, GSAP and Lenis self-hosted in `assets/vendor/`; tech logos in `assets/icons/`. Add `assets/profile.jpg` to replace the "MK" avatar with a photo.
 - Resume download in `assets/`, project screenshots in `assets/projects/`.
 - Editorial, minimal design with light and dark themes (follows the system, with a toggle). Motion is kept subtle: line-by-line hero entrance, gentle scroll reveals and hover details, all off under `prefers-reduced-motion`.
 
