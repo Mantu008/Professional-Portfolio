@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>404 · Mantu Kumar Morya</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#f4f3ef">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23121212'/%3E%3Ctext x='32' y='41' font-family='monospace' font-weight='700' font-size='24' text-anchor='middle' fill='%23f4f3ef'%3Em_%3C/text%3E%3C/svg%3E">
+<style>
+  @font-face { font-family: 'Geist'; font-weight: 100 900; font-display: swap; src: url(/fonts/geist-var.woff2) format('woff2'); }
+  @font-face { font-family: 'Geist Mono'; font-weight: 100 900; font-display: swap; src: url(/fonts/geist-mono-var.woff2) format('woff2'); }
+  :root { --paper: #f4f3ef; --card: #fbfaf7; --ink: #121212; --muted: #5c5b57; --subtle: #6f6e69; --faint: #878580; --line: #dcdad3; --accent: #2b50e8; --term: #141414; --term-2: #1d1d1c;
+    --mono: 'Geist Mono', ui-monospace, Menlo, Consolas, monospace; --sans: 'Geist', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { min-height: 100vh; display: grid; place-items: center; padding: 24px 16px; background: var(--paper); color: var(--muted); font-family: var(--sans); -webkit-font-smoothing: antialiased; }
+  main { width: 100%; max-width: 560px; }
+  h1 { color: var(--ink); font-size: clamp(40px, 9vw, 64px); font-weight: 600; letter-spacing: -.05em; line-height: 1; margin-top: 18px; }
+  h1 span { color: var(--faint); }
+  p.lead { margin-top: 18px; font-size: 18px; line-height: 1.6; }
+  .code { font: 500 13px/1 var(--mono); color: var(--subtle); }
+  .code b { color: var(--accent); font-weight: 500; }
+  pre { margin-top: 28px; background: var(--term); color: #d6d4cd; border: 1px solid #000; border-radius: 12px; padding: 18px 20px; font: 13px/1.7 var(--mono); white-space: pre-wrap; word-break: break-word; }
+  pre .p { color: #6ee7a1; } pre .c { color: #8a8882; } pre .e { color: #ff8b80; }
+  a.btn { display: inline-flex; align-items: center; gap: 10px; height: 46px; margin-top: 28px; padding: 0 18px; font: 500 14px/1 var(--mono); border-radius: 8px; background: var(--ink); color: var(--paper); text-decoration: none; box-shadow: 3px 3px 0 var(--accent); transition: transform .15s, box-shadow .15s; }
+  a.btn:hover { transform: translate(-1px, -1px); box-shadow: 4px 4px 0 var(--accent); }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+  @media (prefers-reduced-motion: reduce) { a.btn { transition: none; } }
+</style>
+</head>
+<body>
+<main>
+  <p class="code"><b>404</b> · not found</p>
+  <h1>This page doesn't exist. <span>Yet.</span></h1>
+  <p class="lead">The link may be old or mistyped. Everything lives on the home page.</p>
+  <pre aria-hidden="true"><span class="p">mantu</span><span class="c">@noida ~</span> cd <span id="path">this-page</span>
+<span class="e">cd: no such file or directory</span>
+<span class="p">mantu</span><span class="c">@noida ~</span> cd ~ <span class="c"># try this instead</span></pre>
+  <a class="btn" href="/">cd ~/portfolio</a>
+</main>
+<script>try { var p = location.pathname.replace(/^\/+/, '') || 'this-page'; document.getElementById('path').textContent = p.length > 48 ? p.slice(0, 48) + '…' : p; } catch (e) {}</script>
+</body>
+</html>
