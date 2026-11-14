@@ -3,9 +3,9 @@
 Personal portfolio of Mantu Kumar Morya, full stack developer (MERN, React, Next.js, TypeScript, Node.js).
 
 - One static page: `index.html` with inline CSS and vanilla JS. No framework, no build step.
-- Self-hosted fonts in `fonts/` (Space Grotesk); GSAP and Lenis self-hosted in `assets/vendor/`; tech logos in `assets/icons/`. Add `assets/profile.jpg` to replace the "MK" avatar with a photo.
+- Self-hosted Geist and Geist Mono fonts in `fonts/` (OFL, see `fonts/GEIST-LICENSE.txt`); tech logos (Devicon SVGs) in `assets/icons/`. Add `assets/profile.jpg` to replace the "MK" avatar with a photo.
 - Resume download in `assets/`, project screenshots in `assets/projects/`.
-- Editorial, minimal design with light and dark themes (follows the system, with a toggle). Motion is kept subtle: line-by-line hero entrance, gentle scroll reveals and hover details, all off under `prefers-reduced-motion`.
+- Developer-native design: a status bar with live IST clock, an interactive terminal in the hero, a ⌘K / Ctrl K command menu (also the mobile menu), projects shown as repos, experience as a git log, skills as `stack.ts`, and a contact form that previews its JSON request. Warm paper and ink with one blue accent, blueprint hairlines framing the page. Motion is limited to typing, reveals and hover states, all off under `prefers-reduced-motion`.
 
 ## Run locally
 
@@ -13,7 +13,7 @@ Open `index.html` in a browser, or serve the folder with `npx serve .`
 
 ## Update content
 
-All content lives in `index.html`. Each section (Work, Experience, Capabilities, Education, Contact) is marked with a comment. To change the resume, replace `assets/Mantu_Kumar_Morya_Resume.pdf`.
+All content lives in `index.html`. Each section (Hero, About, Work, Experience, Stack, Contact) is marked with a comment. To change the resume, replace `assets/Mantu_Kumar_Morya_Resume.pdf`.
 
 ## Deploy
 
