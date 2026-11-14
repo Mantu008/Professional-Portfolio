@@ -3,9 +3,9 @@
 Personal portfolio of Mantu Kumar Morya, full stack developer (MERN, React, Next.js, TypeScript, Node.js).
 
 - One static page: `index.html` with inline CSS and vanilla JS. No framework, no build step.
-- Self-hosted Inter font in `fonts/`; tech logos (Devicon SVGs) in `assets/icons/`. Add `assets/profile.jpg` to replace the "MK" avatar with a photo.
+- Self-hosted Inter and Inter Display fonts in `fonts/`; tech logos (Devicon SVGs) in `assets/icons/`. Add `assets/profile.jpg` to replace the "MK" avatar with a photo.
 - Resume download in `assets/`, project screenshots in `assets/projects/`.
-- Classic professional design: white and navy, Inter, a hero with a profile card, skills, an experience timeline, project cards with screenshots and a contact form. Motion is limited to gentle scroll reveals and hover states, all off under `prefers-reduced-motion`.
+- Premium minimal design: warm off-white and ink, Inter Display headlines, a floating pill navbar, a hero with stacked project screenshots, a scrolling tech strip, showcase rows for the top projects, an experience list and a dark contact panel. Motion is limited to soft entrances, scroll reveals and hover states, all off under `prefers-reduced-motion`.
 
 ## Run locally
 

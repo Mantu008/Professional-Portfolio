@@ -9,378 +9,432 @@
 <meta property="og:description" content="Full stack developer building fast, reliable web products with React, Next.js, TypeScript and Node.js.">
 <meta property="og:type" content="website">
 <meta property="og:image" content="assets/projects/leave.webp">
-<meta name="theme-color" content="#ffffff">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231e3a8a'/%3E%3Ctext x='32' y='42' font-family='Arial,sans-serif' font-weight='700' font-size='26' text-anchor='middle' fill='%23ffffff'%3EMK%3C/text%3E%3C/svg%3E">
+<meta name="theme-color" content="#fafaf9">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230c0a09'/%3E%3Ctext x='32' y='42' font-family='Arial,sans-serif' font-weight='700' font-size='26' text-anchor='middle' fill='%23ffffff'%3EMK%3C/text%3E%3C/svg%3E">
 <link rel="preload" href="fonts/inter-regular.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="fonts/inter-bold.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/inter-display-semibold.woff2" as="font" type="font/woff2" crossorigin>
 <script>document.documentElement.classList.add('js')</script>
 <style>
   @font-face { font-family: 'Inter'; font-weight: 400; font-display: swap; src: url(fonts/inter-regular.woff2) format('woff2'); }
   @font-face { font-family: 'Inter'; font-weight: 500; font-display: swap; src: url(fonts/inter-medium.woff2) format('woff2'); }
   @font-face { font-family: 'Inter'; font-weight: 600; font-display: swap; src: url(fonts/inter-semibold.woff2) format('woff2'); }
   @font-face { font-family: 'Inter'; font-weight: 700; font-display: swap; src: url(fonts/inter-bold.woff2) format('woff2'); }
+  @font-face { font-family: 'Inter Display'; font-weight: 600; font-display: swap; src: url(fonts/inter-display-semibold.woff2) format('woff2'); }
+  @font-face { font-family: 'Inter Display'; font-weight: 700; font-display: swap; src: url(fonts/inter-display-bold.woff2) format('woff2'); }
 
   :root {
-    --bg: #f8fafc;
+    --bg: #fafaf9;
     --surface: #ffffff;
-    --ink: #0f172a;
-    --text: #334155;
-    --muted: #64748b;
-    --line: #e2e8f0;
-    --line-soft: #f1f5f9;
-    --brand: #1e3a8a;
-    --brand-2: #1d4ed8;
-    --brand-soft: #eef2ff;
-    --ok: #059669;
-    --radius: 14px;
-    --shadow: 0 1px 2px rgba(15, 23, 42, .04), 0 10px 30px rgba(15, 23, 42, .06);
-    --max: 1160px;
+    --ink: #0c0a09;
+    --text: #44403c;
+    --muted: #78716c;
+    --faint: #a8a29e;
+    --line: #e7e5e4;
+    --line-soft: #f0efed;
+    --accent: #2f54eb;
+    --accent-soft: #eef1fe;
+    --green: #16a34a;
+    --r: 16px;
+    --shadow-sm: 0 1px 2px rgba(12, 10, 9, .05);
+    --shadow: 0 1px 2px rgba(12, 10, 9, .04), 0 12px 32px -8px rgba(12, 10, 9, .10);
+    --shadow-lg: 0 2px 4px rgba(12, 10, 9, .04), 0 32px 64px -16px rgba(12, 10, 9, .18);
+    --max: 1200px;
+    --display: 'Inter Display', 'Inter', system-ui, sans-serif;
   }
   *, *::before, *::after { box-sizing: border-box; }
   * { margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; scroll-padding-top: 84px; -webkit-text-size-adjust: 100%; }
-  body { font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; background: var(--bg); color: var(--text); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
-  img { display: block; max-width: 100%; }
+  html { scroll-behavior: smooth; scroll-padding-top: 88px; -webkit-text-size-adjust: 100%; }
+  body { font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; background: var(--bg); color: var(--text); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; font-feature-settings: 'cv11', 'calt'; overflow-x: hidden; }
+  img { display: block; max-width: 100%; height: auto; }
   a { color: inherit; text-decoration: none; }
-  ul { list-style: none; }
+  ul, ol { list-style: none; }
   svg { width: 1em; height: 1em; flex: none; }
-  h1, h2, h3 { color: var(--ink); line-height: 1.2; letter-spacing: -.02em; }
-  :focus-visible { outline: 2px solid var(--brand-2); outline-offset: 3px; border-radius: 6px; }
-  .skip { position: absolute; left: 16px; top: -60px; background: var(--brand); color: #fff; padding: 10px 14px; border-radius: 8px; z-index: 100; }
+  h1, h2, h3 { color: var(--ink); font-family: var(--display); font-weight: 600; letter-spacing: -.02em; line-height: 1.15; }
+  ::selection { background: var(--ink); color: #fff; }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 8px; }
+  .skip { position: absolute; left: 16px; top: -60px; background: var(--ink); color: #fff; padding: 10px 14px; border-radius: 10px; z-index: 100; }
   .skip:focus { top: 12px; }
-  .container { max-width: var(--max); margin: 0 auto; padding: 0 32px; }
+  .wrap { max-width: var(--max); margin: 0 auto; padding: 0 40px; }
 
   /* Buttons */
-  .btn { display: inline-flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 500; padding: 12px 20px; border-radius: 10px; border: 1px solid transparent; transition: background .2s, border-color .2s, color .2s, transform .2s; white-space: nowrap; }
-  .btn svg { font-size: 17px; }
-  .btn-primary { background: var(--brand); color: #fff; }
-  .btn-primary:hover { background: #172e6e; }
-  .btn-outline { background: var(--surface); border-color: #cbd5e1; color: var(--ink); }
-  .btn-outline:hover { border-color: var(--ink); }
-  .btn:active { transform: translateY(1px); }
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; font: inherit; font-size: 15px; font-weight: 500; height: 46px; padding: 0 22px; border-radius: 999px; border: 1px solid transparent; cursor: pointer; transition: background .2s, border-color .2s, color .2s, transform .2s, box-shadow .2s; white-space: nowrap; }
+  .btn svg { font-size: 16px; }
+  .btn-dark { background: var(--ink); color: #fafaf9; box-shadow: 0 1px 0 rgba(255,255,255,.12) inset, 0 6px 16px -6px rgba(12,10,9,.5); }
+  .btn-dark:hover { background: #292524; transform: translateY(-1px); }
+  .btn-ghost { background: var(--surface); border-color: var(--line); color: var(--ink); box-shadow: var(--shadow-sm); }
+  .btn-ghost:hover { border-color: #d6d3d1; transform: translateY(-1px); }
+  .btn-sm { height: 38px; padding: 0 16px; font-size: 14px; }
+  .btn-sm svg { font-size: 15px; }
 
   /* Header */
-  .header { position: sticky; top: 0; z-index: 50; background: rgba(255, 255, 255, .85); backdrop-filter: saturate(180%) blur(12px); -webkit-backdrop-filter: saturate(180%) blur(12px); border-bottom: 1px solid transparent; transition: border-color .2s; }
-  .header.scrolled { border-bottom-color: var(--line); }
-  .header .container { display: flex; align-items: center; justify-content: space-between; height: 68px; }
-  .brand { display: flex; align-items: center; gap: 10px; font-weight: 600; color: var(--ink); }
-  .brand-mark { width: 34px; height: 34px; border-radius: 9px; background: var(--brand); color: #fff; display: grid; place-items: center; font-size: 13px; font-weight: 700; letter-spacing: .02em; }
-  .nav { display: flex; align-items: center; gap: 4px; }
-  .nav a { font-size: 14.5px; color: var(--muted); padding: 8px 12px; border-radius: 8px; transition: color .2s, background .2s; }
-  .nav a:hover, .nav a.active { color: var(--ink); }
-  .nav a.active { background: var(--line-soft); }
-  .nav .btn { margin-left: 12px; padding: 9px 16px; font-size: 14.5px; color: #fff; }
-  .nav .btn:hover { color: #fff; }
-  .menu-btn { display: none; width: 40px; height: 40px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); align-items: center; justify-content: center; cursor: pointer; color: var(--ink); }
+  .header { position: fixed; top: 14px; left: 0; right: 0; z-index: 50; pointer-events: none; }
+  .bar { pointer-events: auto; max-width: 980px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 58px; padding: 0 8px 0 18px; border-radius: 999px; border: 1px solid transparent; transition: background .3s, border-color .3s, box-shadow .3s; }
+  .header.scrolled .bar { background: rgba(255, 255, 255, .78); backdrop-filter: saturate(180%) blur(16px); -webkit-backdrop-filter: saturate(180%) blur(16px); border-color: rgba(231, 229, 228, .9); box-shadow: 0 8px 24px -12px rgba(12, 10, 9, .15); }
+  .brand { display: flex; align-items: center; gap: 10px; font-weight: 600; color: var(--ink); font-size: 15px; }
+  .brand-mark { width: 32px; height: 32px; border-radius: 10px; background: var(--ink); color: #fff; display: grid; place-items: center; font-size: 12px; font-weight: 700; letter-spacing: .02em; }
+  .nav { display: flex; align-items: center; gap: 2px; }
+  .nav a:not(.btn) { font-size: 14.5px; color: var(--muted); padding: 8px 14px; border-radius: 999px; transition: color .2s, background .2s; }
+  .nav a:not(.btn):hover { color: var(--ink); }
+  .nav a.active { color: var(--ink); background: rgba(12, 10, 9, .05); }
+  .nav .btn { margin-left: 8px; height: 42px; padding: 0 18px; font-size: 14.5px; }
+  .menu-btn { display: none; width: 42px; height: 42px; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); align-items: center; justify-content: center; cursor: pointer; color: var(--ink); }
   .menu-btn svg { font-size: 20px; }
 
   /* Hero */
-  .hero { padding: 88px 0 80px; background: var(--surface); border-bottom: 1px solid var(--line); }
-  .hero .container { display: grid; grid-template-columns: 1.2fr 1fr; gap: 64px; align-items: center; }
-  .status { display: inline-flex; align-items: center; gap: 8px; font-size: 13.5px; font-weight: 500; color: #065f46; background: #ecfdf5; border: 1px solid #d1fae5; padding: 5px 12px; border-radius: 99px; }
-  .status i { width: 7px; height: 7px; border-radius: 50%; background: #10b981; box-shadow: 0 0 0 3px #d1fae5; }
-  .eyebrow { display: block; font-size: 13px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--brand-2); margin-top: 28px; }
-  .hero h1 { font-size: clamp(36px, 5vw, 56px); line-height: 1.07; letter-spacing: -.035em; font-weight: 700; margin-top: 14px; }
-  .hero h1 span { color: var(--brand); }
-  .lead { font-size: 18px; line-height: 1.7; color: var(--muted); margin-top: 22px; max-width: 560px; }
-  .lead b { color: var(--text); font-weight: 600; }
-  .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 34px; }
-  .hero-social { display: flex; align-items: center; gap: 8px; margin-top: 32px; }
-  .hero-social span { font-size: 13.5px; color: var(--muted); margin-right: 6px; }
-  .icon-btn { width: 40px; height: 40px; border-radius: 10px; border: 1px solid var(--line); display: grid; place-items: center; color: var(--muted); background: var(--surface); transition: color .2s, border-color .2s; }
-  .icon-btn svg { font-size: 18px; }
-  .icon-btn:hover { color: var(--ink); border-color: #94a3b8; }
+  .hero { position: relative; padding: 168px 0 72px; overflow: hidden; }
+  .hero::before { content: ""; position: absolute; inset: 0; background-image: linear-gradient(var(--line-soft) 1px, transparent 1px), linear-gradient(90deg, var(--line-soft) 1px, transparent 1px); background-size: 56px 56px; -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 30%, #000 30%, transparent 75%); mask-image: radial-gradient(ellipse 70% 60% at 50% 30%, #000 30%, transparent 75%); pointer-events: none; }
+  .hero .wrap { position: relative; display: grid; grid-template-columns: 1.1fr 1fr; gap: 56px; align-items: center; }
+  .pill { display: inline-flex; align-items: center; gap: 10px; font-size: 13.5px; font-weight: 500; color: var(--text); background: var(--surface); border: 1px solid var(--line); padding: 6px 14px 6px 8px; border-radius: 999px; box-shadow: var(--shadow-sm); }
+  .pill .av { position: relative; width: 26px; height: 26px; border-radius: 50%; background: var(--ink); color: #fff; font-size: 10px; font-weight: 700; display: grid; place-items: center; overflow: hidden; }
+  .pill .av img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .pill .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green); box-shadow: 0 0 0 3px #dcfce7; }
+  .hero h1 { font-size: clamp(40px, 4.6vw, 64px); line-height: 1.02; letter-spacing: -.045em; font-weight: 600; margin-top: 28px; }
+  .hero h1 .soft { color: var(--faint); }
+  .lead { font-size: 18.5px; line-height: 1.65; color: var(--muted); margin-top: 26px; max-width: 520px; }
+  .lead b { color: var(--ink); font-weight: 500; }
+  .cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 36px; }
+  .facts { display: flex; flex-wrap: wrap; gap: 28px; margin-top: 44px; padding-top: 28px; border-top: 1px solid var(--line); max-width: 520px; }
+  .facts div { display: grid; }
+  .facts b { font-family: var(--display); font-size: 28px; font-weight: 600; color: var(--ink); letter-spacing: -.03em; line-height: 1.1; }
+  .facts small { font-size: 13.5px; color: var(--muted); }
 
-  .profile { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 28px; box-shadow: var(--shadow); }
-  .profile-top { display: flex; align-items: center; gap: 16px; padding-bottom: 22px; border-bottom: 1px solid var(--line-soft); }
-  .avatar { position: relative; width: 64px; height: 64px; border-radius: 50%; background: var(--brand-soft); color: var(--brand); display: grid; place-items: center; font-weight: 700; font-size: 20px; overflow: hidden; flex: none; }
-  .avatar img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-  .profile-top b { display: block; color: var(--ink); font-size: 17px; font-weight: 600; }
-  .profile-top small { display: block; font-size: 14px; color: var(--muted); }
-  .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 22px; }
-  .stats div { background: var(--bg); border: 1px solid var(--line-soft); border-radius: 12px; padding: 14px 16px; }
-  .stats b { display: block; font-size: 26px; font-weight: 700; color: var(--ink); letter-spacing: -.02em; line-height: 1.2; }
-  .stats small { font-size: 12.5px; color: var(--muted); }
-  .profile-meta { display: grid; gap: 10px; margin-top: 22px; font-size: 14px; }
-  .profile-meta li { display: flex; align-items: center; gap: 10px; }
-  .profile-meta svg { font-size: 17px; color: var(--brand-2); }
-  .core { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; padding-top: 22px; border-top: 1px solid var(--line-soft); }
-  .core li { display: flex; align-items: center; gap: 7px; font-size: 13px; font-weight: 500; color: var(--ink); border: 1px solid var(--line); border-radius: 99px; padding: 5px 12px 5px 8px; }
-  .core img { width: 16px; height: 16px; object-fit: contain; }
+  .stage { position: relative; height: 500px; }
+  .frame { display: block; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; box-shadow: var(--shadow); transition: transform .4s cubic-bezier(.2,.7,.2,1), box-shadow .4s; }
+  .frame-bar { display: flex; align-items: center; gap: 6px; height: 32px; padding: 0 12px; background: #f5f5f4; border-bottom: 1px solid var(--line); }
+  .frame-bar i { width: 9px; height: 9px; border-radius: 50%; background: #d6d3d1; }
+  .frame-bar span { margin-left: 10px; font-size: 11.5px; color: var(--faint); background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 1px 10px; max-width: 70%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .frame img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; object-position: top; }
+  .stage .frame { position: absolute; box-shadow: var(--shadow-lg); }
+  .stage .f1 { width: 88%; right: 0; top: 0; z-index: 2; }
+  .stage .f2 { width: 66%; left: 0; bottom: 0; z-index: 3; }
+  .stage .frame:hover { transform: translateY(-4px); }
+  .float { position: absolute; z-index: 4; display: flex; align-items: center; gap: 12px; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 12px 16px; box-shadow: var(--shadow-lg); }
+  .float small { display: block; font-size: 12px; color: var(--muted); }
+  .float b { display: block; font-size: 14px; font-weight: 600; color: var(--ink); }
+  .float-1 { right: 0; bottom: 72px; }
+  .float-ic { width: 36px; height: 36px; border-radius: 10px; background: var(--accent-soft); color: var(--accent); display: grid; place-items: center; }
+  .float-ic svg { font-size: 18px; }
+
+  /* Logo strip */
+  .strip { padding: 28px 0 8px; }
+  .strip p { text-align: center; font-size: 13.5px; color: var(--faint); margin-bottom: 18px; }
+  .strip-mask { overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent); mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent); }
+  .strip ul { display: flex; gap: 44px; width: max-content; animation: slide 40s linear infinite; }
+  .strip li { display: flex; align-items: center; gap: 10px; font-size: 15px; font-weight: 500; color: var(--muted); white-space: nowrap; }
+  .strip img { width: 22px; height: 22px; filter: grayscale(1); opacity: .75; }
+  @keyframes slide { to { transform: translateX(-50%); } }
 
   /* Sections */
-  .section { padding: 96px 0; }
-  .section + .section { border-top: 1px solid var(--line); }
-  .section.alt { background: var(--surface); }
-  .section-head { max-width: 640px; margin-bottom: 48px; }
-  .kicker { font-size: 13px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--brand-2); }
-  .section-head h2 { font-size: clamp(28px, 3.4vw, 38px); font-weight: 700; letter-spacing: -.03em; margin-top: 10px; }
-  .section-head p { color: var(--muted); font-size: 17px; margin-top: 12px; }
+  .section { padding: 128px 0 0; }
+  .head { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: end; margin-bottom: 56px; }
+  .eyebrow { display: inline-flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 500; color: var(--muted); }
+  .eyebrow::before { content: ""; width: 18px; height: 1px; background: var(--faint); }
+  .head h2 { font-size: clamp(32px, 4vw, 48px); letter-spacing: -.04em; line-height: 1.05; margin-top: 14px; }
+  .head p { color: var(--muted); font-size: 17px; max-width: 460px; justify-self: end; }
 
   /* About */
-  .about { display: grid; grid-template-columns: 1.3fr 1fr; gap: 56px; align-items: start; }
-  .about-text p { font-size: 17px; line-height: 1.8; margin-bottom: 18px; }
-  .about-text b { color: var(--ink); font-weight: 600; }
-  .edu { display: grid; gap: 14px; }
-  .edu-card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 22px 24px; display: flex; gap: 16px; align-items: flex-start; }
-  .edu-icon { width: 42px; height: 42px; border-radius: 10px; background: var(--brand-soft); color: var(--brand); display: grid; place-items: center; flex: none; }
-  .edu-icon svg { font-size: 21px; }
-  .edu-card h3 { font-size: 16.5px; font-weight: 600; }
-  .edu-card p { font-size: 14.5px; color: var(--muted); }
-  .edu-card .score { margin-left: auto; text-align: right; font-weight: 700; color: var(--ink); font-size: 20px; line-height: 1.2; white-space: nowrap; }
-  .edu-card .score small { display: block; font-size: 12px; font-weight: 500; color: var(--muted); }
+  .about { display: grid; grid-template-columns: 1.25fr 1fr; gap: 64px; }
+  .about-text p { font-size: 19px; line-height: 1.7; color: var(--muted); margin-bottom: 20px; }
+  .about-text p:first-child { font-size: 22px; line-height: 1.55; color: var(--ink); font-family: var(--display); letter-spacing: -.01em; }
+  .about-text b { color: var(--ink); font-weight: 500; }
+  .side { display: grid; gap: 14px; align-content: start; }
+  .tile { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 22px 24px; box-shadow: var(--shadow-sm); }
+  .tile-label { font-size: 12.5px; font-weight: 500; color: var(--faint); text-transform: uppercase; letter-spacing: .08em; }
+  .edu { display: flex; justify-content: space-between; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--line-soft); }
+  .edu:last-child { border-bottom: 0; padding-bottom: 0; }
+  .edu h3 { font-family: 'Inter', sans-serif; font-size: 15.5px; font-weight: 600; letter-spacing: -.01em; }
+  .edu p { font-size: 14px; color: var(--muted); }
+  .edu .score { text-align: right; font-family: var(--display); font-weight: 600; font-size: 22px; color: var(--ink); line-height: 1.2; }
+  .edu .score small { display: block; font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 400; color: var(--muted); }
+  .now { display: flex; align-items: center; gap: 14px; margin-top: 14px; }
+  .now-logo { width: 44px; height: 44px; border-radius: 12px; background: var(--ink); color: #fff; display: grid; place-items: center; font-weight: 700; font-size: 14px; }
+  .now b { display: block; color: var(--ink); font-weight: 600; }
+  .now small { color: var(--muted); font-size: 14px; }
 
   /* Skills */
-  .skills { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
-  .skill-group { background: var(--bg); border: 1px solid var(--line); border-radius: var(--radius); padding: 24px; }
-  .skill-group h3 { font-size: 15px; font-weight: 600; margin-bottom: 16px; }
-  .chips { display: flex; flex-wrap: wrap; gap: 8px; }
-  .chips li { display: flex; align-items: center; gap: 8px; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 7px 12px 7px 9px; font-size: 14px; font-weight: 500; color: var(--ink); }
-  .chips img { width: 20px; height: 20px; object-fit: contain; }
-  .skill-also { grid-column: 1 / -1; }
-  .tags { display: flex; flex-wrap: wrap; gap: 6px; }
-  .tags li { font-size: 12.5px; font-weight: 500; color: #3730a3; background: var(--brand-soft); padding: 4px 10px; border-radius: 6px; }
-  .skill-also .tags li { font-size: 13px; color: var(--text); background: var(--surface); border: 1px solid var(--line); padding: 5px 11px; }
+  .skills { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .sk { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 24px; box-shadow: var(--shadow-sm); }
+  .sk h3 { font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; color: var(--faint); margin-bottom: 18px; }
+  .sk ul { display: grid; gap: 12px; }
+  .sk li { display: flex; align-items: center; gap: 12px; font-size: 15px; font-weight: 500; color: var(--ink); }
+  .sk img { width: 18px; height: 18px; object-fit: contain; }
+  .also { margin-top: 16px; display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+  .also span { font-size: 14px; color: var(--muted); margin-right: 6px; }
+  .also li { font-size: 13.5px; color: var(--text); background: var(--surface); border: 1px solid var(--line); border-radius: 999px; padding: 5px 12px; }
 
   /* Experience */
-  .timeline { list-style: none; position: relative; display: grid; gap: 24px; padding-left: 36px; }
-  .timeline::before { content: ""; position: absolute; left: 7px; top: 8px; bottom: 8px; width: 2px; background: var(--line); border-radius: 2px; }
-  .job { position: relative; }
-  .job-dot { position: absolute; left: -36px; top: 28px; width: 16px; height: 16px; border-radius: 50%; background: var(--surface); border: 3px solid #cbd5e1; }
-  .job-dot.now { border-color: var(--brand-2); box-shadow: 0 0 0 4px var(--brand-soft); }
-  .job-card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 26px 28px; transition: box-shadow .25s, border-color .25s; }
-  .job-card:hover { box-shadow: var(--shadow); border-color: #cbd5e1; }
-  .job-head { display: flex; justify-content: space-between; gap: 16px; align-items: flex-start; }
-  .job-head h3 { font-size: 19px; font-weight: 600; }
-  .job-co { font-weight: 500; color: var(--brand); margin-top: 2px; }
+  .jobs { border-top: 1px solid var(--line); }
+  .job { display: grid; grid-template-columns: 240px 1fr; gap: 40px; padding: 40px 0; border-bottom: 1px solid var(--line); }
+  .job-side { display: flex; flex-direction: column; align-items: flex-start; gap: 10px; }
+  .job-date { font-size: 14.5px; color: var(--muted); font-variant-numeric: tabular-nums; }
+  .badge { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 500; color: #15803d; background: #f0fdf4; border: 1px solid #dcfce7; padding: 2px 10px; border-radius: 999px; }
+  .badge::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--green); }
+  .job h3 { font-size: 24px; letter-spacing: -.025em; }
+  .job-co { font-size: 16px; color: var(--ink); font-weight: 500; margin-top: 4px; }
   .job-co span { color: var(--muted); font-weight: 400; }
-  .job-date { display: flex; flex-direction: column; align-items: flex-end; gap: 6px; font-size: 14px; color: var(--muted); white-space: nowrap; }
-  .job-date em { font-style: normal; font-size: 12px; font-weight: 600; color: #065f46; background: #ecfdf5; padding: 2px 9px; border-radius: 99px; }
-  .job-points { margin: 16px 0 18px; display: grid; gap: 8px; }
-  .job-points li { position: relative; padding-left: 20px; font-size: 15.5px; line-height: 1.65; }
-  .job-points li::before { content: ""; position: absolute; left: 4px; top: 10px; width: 6px; height: 6px; border-radius: 50%; background: #94a3b8; }
-  .job-points b { color: var(--ink); font-weight: 600; }
+  .job-points { margin: 18px 0 20px; display: grid; gap: 10px; max-width: 760px; }
+  .job-points li { position: relative; padding-left: 22px; font-size: 16px; line-height: 1.7; color: var(--muted); }
+  .job-points li::before { content: ""; position: absolute; left: 2px; top: 12px; width: 10px; height: 1px; background: var(--faint); }
+  .job-points b { color: var(--ink); font-weight: 500; }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tags li { font-size: 12.5px; font-weight: 500; color: var(--text); background: var(--surface); border: 1px solid var(--line); padding: 3px 10px; border-radius: 999px; }
 
   /* Projects */
-  .projects { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-  .project { display: flex; flex-direction: column; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; transition: box-shadow .25s, border-color .25s, transform .25s; }
-  .project:hover { box-shadow: var(--shadow); border-color: #cbd5e1; transform: translateY(-3px); }
-  .project-shot { display: block; aspect-ratio: 16 / 10; overflow: hidden; border-bottom: 1px solid var(--line); background: var(--line-soft); }
-  .project-shot img { width: 100%; height: 100%; object-fit: cover; object-position: top; transition: transform .5s ease; }
-  .project:hover .project-shot img { transform: scale(1.03); }
-  .project-body { display: flex; flex-direction: column; flex: 1; padding: 22px 22px 20px; }
-  .project-kind { font-size: 12px; font-weight: 600; letter-spacing: .05em; text-transform: uppercase; color: var(--brand-2); }
-  .project h3 { font-size: 18.5px; font-weight: 600; margin-top: 6px; }
-  .project p { font-size: 14.5px; color: var(--muted); line-height: 1.65; margin: 8px 0 16px; }
-  .project .tags { margin-top: auto; }
-  .project-links { display: flex; gap: 18px; margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--line-soft); }
-  .project-links a { display: inline-flex; align-items: center; gap: 5px; font-size: 14px; font-weight: 600; color: var(--ink); }
-  .project-links a:hover { color: var(--brand-2); }
-  .project-links svg { font-size: 15px; }
+  .feature { display: grid; grid-template-columns: 1.35fr 1fr; gap: 56px; align-items: center; padding: 32px; background: var(--surface); border: 1px solid var(--line); border-radius: 24px; box-shadow: var(--shadow-sm); margin-bottom: 24px; }
+  .feature:nth-child(even) .feature-media { order: 2; }
+  .feature-media, .feature-body, .card { min-width: 0; }
+  .feature-media { background: linear-gradient(180deg, #f5f5f4, #efeeec); border-radius: 16px; padding: 28px; }
+  .feature-media .frame { box-shadow: var(--shadow-lg); }
+  .feature:hover .frame { transform: translateY(-4px); }
+  .p-num { font-family: var(--display); font-size: 14px; font-weight: 600; color: var(--faint); margin-right: 12px; }
+  .p-kind { font-size: 13px; font-weight: 500; color: var(--accent); }
+  .feature h3 { font-size: 32px; letter-spacing: -.035em; margin-top: 14px; }
+  .feature p, .card p { font-size: 16px; line-height: 1.7; color: var(--muted); margin: 14px 0 20px; }
+  .p-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+  .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .card { display: flex; flex-direction: column; background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 14px; box-shadow: var(--shadow-sm); transition: box-shadow .3s, transform .3s; }
+  .card:hover { box-shadow: var(--shadow); transform: translateY(-3px); }
+  .card .frame { box-shadow: none; border-radius: 12px; }
+  .card-body { display: flex; flex-direction: column; flex: 1; padding: 18px 10px 8px; }
+  .card h3 { font-size: 22px; letter-spacing: -.03em; margin-top: 8px; }
+  .card p { font-size: 15px; margin: 10px 0 18px; }
+  .card .tags { margin-top: auto; }
+  .card .p-links { margin-top: 20px; }
 
-  .more-head { display: flex; justify-content: space-between; align-items: end; gap: 16px; margin: 72px 0 24px; }
-  .more-head h3 { font-size: 22px; font-weight: 700; }
-  .more-head p { color: var(--muted); font-size: 15px; margin-top: 4px; }
-  .more { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-  .mini { display: flex; align-items: center; gap: 14px; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 12px; transition: border-color .2s, box-shadow .2s; }
-  .mini:hover { border-color: #cbd5e1; box-shadow: var(--shadow); }
-  .mini img { width: 88px; height: auto; aspect-ratio: 16 / 10; object-fit: cover; object-position: top; border-radius: 8px; border: 1px solid var(--line); flex: none; }
-  .mini h3 { font-size: 15px; font-weight: 600; }
-  .mini p { font-size: 13px; color: var(--muted); line-height: 1.45; margin-top: 2px; }
-  .mini-go { margin-left: auto; color: #94a3b8; font-size: 17px; transition: color .2s; align-self: flex-start; }
-  .mini:hover .mini-go { color: var(--brand-2); }
+  .more { margin-top: 72px; }
+  .more-top { display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-bottom: 16px; }
+  .more-top h3 { font-size: 22px; letter-spacing: -.025em; }
+  .rows { border-top: 1px solid var(--line); }
+  .row { display: grid; grid-template-columns: 76px 1.3fr 1fr 1.4fr 24px; gap: 24px; align-items: center; padding: 16px 8px; border-bottom: 1px solid var(--line); transition: background .2s; border-radius: 0; }
+  .row:hover { background: var(--surface); }
+  .row img { width: 76px; aspect-ratio: 16 / 10; object-fit: cover; object-position: top; border-radius: 6px; border: 1px solid var(--line); }
+  .row-name { font-weight: 600; color: var(--ink); }
+  .row-kind, .row-stack { font-size: 14.5px; color: var(--muted); }
+  .row-go { color: var(--faint); font-size: 18px; transition: color .2s, transform .2s; }
+  .row:hover .row-go { color: var(--ink); transform: translate(2px, -2px); }
 
   /* Contact */
-  .contact { display: grid; grid-template-columns: 1fr 1.15fr; gap: 48px; align-items: start; }
-  .contact-list { display: grid; gap: 12px; margin-top: 28px; }
-  .contact-item { display: flex; align-items: center; gap: 14px; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; transition: border-color .2s; }
-  .contact-item:hover { border-color: #94a3b8; }
-  .contact-icon { width: 40px; height: 40px; border-radius: 10px; background: var(--brand-soft); color: var(--brand); display: grid; place-items: center; flex: none; }
-  .contact-icon svg { font-size: 18px; }
-  .contact-item small { display: block; font-size: 12.5px; color: var(--muted); }
-  .contact-item b { display: block; font-size: 15px; font-weight: 600; color: var(--ink); word-break: break-all; }
-  .contact-item .go { margin-left: auto; color: #94a3b8; }
-  .copy { margin-left: auto; font: inherit; font-size: 13px; font-weight: 500; color: var(--ink); background: var(--bg); border: 1px solid var(--line); border-radius: 8px; padding: 6px 12px; cursor: pointer; }
-  .copy:hover { border-color: #94a3b8; }
-  .form { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 32px; box-shadow: var(--shadow); }
-  .form h3 { font-size: 20px; font-weight: 600; }
-  .form > p { font-size: 14.5px; color: var(--muted); margin-top: 4px; }
+  .contact { margin-top: 128px; background: var(--ink); color: #d6d3d1; border-radius: 28px; padding: 72px; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; position: relative; overflow: hidden; }
+  .contact::before { content: ""; position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px); background-size: 48px 48px; -webkit-mask-image: radial-gradient(ellipse 60% 80% at 0% 0%, #000, transparent 70%); mask-image: radial-gradient(ellipse 60% 80% at 0% 0%, #000, transparent 70%); pointer-events: none; }
+  .contact > * { position: relative; }
+  .contact .eyebrow { color: #a8a29e; }
+  .contact .eyebrow::before { background: #57534e; }
+  .contact h2 { color: #fafaf9; font-size: clamp(34px, 4.2vw, 52px); letter-spacing: -.04em; line-height: 1.04; margin-top: 14px; }
+  .contact-lead { font-size: 17px; color: #a8a29e; margin-top: 18px; max-width: 420px; }
+  .mail { display: inline-flex; align-items: center; gap: 12px; margin-top: 32px; background: #1c1917; border: 1px solid #292524; border-radius: 999px; padding: 6px 6px 6px 20px; max-width: 100%; }
+  .mail a { color: #fafaf9; font-weight: 500; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .copy { font: inherit; font-size: 13.5px; font-weight: 500; color: var(--ink); background: #fafaf9; border: 0; border-radius: 999px; padding: 8px 16px; cursor: pointer; flex: none; }
+  .copy:hover { background: #e7e5e4; }
+  .socials { display: flex; gap: 10px; margin-top: 20px; }
+  .soc { display: inline-flex; align-items: center; gap: 8px; height: 40px; padding: 0 16px; border-radius: 999px; border: 1px solid #292524; color: #d6d3d1; font-size: 14px; transition: border-color .2s, color .2s; }
+  .soc:hover { color: #fff; border-color: #57534e; }
+  .soc svg { font-size: 16px; }
+  .form { display: grid; gap: 14px; align-content: start; }
   .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-  .field { display: grid; gap: 6px; margin-top: 16px; }
-  .field label { font-size: 14px; font-weight: 500; color: var(--ink); }
-  .field input, .field textarea { font: inherit; font-size: 15px; color: var(--ink); background: var(--surface); border: 1px solid #cbd5e1; border-radius: 10px; padding: 11px 14px; transition: border-color .2s, box-shadow .2s; width: 100%; }
-  .field textarea { min-height: 130px; resize: vertical; }
-  .field input:focus, .field textarea:focus { outline: none; border-color: var(--brand-2); box-shadow: 0 0 0 3px rgba(29, 78, 216, .12); }
-  .form .btn { margin-top: 22px; width: 100%; justify-content: center; cursor: pointer; font-family: inherit; }
-  .form-note { font-size: 13px; color: var(--muted); text-align: center; margin-top: 10px; }
+  .field { display: grid; gap: 7px; }
+  .field label { font-size: 13.5px; font-weight: 500; color: #d6d3d1; }
+  .field input, .field textarea { font: inherit; font-size: 15px; color: #fafaf9; background: #1c1917; border: 1px solid #292524; border-radius: 12px; padding: 12px 14px; width: 100%; transition: border-color .2s, box-shadow .2s; }
+  .field input::placeholder, .field textarea::placeholder { color: #78716c; }
+  .field textarea { min-height: 128px; resize: vertical; }
+  .field input:focus, .field textarea:focus { outline: none; border-color: #78716c; box-shadow: 0 0 0 4px rgba(255,255,255,.06); }
+  .form .btn { background: #fafaf9; color: var(--ink); margin-top: 4px; }
+  .form .btn:hover { background: #fff; transform: translateY(-1px); }
+  .form-note { font-size: 13px; color: #78716c; text-align: center; }
 
   /* Footer */
-  .footer { background: var(--ink); color: #94a3b8; padding: 40px 0; font-size: 14px; }
-  .footer .container { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px; }
-  .footer b { color: #fff; font-weight: 600; }
-  .footer-links { display: flex; gap: 8px; }
-  .footer .icon-btn { background: transparent; border-color: #334155; color: #cbd5e1; }
-  .footer .icon-btn:hover { color: #fff; border-color: #64748b; }
+  .footer { padding: 40px 0 48px; font-size: 14px; color: var(--muted); }
+  .footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px; }
+  .footer nav { display: flex; gap: 22px; }
+  .footer a:hover { color: var(--ink); }
 
-  /* Reveal */
-  .js .reveal { opacity: 0; transform: translateY(14px); transition: opacity .6s ease, transform .6s ease; }
+  /* Motion */
+  .js .reveal { opacity: 0; transform: translateY(18px); transition: opacity .8s cubic-bezier(.2,.7,.2,1), transform .8s cubic-bezier(.2,.7,.2,1); }
   .js .reveal.in { opacity: 1; transform: none; }
+  .js .hero .rise { opacity: 0; transform: translateY(16px); animation: rise .9s cubic-bezier(.2,.7,.2,1) forwards; }
+  .js .stage .frame, .js .stage .float { opacity: 0; animation: pop 1s cubic-bezier(.2,.7,.2,1) forwards; }
+  .js .stage .f1 { animation-delay: .25s; } .js .stage .f2 { animation-delay: .45s; } .js .stage .float { animation-delay: .7s; }
+  @keyframes rise { to { opacity: 1; transform: none; } }
+  @keyframes pop { from { opacity: 0; transform: translateY(24px) scale(.98); } to { opacity: 1; transform: none; } }
+  @keyframes pop3 { from { opacity: 0; transform: translateY(24px); } to { opacity: .9; transform: none; } }
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
-    .js .reveal { opacity: 1; transform: none; transition: none; }
+    .js .reveal, .js .hero .rise, .js .stage .frame, .js .stage .float { opacity: 1; transform: none; animation: none; transition: none; }
+    .strip ul { animation: none; }
     *, *::before, *::after { transition: none !important; }
   }
 
   /* Responsive */
-  @media (max-width: 1024px) {
-    .projects, .more { grid-template-columns: repeat(2, 1fr); }
-    .hero .container { gap: 40px; }
+  @media (max-width: 1100px) {
+    .skills { grid-template-columns: repeat(2, 1fr); }
+    .cards { grid-template-columns: repeat(2, 1fr); }
+    .feature { gap: 36px; }
   }
-  @media (max-width: 880px) {
-    .container { padding: 0 20px; }
+  @media (max-width: 920px) {
+    .wrap { padding: 0 24px; }
+    .header { top: 10px; padding: 0 12px; }
+    .header .bar { background: rgba(255, 255, 255, .85); backdrop-filter: saturate(180%) blur(16px); -webkit-backdrop-filter: saturate(180%) blur(16px); border-color: var(--line); }
     .menu-btn { display: inline-flex; }
-    .nav { position: absolute; top: 68px; left: 0; right: 0; flex-direction: column; align-items: stretch; gap: 2px; background: var(--surface); border-bottom: 1px solid var(--line); padding: 10px 16px 18px; box-shadow: 0 12px 24px rgba(15, 23, 42, .08); display: none; }
+    .nav { position: absolute; top: 66px; left: 12px; right: 12px; flex-direction: column; align-items: stretch; background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 10px; box-shadow: var(--shadow-lg); display: none; }
     .nav.open { display: flex; }
-    .nav a { padding: 12px; font-size: 16px; }
-    .nav .btn { margin: 8px 0 0; justify-content: center; }
-    .hero { padding: 56px 0 64px; }
-    .hero .container, .about, .contact { grid-template-columns: 1fr; }
-    .section { padding: 72px 0; }
-    .skills { grid-template-columns: 1fr; }
+    .nav a:not(.btn) { padding: 12px 14px; font-size: 16px; border-radius: 12px; }
+    .nav .btn { margin: 6px 0 0; }
+    .hero { padding: 128px 0 40px; }
+    .hero .wrap { grid-template-columns: 1fr; gap: 48px; }
+    .stage { height: auto; aspect-ratio: 1 / .8; }
+    .head { grid-template-columns: 1fr; gap: 14px; }
+    .head p { justify-self: start; }
+    .about { grid-template-columns: 1fr; gap: 40px; }
+    .job { grid-template-columns: 1fr; gap: 14px; padding: 32px 0; }
+    .job-side { flex-direction: row; align-items: center; }
+    .feature { grid-template-columns: minmax(0, 1fr); padding: 16px 16px 28px; gap: 28px; }
+    .feature:nth-child(even) .feature-media { order: 0; }
+    .feature-media { padding: 16px; }
+    .feature-body { padding: 0 8px; }
+    .row { grid-template-columns: 64px 1fr 24px; gap: 16px; }
+    .row img { width: 64px; }
+    .row-kind { display: none; }
+    .row-stack { grid-column: 2; grid-row: 2; margin-top: -14px; font-size: 13.5px; }
+    .row-name { grid-column: 2; }
+    .row-go { grid-column: 3; grid-row: 1 / span 2; }
+    .contact { grid-template-columns: minmax(0, 1fr); padding: 48px 28px; gap: 44px; border-radius: 24px; margin-top: 96px; }
+    .section { padding-top: 96px; }
   }
   @media (max-width: 600px) {
-    .container { padding: 0 16px; }
-    .projects, .more { grid-template-columns: 1fr; }
+    .wrap { padding: 0 16px; }
+    .hero h1 { font-size: 40px; }
     .lead { font-size: 17px; }
-    .hero-actions .btn { flex: 1 1 auto; justify-content: center; }
-    .profile, .form { padding: 22px; }
-    .stats b { font-size: 22px; }
-    .stats div { padding: 12px; }
-    .timeline { padding-left: 26px; }
-    .timeline::before { left: 5px; }
-    .job-dot { left: -26px; width: 14px; height: 14px; }
-    .job-card { padding: 20px; }
-    .job-head { flex-direction: column; gap: 8px; }
-    .job-date { flex-direction: row; align-items: center; }
+    .cta .btn { flex: 1 1 auto; }
+    .facts { gap: 20px; justify-content: space-between; }
+    .facts b { font-size: 24px; }
+    .stage { aspect-ratio: 1 / .92; }
+    .float { padding: 10px 12px; }
+    .float-1 { right: 0; bottom: 44%; }
+    .float-ic { width: 30px; height: 30px; }
+    .skills, .cards { grid-template-columns: 1fr; }
+    .about-text p:first-child { font-size: 20px; }
+    .about-text p { font-size: 17px; }
+    .feature h3 { font-size: 26px; }
     .field-row { grid-template-columns: 1fr; }
-    .more-head { flex-direction: column; align-items: flex-start; }
-    .edu-card { flex-wrap: wrap; }
+    .contact { padding: 40px 20px; }
+    .mail { padding-left: 16px; width: 100%; justify-content: space-between; }
+    .socials { flex-wrap: wrap; }
+    .more-top { flex-direction: column; align-items: flex-start; }
   }
 </style>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
 
-<header class="header" id="top">
-  <div class="container">
+<header class="header" id="header">
+  <div class="bar">
     <a class="brand" href="#top" aria-label="Mantu Kumar Morya, back to top"><span class="brand-mark">MK</span>Mantu Kumar Morya</a>
     <button class="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 8h16M4 16h16"/></svg>
     </button>
     <nav class="nav" id="nav" aria-label="Main">
       <a href="#about">About</a>
       <a href="#skills">Skills</a>
       <a href="#experience">Experience</a>
       <a href="#projects">Projects</a>
-      <a class="btn btn-primary" href="#contact">Contact me</a>
+      <a class="btn btn-dark" href="#contact">Let's talk</a>
     </nav>
   </div>
 </header>
 
 <main id="main">
   <!-- Hero -->
-  <section class="hero">
-    <div class="container">
+  <section class="hero" id="top">
+    <div class="wrap">
       <div>
-        <span class="status"><i aria-hidden="true"></i>Available for new opportunities</span>
-        <span class="eyebrow">Full Stack Developer · Noida, India</span>
-        <h1>Building fast, reliable <span>web products</span> end to end.</h1>
-        <p class="lead">Hi, I'm Mantu. I work with <b>React, Next.js, TypeScript and Node.js</b>, and have shipped e-commerce platforms, CRMs and a transportation system at three companies, from polished interfaces to secure APIs.</p>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="#projects">View my work</a>
-          <a class="btn btn-outline" href="assets/Mantu_Kumar_Morya_Resume.pdf" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11m0 0-4-4m4 4 4-4M5 20h14"/></svg>Download résumé</a>
+        <span class="pill rise">
+          <!-- Add your photo as assets/profile.jpg and it replaces the initials here -->
+          <span class="av">MK<img src="assets/profile.jpg" alt="" onerror="this.remove()"></span>
+          <span class="dot" aria-hidden="true"></span>Available for new opportunities
+        </span>
+        <h1 class="rise" style="animation-delay:.08s">Mantu Kumar Morya.<br><span class="soft">Full stack developer.</span></h1>
+        <p class="lead rise" style="animation-delay:.16s">I build <b>fast, reliable web products</b> with React, Next.js, TypeScript and Node.js, from polished interfaces to secure APIs. Based in Noida, India.</p>
+        <div class="cta rise" style="animation-delay:.24s">
+          <a class="btn btn-dark" href="#projects">See my work <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+          <a class="btn btn-ghost" href="assets/Mantu_Kumar_Morya_Resume.pdf" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11m0 0-4-4m4 4 4-4M5 20h14"/></svg>Download résumé</a>
         </div>
-        <div class="hero-social">
-          <span>Find me on</span>
-          <a class="icon-btn" href="https://github.com/Mantu008" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.53-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.56-.29-5.25-1.28-5.25-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a10.9 10.9 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.7 5.38-5.27 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg></a>
-          <a class="icon-btn" href="https://www.linkedin.com/in/mantu-kumar-morya-011927253/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></svg></a>
-          <a class="icon-btn" href="https://leetcode.com/u/Mantu088/" target="_blank" rel="noopener" aria-label="LeetCode"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.48 0a1.37 1.37 0 0 0-.96.44L7.12 6.21l-2.66 2.85a5.3 5.3 0 0 0-1.27 2.12 5.1 5.1 0 0 0-.12 2.16c.13.78.42 1.52.86 2.17.23.33.49.63.78.91l4.36 4.32a5.37 5.37 0 0 0 7.58-.03l2.03-2.05a1.38 1.38 0 1 0-1.96-1.94l-2.03 2.05a2.62 2.62 0 0 1-3.68.01l-4.36-4.32a2.5 2.5 0 0 1-.71-1.58c-.04-.5.1-.99.4-1.41l.14-.18 4.98-5.33 5.38-5.77A1.38 1.38 0 0 0 13.48 0Zm-2.87 13.5a1.38 1.38 0 1 0 0 2.76h9.08a1.38 1.38 0 1 0 0-2.76h-9.08Z"/></svg></a>
-          <a class="icon-btn" href="mailto:mantukumar87586299@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></a>
+        <div class="facts rise" style="animation-delay:.32s">
+          <div><b>3</b><small>Companies</small></div>
+          <div><b>12+</b><small>Projects shipped</small></div>
+          <div><b>30%</b><small>Faster fulfillment</small></div>
         </div>
       </div>
 
-      <aside class="profile" aria-label="Profile summary">
-        <div class="profile-top">
-          <!-- Add your photo as assets/profile.jpg and it replaces the initials -->
-          <span class="avatar">MK<img src="assets/profile.jpg" alt="Mantu Kumar Morya" onerror="this.remove()"></span>
-          <div><b>Mantu Kumar Morya</b><small>Full Stack Developer at Bring On Digital</small></div>
-        </div>
-        <div class="stats">
-          <div><b>3</b><small>Companies</small></div>
-          <div><b>12+</b><small>Projects built</small></div>
-          <div><b>8.54</b><small>B.Tech CGPA</small></div>
-        </div>
-        <ul class="profile-meta">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.1-7-11.5A7 7 0 0 1 19 9.5C19 14.9 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Noida, Uttar Pradesh, India</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m2 9 10-5 10 5-10 5L2 9Z"/><path d="M6 11v5c3 2 9 2 12 0v-5"/></svg>B.Tech, Computer Engineering · Marwadi University</li>
-        </ul>
-        <ul class="core" aria-label="Core stack">
-          <li><img src="assets/icons/react.svg" alt="">React</li>
-          <li><img src="assets/icons/nextjs.svg" alt="">Next.js</li>
-          <li><img src="assets/icons/typescript.svg" alt="">TypeScript</li>
-          <li><img src="assets/icons/nodejs.svg" alt="">Node.js</li>
-          <li><img src="assets/icons/mongodb.svg" alt="">MongoDB</li>
-        </ul>
-      </aside>
+      <div class="stage" aria-label="Project previews">
+        <a class="frame f1" href="#projects" tabindex="-1" aria-hidden="true"><span class="frame-bar"><i></i><i></i><i></i><span>online-leave-management-system-for-phi.vercel.app</span></span><img src="assets/projects/leave.webp" alt="" width="1400" height="875" fetchpriority="high"></a>
+        <a class="frame f2" href="#projects" tabindex="-1" aria-hidden="true"><span class="frame-bar"><i></i><i></i><i></i><span>car-detail-and-management-system-fr.vercel.app</span></span><img src="assets/projects/vehicle.webp" alt="" width="1400" height="875"></a>
+        <div class="float float-1" aria-hidden="true"><span class="float-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m2 9 10-5 10 5-10 5L2 9Z"/><path d="M6 11v5c3 2 9 2 12 0v-5"/></svg></span><div><small>Currently</small><b>Full Stack Dev · Bring On Digital</b></div></div>
+      </div>
     </div>
+  </section>
+
+  <!-- Tech strip -->
+  <section class="strip" aria-label="Technologies">
+    <p>Technologies I ship with every day</p>
+    <div class="strip-mask"><ul><li><img src="assets/icons/react.svg" alt="" width="22" height="22">React</li><li><img src="assets/icons/nextjs.svg" alt="" width="22" height="22">Next.js</li><li><img src="assets/icons/typescript.svg" alt="" width="22" height="22">TypeScript</li><li><img src="assets/icons/nodejs.svg" alt="" width="22" height="22">Node.js</li><li><img src="assets/icons/express.svg" alt="" width="22" height="22">Express</li><li><img src="assets/icons/mongodb.svg" alt="" width="22" height="22">MongoDB</li><li><img src="assets/icons/mysql.svg" alt="" width="22" height="22">MySQL</li><li><img src="assets/icons/redux.svg" alt="" width="22" height="22">Redux</li><li><img src="assets/icons/tailwindcss.svg" alt="" width="22" height="22">Tailwind CSS</li><li><img src="assets/icons/firebase.svg" alt="" width="22" height="22">Firebase</li><li><img src="assets/icons/git.svg" alt="" width="22" height="22">Git</li><li><img src="assets/icons/postman.svg" alt="" width="22" height="22">Postman</li><li><img src="assets/icons/react.svg" alt="" width="22" height="22">React</li><li><img src="assets/icons/nextjs.svg" alt="" width="22" height="22">Next.js</li><li><img src="assets/icons/typescript.svg" alt="" width="22" height="22">TypeScript</li><li><img src="assets/icons/nodejs.svg" alt="" width="22" height="22">Node.js</li><li><img src="assets/icons/express.svg" alt="" width="22" height="22">Express</li><li><img src="assets/icons/mongodb.svg" alt="" width="22" height="22">MongoDB</li><li><img src="assets/icons/mysql.svg" alt="" width="22" height="22">MySQL</li><li><img src="assets/icons/redux.svg" alt="" width="22" height="22">Redux</li><li><img src="assets/icons/tailwindcss.svg" alt="" width="22" height="22">Tailwind CSS</li><li><img src="assets/icons/firebase.svg" alt="" width="22" height="22">Firebase</li><li><img src="assets/icons/git.svg" alt="" width="22" height="22">Git</li><li><img src="assets/icons/postman.svg" alt="" width="22" height="22">Postman</li></ul></div>
   </section>
 
   <!-- About -->
   <section class="section" id="about">
-    <div class="container">
-      <div class="section-head reveal"><span class="kicker">About me</span><h2>Turning ideas into dependable products</h2></div>
+    <div class="wrap">
+      <div class="head reveal"><div><span class="eyebrow">About</span><h2>Turning ideas into<br>dependable products.</h2></div></div>
       <div class="about">
         <div class="about-text reveal">
-          <p>I'm a full stack developer based in <b>Noida, India</b>, currently working at <b>Bring On Digital</b>. Over the past year I've shipped <b>e-commerce platforms, CRMs and a transportation management system</b> at three companies, pairing clean React interfaces with secure Node.js APIs.</p>
-          <p>I care about the details that make software feel reliable: fast pages, predictable state, solid authentication and APIs that are easy to build on. I enjoy working in Agile teams with code reviews, and I use AI-assisted tools to ship faster without cutting corners.</p>
+          <p>I'm a full stack developer who cares about the details that make software feel reliable: fast pages, predictable state, solid authentication and APIs that are easy to build on.</p>
+          <p>Over the past year I've shipped <b>e-commerce platforms, CRMs and a transportation management system</b> at three companies, pairing clean React interfaces with secure Node.js services. I enjoy working in Agile teams with code reviews, and I use AI-assisted tools to move faster without cutting corners.</p>
           <p>Outside of work I build side projects, from team tools to hackathon apps, and practise problem solving on LeetCode.</p>
         </div>
-        <div class="edu reveal">
-          <div class="edu-card"><span class="edu-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m2 9 10-5 10 5-10 5L2 9Z"/><path d="M6 11v5c3 2 9 2 12 0v-5"/></svg></span><div><h3>Marwadi University</h3><p>B.Tech, Computer Engineering</p><p>2022 – 2026</p></div><span class="score">8.54<small>CGPA</small></span></div>
-          <div class="edu-card"><span class="edu-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m2 9 10-5 10 5-10 5L2 9Z"/><path d="M6 11v5c3 2 9 2 12 0v-5"/></svg></span><div><h3>Bihar School Examination Board</h3><p>Higher Secondary 80% · Matriculation 73%</p><p>2020 – 2022</p></div><span class="score">80%<small>HS</small></span></div>
+        <div class="side reveal">
+          <div class="tile">
+            <span class="tile-label">Currently</span>
+            <div class="now"><span class="now-logo">BD</span><div><b>Full Stack Developer</b><small>Bring On Digital · Noida</small></div></div>
+          </div>
+          <div class="tile">
+            <span class="tile-label">Education</span>
+            <div class="edu"><div><h3>Marwadi University</h3><p>B.Tech, Computer Engineering · 2022–2026</p></div><span class="score">8.54<small>CGPA</small></span></div>
+            <div class="edu"><div><h3>Bihar School Examination Board</h3><p>Higher Secondary · 2020–2022</p></div><span class="score">80%<small>HS</small></span></div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Skills -->
-  <section class="section alt" id="skills">
-    <div class="container">
-      <div class="section-head reveal"><span class="kicker">Skills</span><h2>Technologies I work with</h2><p>A modern JavaScript stack across the front end, back end and everything in between.</p></div>
-      <div class="skills"><div class="skill-group reveal"><h3>Frontend</h3><ul class="chips"><li><img src="assets/icons/react.svg" alt="" width="20" height="20" loading="lazy">React</li><li><img src="assets/icons/nextjs.svg" alt="" width="20" height="20" loading="lazy">Next.js</li><li><img src="assets/icons/typescript.svg" alt="" width="20" height="20" loading="lazy">TypeScript</li><li><img src="assets/icons/javascript.svg" alt="" width="20" height="20" loading="lazy">JavaScript</li><li><img src="assets/icons/redux.svg" alt="" width="20" height="20" loading="lazy">Redux Toolkit</li><li><img src="assets/icons/tailwindcss.svg" alt="" width="20" height="20" loading="lazy">Tailwind CSS</li><li><img src="assets/icons/materialui.svg" alt="" width="20" height="20" loading="lazy">Material UI</li><li><img src="assets/icons/html5.svg" alt="" width="20" height="20" loading="lazy">HTML5</li><li><img src="assets/icons/css3.svg" alt="" width="20" height="20" loading="lazy">CSS3</li><li><img src="assets/icons/bootstrap.svg" alt="" width="20" height="20" loading="lazy">Bootstrap</li></ul></div><div class="skill-group reveal"><h3>Backend</h3><ul class="chips"><li><img src="assets/icons/nodejs.svg" alt="" width="20" height="20" loading="lazy">Node.js</li><li><img src="assets/icons/express.svg" alt="" width="20" height="20" loading="lazy">Express.js</li><li><img src="assets/icons/rest-api.webp" alt="" width="20" height="20" loading="lazy">REST APIs</li><li><img src="assets/icons/firebase.svg" alt="" width="20" height="20" loading="lazy">Firebase</li><li><img src="assets/icons/java.svg" alt="" width="20" height="20" loading="lazy">Java</li><li><img src="assets/icons/c.svg" alt="" width="20" height="20" loading="lazy">C</li></ul></div><div class="skill-group reveal"><h3>Databases</h3><ul class="chips"><li><img src="assets/icons/mongodb.svg" alt="" width="20" height="20" loading="lazy">MongoDB</li><li><img src="assets/icons/mysql.svg" alt="" width="20" height="20" loading="lazy">MySQL</li></ul></div><div class="skill-group reveal"><h3>Tools</h3><ul class="chips"><li><img src="assets/icons/git.svg" alt="" width="20" height="20" loading="lazy">Git</li><li><img src="assets/icons/github.svg" alt="" width="20" height="20" loading="lazy">GitHub</li><li><img src="assets/icons/postman.svg" alt="" width="20" height="20" loading="lazy">Postman</li><li><img src="assets/icons/jest.svg" alt="" width="20" height="20" loading="lazy">Jest</li><li><img src="assets/icons/vitejs.svg" alt="" width="20" height="20" loading="lazy">Vite</li><li><img src="assets/icons/linux.svg" alt="" width="20" height="20" loading="lazy">Linux</li></ul></div><div class="skill-group skill-also reveal"><h3>Also worked with</h3><ul class="tags"><li>JWT</li><li>Google OAuth 2.0</li><li>WhatsApp Cloud API</li><li>Twilio</li><li>Webhooks</li><li>Hono</li><li>TanStack Query</li><li>RTK Query</li><li>React Hook Form</li><li>Zod</li><li>shadcn/ui</li><li>Vercel</li><li>Hostinger / VPS</li><li>Agile / Scrum</li><li>AI-assisted development</li><li>LLM APIs</li></ul></div></div>
+  <section class="section" id="skills">
+    <div class="wrap">
+      <div class="head reveal"><div><span class="eyebrow">Skills</span><h2>The toolkit.</h2></div><p>A modern JavaScript stack across the front end, the back end and everything in between.</p></div>
+      <div class="skills"><div class="sk reveal"><h3>Frontend</h3><ul><li><img src="assets/icons/react.svg" alt="" width="18" height="18" loading="lazy">React</li><li><img src="assets/icons/nextjs.svg" alt="" width="18" height="18" loading="lazy">Next.js</li><li><img src="assets/icons/typescript.svg" alt="" width="18" height="18" loading="lazy">TypeScript</li><li><img src="assets/icons/javascript.svg" alt="" width="18" height="18" loading="lazy">JavaScript</li><li><img src="assets/icons/redux.svg" alt="" width="18" height="18" loading="lazy">Redux Toolkit</li><li><img src="assets/icons/tailwindcss.svg" alt="" width="18" height="18" loading="lazy">Tailwind CSS</li><li><img src="assets/icons/materialui.svg" alt="" width="18" height="18" loading="lazy">Material UI</li><li><img src="assets/icons/html5.svg" alt="" width="18" height="18" loading="lazy">HTML5</li><li><img src="assets/icons/css3.svg" alt="" width="18" height="18" loading="lazy">CSS3</li><li><img src="assets/icons/bootstrap.svg" alt="" width="18" height="18" loading="lazy">Bootstrap</li></ul></div><div class="sk reveal"><h3>Backend & data</h3><ul><li><img src="assets/icons/nodejs.svg" alt="" width="18" height="18" loading="lazy">Node.js</li><li><img src="assets/icons/express.svg" alt="" width="18" height="18" loading="lazy">Express.js</li><li><img src="assets/icons/rest-api.webp" alt="" width="18" height="18" loading="lazy">REST APIs</li><li><img src="assets/icons/firebase.svg" alt="" width="18" height="18" loading="lazy">Firebase</li><li><img src="assets/icons/mongodb.svg" alt="" width="18" height="18" loading="lazy">MongoDB</li><li><img src="assets/icons/mysql.svg" alt="" width="18" height="18" loading="lazy">MySQL</li><li><img src="assets/icons/java.svg" alt="" width="18" height="18" loading="lazy">Java</li><li><img src="assets/icons/c.svg" alt="" width="18" height="18" loading="lazy">C</li></ul></div><div class="sk reveal"><h3>Tools</h3><ul><li><img src="assets/icons/git.svg" alt="" width="18" height="18" loading="lazy">Git</li><li><img src="assets/icons/github.svg" alt="" width="18" height="18" loading="lazy">GitHub</li><li><img src="assets/icons/postman.svg" alt="" width="18" height="18" loading="lazy">Postman</li><li><img src="assets/icons/jest.svg" alt="" width="18" height="18" loading="lazy">Jest</li><li><img src="assets/icons/vitejs.svg" alt="" width="18" height="18" loading="lazy">Vite</li><li><img src="assets/icons/linux.svg" alt="" width="18" height="18" loading="lazy">Linux</li></ul></div></div>
+      <ul class="also reveal"><span>Also</span><li>JWT</li><li>Google OAuth 2.0</li><li>WhatsApp Cloud API</li><li>Twilio</li><li>Webhooks</li><li>Hono</li><li>TanStack Query</li><li>RTK Query</li><li>React Hook Form</li><li>Zod</li><li>shadcn/ui</li><li>Vercel</li><li>Hostinger / VPS</li><li>Agile / Scrum</li><li>AI-assisted development</li><li>LLM APIs</li></ul>
     </div>
   </section>
 
   <!-- Experience -->
   <section class="section" id="experience">
-    <div class="container">
-      <div class="section-head reveal"><span class="kicker">Experience</span><h2>Where I've worked</h2></div>
-      <ol class="timeline"><li class="job reveal"><span class="job-dot now" aria-hidden="true"></span>
-  <div class="job-card">
-    <div class="job-head"><div><h3>Full Stack Developer</h3><p class="job-co">Bring On Digital <span>· Noida, Uttar Pradesh</span></p></div>
-    <span class="job-date">Sep 2026 – Present <em>Current</em></span></div>
+    <div class="wrap">
+      <div class="head reveal"><div><span class="eyebrow">Experience</span><h2>Where I've worked.</h2></div><p>Three companies, from product packing systems to production React apps.</p></div>
+      <ol class="jobs"><li class="job reveal">
+  <div class="job-side"><span class="job-date">Sep 2026 – Present</span><span class="badge">Current</span></div>
+  <div class="job-main">
+    <h3>Full Stack Developer</h3>
+    <p class="job-co">Bring On Digital <span>· Noida, Uttar Pradesh</span></p>
     <ul class="job-points"><li>Contributed to an <b>e-commerce platform</b> with product listings, cart, order tracking, payments and Firebase integration, deployed on Hostinger.</li><li>Contributed to a <b>CRM system</b> for leads and follow-ups with RBAC, REST APIs, and <b>WhatsApp Meta Cloud API</b> and <b>Twilio</b> integrations (webhooks, automated messaging).</li><li>Contributed to an <b>astrology web app</b> with Google OAuth and a responsive React + TypeScript UI, deployed on a VPS, using agentic AI tools to ship faster.</li></ul>
     <ul class="tags"><li>React</li><li>TypeScript</li><li>Node.js</li><li>Firebase</li><li>WhatsApp API</li><li>Twilio</li><li>Tailwind CSS</li></ul>
-  </div></li><li class="job reveal"><span class="job-dot" aria-hidden="true"></span>
-  <div class="job-card">
-    <div class="job-head"><div><h3>Software Developer Trainee</h3><p class="job-co">Simform Solutions <span>· Ahmedabad, Gujarat</span></p></div>
-    <span class="job-date">Jan 2026 – Jul 2026</span></div>
+  </div></li><li class="job reveal">
+  <div class="job-side"><span class="job-date">Jan 2026 – Jul 2026</span></div>
+  <div class="job-main">
+    <h3>Software Developer Trainee</h3>
+    <p class="job-co">Simform Solutions <span>· Ahmedabad, Gujarat</span></p>
     <ul class="job-points"><li>Built <b>10+ reusable React modules</b> for a production <b>Transportation Management System</b> with TypeScript, Redux Toolkit and TanStack Query, cutting redundant API calls through smart caching.</li><li>Worked on REST API integration, <b>JWT authentication</b> and form validation (React Hook Form, Zod) with Node.js and Express in an Agile team with code reviews.</li></ul>
     <ul class="tags"><li>TypeScript</li><li>Redux Toolkit</li><li>TanStack Query</li><li>React Hook Form</li><li>Zod</li><li>Express</li></ul>
-  </div></li><li class="job reveal"><span class="job-dot" aria-hidden="true"></span>
-  <div class="job-card">
-    <div class="job-head"><div><h3>Software Developer</h3><p class="job-co">Bonrix Software Systems <span>· Ahmedabad, Gujarat</span></p></div>
-    <span class="job-date">Jan 2025 – Mar 2025</span></div>
+  </div></li><li class="job reveal">
+  <div class="job-side"><span class="job-date">Jan 2025 – Mar 2025</span></div>
+  <div class="job-main">
+    <h3>Software Developer</h3>
+    <p class="job-co">Bonrix Software Systems <span>· Ahmedabad, Gujarat</span></p>
     <ul class="job-points"><li>Contributed to a full-stack <b>Quotation Management System</b> with automated PDF generation, RBAC and optimized SQL queries.</li><li>Contributed to a <b>Product Packing System</b> that automated product-to-box mapping and printable PDF labels, <b>reducing fulfillment time by 30%</b>.</li></ul>
     <ul class="tags"><li>Full stack</li><li>SQL</li><li>PDF generation</li><li>RBAC</li></ul>
   </div></li></ol>
@@ -388,139 +442,121 @@
   </section>
 
   <!-- Projects -->
-  <section class="section alt" id="projects">
-    <div class="container">
-      <div class="section-head reveal"><span class="kicker">Projects</span><h2>Featured work</h2><p>Six highlights from 12 projects, from a leave platform used by whole teams to hackathon builds.</p></div>
-      <div class="projects"><article class="project reveal">
-  <a class="project-shot" href="https://online-leave-management-system-for-phi.vercel.app/login" target="_blank" rel="noopener" aria-label="Open Online Leave Management System live site"><img src="assets/projects/leave.webp" alt="Screenshot of Online Leave Management System" width="1400" height="875" loading="lazy" decoding="async"></a>
-  <div class="project-body">
-    <span class="project-kind">Major project</span>
-    <h3>Online Leave Management System</h3>
-    <p>Employees apply for leave on a shared calendar, holidays are blocked automatically, and managers approve or reject through a role-based workflow with live notifications.</p>
-    <ul class="tags"><li>React</li><li>Node.js</li><li>Express</li><li>MongoDB</li><li>JWT</li></ul>
-    <div class="project-links"><a href="https://online-leave-management-system-for-phi.vercel.app/login" target="_blank" rel="noopener">Live demo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a><a href="https://github.com/Mantu008/Online-Leave-Management-System-for-Organizations" target="_blank" rel="noopener">Source code <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
-  </div></article><article class="project reveal">
-  <a class="project-shot" href="https://car-detail-and-management-system-fr.vercel.app/" target="_blank" rel="noopener" aria-label="Open Vehicle Management System live site"><img src="assets/projects/vehicle.webp" alt="Screenshot of Vehicle Management System" width="1400" height="875" loading="lazy" decoding="async"></a>
-  <div class="project-body">
-    <span class="project-kind">Major project</span>
-    <h3>Vehicle Management System</h3>
-    <p>Manage vehicle details, service history and owners, with QR codes, a fuel efficiency tracker, a service cost estimator and an analytics dashboard.</p>
-    <ul class="tags"><li>React</li><li>Node.js</li><li>Express</li><li>MongoDB</li><li>TypeScript</li></ul>
-    <div class="project-links"><a href="https://car-detail-and-management-system-fr.vercel.app/" target="_blank" rel="noopener">Live demo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a><a href="https://github.com/Mantu008/Car-Detail-and-Management-System" target="_blank" rel="noopener">Source code <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
-  </div></article><article class="project reveal">
-  <a class="project-shot" href="https://vault-x-gamma.vercel.app/" target="_blank" rel="noopener" aria-label="Open VaultX live site"><img src="assets/projects/vaultx.webp" alt="Screenshot of VaultX" width="1400" height="875" loading="lazy" decoding="async"></a>
-  <div class="project-body">
-    <span class="project-kind">Media platform</span>
-    <h3>VaultX</h3>
-    <p>Upload, organize and explore event photos and videos in galleries for weddings, birthdays and travel, with favorites and downloads.</p>
-    <ul class="tags"><li>React</li><li>Node.js</li><li>MongoDB</li><li>Cloudinary</li></ul>
-    <div class="project-links"><a href="https://vault-x-gamma.vercel.app/" target="_blank" rel="noopener">Live demo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a><a href="https://github.com/Mantu008/VaultX-" target="_blank" rel="noopener">Source code <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
-  </div></article><article class="project reveal">
-  <a class="project-shot" href="https://web-horizon-hackthone.vercel.app/" target="_blank" rel="noopener" aria-label="Open Hotel Booking live site"><img src="assets/projects/hotel-booking.webp" alt="Screenshot of Hotel Booking" width="1400" height="875" loading="lazy" decoding="async"></a>
-  <div class="project-body">
-    <span class="project-kind">Hackathon</span>
-    <h3>Hotel Booking</h3>
-    <p>A responsive hotel booking front end with search, price comparison, detailed hotel pages, galleries and filters.</p>
-    <ul class="tags"><li>React</li><li>React Router</li><li>Axios</li><li>Tailwind CSS</li></ul>
-    <div class="project-links"><a href="https://web-horizon-hackthone.vercel.app/" target="_blank" rel="noopener">Live demo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a><a href="https://github.com/Mantu008/Web-Horizon-Hackthone" target="_blank" rel="noopener">Source code <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
-  </div></article><article class="project reveal">
-  <a class="project-shot" href="https://vergin-matrix-frontend.vercel.app/" target="_blank" rel="noopener" aria-label="Open Matrix live site"><img src="assets/projects/matrix.webp" alt="Screenshot of Matrix" width="1400" height="875" loading="lazy" decoding="async"></a>
-  <div class="project-body">
-    <span class="project-kind">Freelance</span>
-    <h3>Matrix</h3>
-    <p>Packing management that automates product-to-box assignment and generates labeled PDF packing cards to speed up fulfillment.</p>
-    <ul class="tags"><li>React</li><li>Hono</li><li>MySQL</li><li>Tailwind CSS</li></ul>
-    <div class="project-links"><a href="https://vergin-matrix-frontend.vercel.app/" target="_blank" rel="noopener">Live demo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
-  </div></article><article class="project reveal">
-  <a class="project-shot" href="https://walk-safe.netlify.app/" target="_blank" rel="noopener" aria-label="Open Walk Safe live site"><img src="assets/projects/walk-safe.webp" alt="Screenshot of Walk Safe" width="1400" height="875" loading="lazy" decoding="async"></a>
-  <div class="project-body">
-    <span class="project-kind">Hackathon</span>
-    <h3>Walk Safe</h3>
-    <p>A safety app to report incidents, flag unsafe locations, get real-time alerts and chat 24/7, secured with JWT.</p>
-    <ul class="tags"><li>React</li><li>Hono</li><li>MySQL</li><li>JWT</li></ul>
-    <div class="project-links"><a href="https://walk-safe.netlify.app/" target="_blank" rel="noopener">Live demo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a><a href="https://github.com/Mantu008/Walk-Safe" target="_blank" rel="noopener">Source code <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
+  <section class="section" id="projects">
+    <div class="wrap">
+      <div class="head reveal"><div><span class="eyebrow">Selected work</span><h2>Things I've built.</h2></div><p>Six highlights from 12 projects, from a leave platform used by whole teams to hackathon builds.</p></div>
+      <div class="features"><article class="feature reveal">
+  <div class="feature-media"><a class="frame " href="https://online-leave-management-system-for-phi.vercel.app/login" target="_blank" rel="noopener" aria-label="Open Online Leave Management System live site">
+    <span class="frame-bar" aria-hidden="true"><i></i><i></i><i></i><span>online-leave-management-system-for-phi.vercel.app</span></span>
+    <img src="assets/projects/leave.webp" alt="Screenshot of Online Leave Management System" width="1400" height="875" loading="lazy" decoding="async"></a></div>
+  <div class="feature-body">
+    <span class="p-num">01</span><span class="p-kind">Major project</span>
+    <h3>Online Leave Management System</h3><p>Employees apply for leave on a shared calendar, holidays are blocked automatically, and managers approve or reject through a role-based workflow with live notifications.</p><ul class="tags"><li>React</li><li>Node.js</li><li>Express</li><li>MongoDB</li><li>JWT</li></ul><div class="p-links"><a class="btn btn-dark btn-sm" href="https://online-leave-management-system-for-phi.vercel.app/login" target="_blank" rel="noopener">Live demo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a><a class="btn btn-ghost btn-sm" href="https://github.com/Mantu008/Online-Leave-Management-System-for-Organizations" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.53-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.56-.29-5.25-1.28-5.25-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a10.9 10.9 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.7 5.38-5.27 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg>Source</a></div>
+  </div></article><article class="feature reveal">
+  <div class="feature-media"><a class="frame " href="https://car-detail-and-management-system-fr.vercel.app/" target="_blank" rel="noopener" aria-label="Open Vehicle Management System live site">
+    <span class="frame-bar" aria-hidden="true"><i></i><i></i><i></i><span>car-detail-and-management-system-fr.vercel.app</span></span>
+    <img src="assets/projects/vehicle.webp" alt="Screenshot of Vehicle Management System" width="1400" height="875" loading="lazy" decoding="async"></a></div>
+  <div class="feature-body">
+    <span class="p-num">02</span><span class="p-kind">Major project</span>
+    <h3>Vehicle Management System</h3><p>Manage vehicle details, service history and owners, with QR codes, a fuel efficiency tracker, a service cost estimator and an analytics dashboard.</p><ul class="tags"><li>React</li><li>Node.js</li><li>Express</li><li>MongoDB</li><li>TypeScript</li></ul><div class="p-links"><a class="btn btn-dark btn-sm" href="https://car-detail-and-management-system-fr.vercel.app/" target="_blank" rel="noopener">Live demo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a><a class="btn btn-ghost btn-sm" href="https://github.com/Mantu008/Car-Detail-and-Management-System" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.53-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.56-.29-5.25-1.28-5.25-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a10.9 10.9 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.7 5.38-5.27 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg>Source</a></div>
+  </div></article><article class="feature reveal">
+  <div class="feature-media"><a class="frame " href="https://vault-x-gamma.vercel.app/" target="_blank" rel="noopener" aria-label="Open VaultX live site">
+    <span class="frame-bar" aria-hidden="true"><i></i><i></i><i></i><span>vault-x-gamma.vercel.app</span></span>
+    <img src="assets/projects/vaultx.webp" alt="Screenshot of VaultX" width="1400" height="875" loading="lazy" decoding="async"></a></div>
+  <div class="feature-body">
+    <span class="p-num">03</span><span class="p-kind">Media platform</span>
+    <h3>VaultX</h3><p>Upload, organize and explore event photos and videos in galleries for weddings, birthdays and travel, with favorites and downloads.</p><ul class="tags"><li>React</li><li>Node.js</li><li>MongoDB</li><li>Cloudinary</li></ul><div class="p-links"><a class="btn btn-dark btn-sm" href="https://vault-x-gamma.vercel.app/" target="_blank" rel="noopener">Live demo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a><a class="btn btn-ghost btn-sm" href="https://github.com/Mantu008/VaultX-" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.53-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.56-.29-5.25-1.28-5.25-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a10.9 10.9 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.7 5.38-5.27 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg>Source</a></div>
   </div></article></div>
-      <div class="more-head reveal">
-        <div><h3>More projects</h3><p>Smaller builds and experiments. Everything else lives on GitHub.</p></div>
-        <a class="btn btn-outline" href="https://github.com/Mantu008" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.53-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.56-.29-5.25-1.28-5.25-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a10.9 10.9 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.7 5.38-5.27 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg>View GitHub</a>
-      </div>
-      <ul class="more"><li class="reveal"><a class="mini" href="https://quotation-system-ten.vercel.app/" target="_blank" rel="noopener">
+      <div class="cards"><article class="card reveal"><a class="frame frame-sm" href="https://web-horizon-hackthone.vercel.app/" target="_blank" rel="noopener" aria-label="Open Hotel Booking live site">
+    <span class="frame-bar" aria-hidden="true"><i></i><i></i><i></i><span>web-horizon-hackthone.vercel.app</span></span>
+    <img src="assets/projects/hotel-booking.webp" alt="Screenshot of Hotel Booking" width="1400" height="875" loading="lazy" decoding="async"></a>
+  <div class="card-body"><span class="p-kind">Hackathon</span><h3>Hotel Booking</h3><p>A responsive hotel booking front end with search, price comparison, detailed hotel pages, galleries and filters.</p><ul class="tags"><li>React</li><li>React Router</li><li>Axios</li><li>Tailwind CSS</li></ul><div class="p-links"><a class="btn btn-dark btn-sm" href="https://web-horizon-hackthone.vercel.app/" target="_blank" rel="noopener">Live demo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a><a class="btn btn-ghost btn-sm" href="https://github.com/Mantu008/Web-Horizon-Hackthone" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.53-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.56-.29-5.25-1.28-5.25-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a10.9 10.9 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.7 5.38-5.27 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg>Source</a></div></div></article><article class="card reveal"><a class="frame frame-sm" href="https://vergin-matrix-frontend.vercel.app/" target="_blank" rel="noopener" aria-label="Open Matrix live site">
+    <span class="frame-bar" aria-hidden="true"><i></i><i></i><i></i><span>vergin-matrix-frontend.vercel.app</span></span>
+    <img src="assets/projects/matrix.webp" alt="Screenshot of Matrix" width="1400" height="875" loading="lazy" decoding="async"></a>
+  <div class="card-body"><span class="p-kind">Freelance</span><h3>Matrix</h3><p>Packing management that automates product-to-box assignment and generates labeled PDF packing cards to speed up fulfillment.</p><ul class="tags"><li>React</li><li>Hono</li><li>MySQL</li><li>Tailwind CSS</li></ul><div class="p-links"><a class="btn btn-dark btn-sm" href="https://vergin-matrix-frontend.vercel.app/" target="_blank" rel="noopener">Live demo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div></div></article><article class="card reveal"><a class="frame frame-sm" href="https://walk-safe.netlify.app/" target="_blank" rel="noopener" aria-label="Open Walk Safe live site">
+    <span class="frame-bar" aria-hidden="true"><i></i><i></i><i></i><span>walk-safe.netlify.app</span></span>
+    <img src="assets/projects/walk-safe.webp" alt="Screenshot of Walk Safe" width="1400" height="875" loading="lazy" decoding="async"></a>
+  <div class="card-body"><span class="p-kind">Hackathon</span><h3>Walk Safe</h3><p>A safety app to report incidents, flag unsafe locations, get real-time alerts and chat 24/7, secured with JWT.</p><ul class="tags"><li>React</li><li>Hono</li><li>MySQL</li><li>JWT</li></ul><div class="p-links"><a class="btn btn-dark btn-sm" href="https://walk-safe.netlify.app/" target="_blank" rel="noopener">Live demo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a><a class="btn btn-ghost btn-sm" href="https://github.com/Mantu008/Walk-Safe" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.53-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.56-.29-5.25-1.28-5.25-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a10.9 10.9 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.7 5.38-5.27 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg>Source</a></div></div></article></div>
+      <div class="more">
+        <div class="more-top reveal"><h3>More projects</h3><a class="btn btn-ghost btn-sm" href="https://github.com/Mantu008" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.53-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.56-.29-5.25-1.28-5.25-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a10.9 10.9 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.7 5.38-5.27 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg>All projects on GitHub</a></div>
+        <ul class="rows reveal"><li><a class="row" href="https://quotation-system-ten.vercel.app/" target="_blank" rel="noopener">
   <img src="assets/projects/quotation.webp" alt="" width="1400" height="875" loading="lazy" decoding="async">
-  <div><h3>Quotation System</h3><p>Business tool · React · Hono · MySQL</p></div><span class="mini-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a></li><li class="reveal"><a class="mini" href="https://next-auth-v5-six-lake.vercel.app/login" target="_blank" rel="noopener">
+  <span class="row-name">Quotation System</span><span class="row-kind">Business tool</span><span class="row-stack">React · Hono · MySQL</span><span class="row-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a></li><li><a class="row" href="https://next-auth-v5-six-lake.vercel.app/login" target="_blank" rel="noopener">
   <img src="assets/projects/nextauth.webp" alt="" width="1400" height="875" loading="lazy" decoding="async">
-  <div><h3>NextAuth v5</h3><p>Authentication · Next.js · NextAuth · OAuth</p></div><span class="mini-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a></li><li class="reveal"><a class="mini" href="https://kitefoot.vercel.app/" target="_blank" rel="noopener">
+  <span class="row-name">NextAuth v5</span><span class="row-kind">Authentication</span><span class="row-stack">Next.js · NextAuth · OAuth</span><span class="row-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a></li><li><a class="row" href="https://kitefoot.vercel.app/" target="_blank" rel="noopener">
   <img src="assets/projects/kitefoot.webp" alt="" width="1400" height="875" loading="lazy" decoding="async">
-  <div><h3>KiteFoot</h3><p>E-commerce · React · React Router · Tailwind CSS</p></div><span class="mini-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a></li><li class="reveal"><a class="mini" href="https://e-commerce-react-ecru-eta.vercel.app" target="_blank" rel="noopener">
+  <span class="row-name">KiteFoot</span><span class="row-kind">E-commerce</span><span class="row-stack">React · React Router · Tailwind CSS</span><span class="row-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a></li><li><a class="row" href="https://e-commerce-react-ecru-eta.vercel.app" target="_blank" rel="noopener">
   <img src="assets/projects/ecommerce-auth0.webp" alt="" width="1400" height="875" loading="lazy" decoding="async">
-  <div><h3>E-Commerce with Auth0</h3><p>E-commerce · React · Redux Toolkit · Auth0</p></div><span class="mini-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a></li><li class="reveal"><a class="mini" href="https://e-commerce-mern-frontant.vercel.app/" target="_blank" rel="noopener">
+  <span class="row-name">E-Commerce with Auth0</span><span class="row-kind">E-commerce</span><span class="row-stack">React · Redux Toolkit · Auth0</span><span class="row-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a></li><li><a class="row" href="https://e-commerce-mern-frontant.vercel.app/" target="_blank" rel="noopener">
   <img src="assets/projects/ecommerce-backend.webp" alt="" width="1400" height="875" loading="lazy" decoding="async">
-  <div><h3>E-Commerce Backend</h3><p>REST API · Node.js · Express · MongoDB</p></div><span class="mini-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a></li><li class="reveal"><a class="mini" href="https://mantu008.github.io/EComerce/" target="_blank" rel="noopener">
+  <span class="row-name">E-Commerce Backend</span><span class="row-kind">REST API</span><span class="row-stack">Node.js · Express · MongoDB</span><span class="row-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a></li><li><a class="row" href="https://mantu008.github.io/EComerce/" target="_blank" rel="noopener">
   <img src="assets/projects/ecommerce-simple.webp" alt="" width="1400" height="875" loading="lazy" decoding="async">
-  <div><h3>Simple E-Commerce</h3><p>Frontend · HTML · CSS · JavaScript</p></div><span class="mini-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a></li></ul>
+  <span class="row-name">Simple E-Commerce</span><span class="row-kind">Frontend</span><span class="row-stack">HTML · CSS · JavaScript</span><span class="row-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a></li></ul>
+      </div>
     </div>
   </section>
 
   <!-- Contact -->
-  <section class="section" id="contact">
-    <div class="container contact">
-      <div class="reveal">
-        <span class="kicker">Contact</span>
-        <h2 style="font-size:clamp(28px,3.4vw,38px);letter-spacing:-.03em;margin-top:10px">Let's work together</h2>
-        <p style="color:var(--muted);font-size:17px;margin-top:12px">Have a role, a project or just a question? I usually reply within a day.</p>
-        <div class="contact-list">
-          <div class="contact-item"><span class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span><a href="mailto:mantukumar87586299@gmail.com"><small>Email</small><b>mantukumar87586299@gmail.com</b></a><button class="copy" type="button" data-copy="mantukumar87586299@gmail.com">Copy</button></div>
-          <a class="contact-item" href="https://www.linkedin.com/in/mantu-kumar-morya-011927253/" target="_blank" rel="noopener"><span class="contact-icon"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></svg></span><span><small>LinkedIn</small><b>Mantu Kumar Morya</b></span><span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a>
-          <a class="contact-item" href="https://github.com/Mantu008" target="_blank" rel="noopener"><span class="contact-icon"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.53-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.56-.29-5.25-1.28-5.25-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a10.9 10.9 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.7 5.38-5.27 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg></span><span><small>GitHub</small><b>@Mantu008</b></span><span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a>
-          <a class="contact-item" href="https://leetcode.com/u/Mantu088/" target="_blank" rel="noopener"><span class="contact-icon"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.48 0a1.37 1.37 0 0 0-.96.44L7.12 6.21l-2.66 2.85a5.3 5.3 0 0 0-1.27 2.12 5.1 5.1 0 0 0-.12 2.16c.13.78.42 1.52.86 2.17.23.33.49.63.78.91l4.36 4.32a5.37 5.37 0 0 0 7.58-.03l2.03-2.05a1.38 1.38 0 1 0-1.96-1.94l-2.03 2.05a2.62 2.62 0 0 1-3.68.01l-4.36-4.32a2.5 2.5 0 0 1-.71-1.58c-.04-.5.1-.99.4-1.41l.14-.18 4.98-5.33 5.38-5.77A1.38 1.38 0 0 0 13.48 0Zm-2.87 13.5a1.38 1.38 0 1 0 0 2.76h9.08a1.38 1.38 0 1 0 0-2.76h-9.08Z"/></svg></span><span><small>LeetCode</small><b>@Mantu088</b></span><span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a>
+  <section id="contact">
+    <div class="wrap">
+      <div class="contact reveal">
+        <div>
+          <span class="eyebrow">Contact</span>
+          <h2>Let's build something great together.</h2>
+          <p class="contact-lead">Have a role, a project or just a question? I usually reply within a day.</p>
+          <div class="mail"><a href="mailto:mantukumar87586299@gmail.com">mantukumar87586299@gmail.com</a><button class="copy" type="button" data-copy="mantukumar87586299@gmail.com">Copy</button></div>
+          <div class="socials">
+            <a class="soc" href="https://www.linkedin.com/in/mantu-kumar-morya-011927253/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></svg>LinkedIn</a>
+            <a class="soc" href="https://github.com/Mantu008" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.53-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.56-.29-5.25-1.28-5.25-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a10.9 10.9 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.7 5.38-5.27 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg>GitHub</a>
+            <a class="soc" href="https://leetcode.com/u/Mantu088/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.48 0a1.37 1.37 0 0 0-.96.44L7.12 6.21l-2.66 2.85a5.3 5.3 0 0 0-1.27 2.12 5.1 5.1 0 0 0-.12 2.16c.13.78.42 1.52.86 2.17.23.33.49.63.78.91l4.36 4.32a5.37 5.37 0 0 0 7.58-.03l2.03-2.05a1.38 1.38 0 1 0-1.96-1.94l-2.03 2.05a2.62 2.62 0 0 1-3.68.01l-4.36-4.32a2.5 2.5 0 0 1-.71-1.58c-.04-.5.1-.99.4-1.41l.14-.18 4.98-5.33 5.38-5.77A1.38 1.38 0 0 0 13.48 0Zm-2.87 13.5a1.38 1.38 0 1 0 0 2.76h9.08a1.38 1.38 0 1 0 0-2.76h-9.08Z"/></svg>LeetCode</a>
+          </div>
         </div>
+        <form class="form" id="contact-form">
+          <div class="field-row">
+            <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" autocomplete="name" placeholder="Your name" required></div>
+            <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" placeholder="you@company.com" required></div>
+          </div>
+          <div class="field"><label for="f-subject">Subject</label><input id="f-subject" name="subject" placeholder="Full stack role, freelance project…" required></div>
+          <div class="field"><label for="f-msg">Message</label><textarea id="f-msg" name="message" placeholder="Tell me a little about it" required></textarea></div>
+          <button class="btn" type="submit">Send message <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></button>
+          <p class="form-note">Opens your email app with the message ready to send.</p>
+        </form>
       </div>
-      <form class="form reveal" id="contact-form">
-        <h3>Send a message</h3>
-        <p>Opens your email app with the message ready to send.</p>
-        <div class="field-row">
-          <div class="field"><label for="f-name">Your name</label><input id="f-name" name="name" autocomplete="name" required></div>
-          <div class="field"><label for="f-email">Your email</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
-        </div>
-        <div class="field"><label for="f-subject">Subject</label><input id="f-subject" name="subject" required></div>
-        <div class="field"><label for="f-msg">Message</label><textarea id="f-msg" name="message" required></textarea></div>
-        <button class="btn btn-primary" type="submit">Send message</button>
-      </form>
     </div>
   </section>
 </main>
 
 <footer class="footer">
-  <div class="container">
-    <span>© <span id="year">2026</span> <b>Mantu Kumar Morya</b>. Full Stack Developer.</span>
-    <div class="footer-links">
-      <a class="icon-btn" href="https://github.com/Mantu008" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.53-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.56-.29-5.25-1.28-5.25-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a10.9 10.9 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.7 5.38-5.27 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg></a>
-      <a class="icon-btn" href="https://www.linkedin.com/in/mantu-kumar-morya-011927253/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></svg></a>
-      <a class="icon-btn" href="https://leetcode.com/u/Mantu088/" target="_blank" rel="noopener" aria-label="LeetCode"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.48 0a1.37 1.37 0 0 0-.96.44L7.12 6.21l-2.66 2.85a5.3 5.3 0 0 0-1.27 2.12 5.1 5.1 0 0 0-.12 2.16c.13.78.42 1.52.86 2.17.23.33.49.63.78.91l4.36 4.32a5.37 5.37 0 0 0 7.58-.03l2.03-2.05a1.38 1.38 0 1 0-1.96-1.94l-2.03 2.05a2.62 2.62 0 0 1-3.68.01l-4.36-4.32a2.5 2.5 0 0 1-.71-1.58c-.04-.5.1-.99.4-1.41l.14-.18 4.98-5.33 5.38-5.77A1.38 1.38 0 0 0 13.48 0Zm-2.87 13.5a1.38 1.38 0 1 0 0 2.76h9.08a1.38 1.38 0 1 0 0-2.76h-9.08Z"/></svg></a>
-      <a class="icon-btn" href="mailto:mantukumar87586299@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></a>
-    </div>
+  <div class="wrap">
+    <span>© <span id="year">2026</span> Mantu Kumar Morya</span>
+    <nav aria-label="Footer">
+      <a href="https://github.com/Mantu008" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/mantu-kumar-morya-011927253/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://leetcode.com/u/Mantu088/" target="_blank" rel="noopener">LeetCode</a>
+      <a href="#top">Back to top ↑</a>
+    </nav>
   </div>
 </footer>
 
 <script>
 (function () {
-  var header = document.querySelector('.header');
+  var header = document.getElementById('header');
   var nav = document.getElementById('nav');
   var menuBtn = document.querySelector('.menu-btn');
 
-  function onScroll() { header.classList.toggle('scrolled', window.scrollY > 8); }
+  function onScroll() { header.classList.toggle('scrolled', window.scrollY > 24); }
   onScroll();
   window.addEventListener('scroll', onScroll, { passive: true });
 
-  menuBtn.addEventListener('click', function () {
-    var open = nav.classList.toggle('open');
+  function setMenu(open) {
+    nav.classList.toggle('open', open);
     menuBtn.setAttribute('aria-expanded', open);
     menuBtn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
-  });
-  nav.addEventListener('click', function (e) {
-    if (e.target.closest('a')) { nav.classList.remove('open'); menuBtn.setAttribute('aria-expanded', 'false'); }
-  });
+  }
+  menuBtn.addEventListener('click', function () { setMenu(!nav.classList.contains('open')); });
+  nav.addEventListener('click', function (e) { if (e.target.closest('a')) setMenu(false); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setMenu(false); });
 
-  // Highlight the nav link for the section in view
   var links = Array.prototype.slice.call(nav.querySelectorAll('a[href^="#"]:not(.btn)'));
   if ('IntersectionObserver' in window) {
     var spy = new IntersectionObserver(function (entries) {
@@ -538,15 +574,15 @@
     document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('in'); });
   }
 
-  // Copy email
   document.querySelectorAll('[data-copy]').forEach(function (b) {
     b.addEventListener('click', function () {
-      var done = function () { b.textContent = 'Copied'; setTimeout(function () { b.textContent = 'Copy'; }, 1600); };
-      if (navigator.clipboard) navigator.clipboard.writeText(b.dataset.copy).then(done, function () {});
+      if (!navigator.clipboard) return;
+      navigator.clipboard.writeText(b.dataset.copy).then(function () {
+        b.textContent = 'Copied'; setTimeout(function () { b.textContent = 'Copy'; }, 1600);
+      }, function () {});
     });
   });
 
-  // Contact form opens the visitor's email app
   document.getElementById('contact-form').addEventListener('submit', function (e) {
     e.preventDefault();
     var f = e.target;
